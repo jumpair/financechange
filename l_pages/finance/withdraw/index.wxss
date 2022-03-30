@@ -1,0 +1,27 @@
+.panel {
+    border-radius: 20rpx;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+image {
+    width: 45rpx;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2rpx solid #cacaca;
+    border-radius: 10rpx;
+    width: 218rpx;
+    height: 70rpx;
+}
+
+.checked {
+    border: 4rpx solid #f95a4b;
+}
+
+.title {
+    min-width: 120rpx;
+}

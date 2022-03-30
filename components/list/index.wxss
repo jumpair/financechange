@@ -1,0 +1,91 @@
+.item {
+    background-color: var(--white);
+    color: var(--darkGray);
+    box-shadow: 0 1rpx 6rpx var(--blackShadow);
+    padding: 20rpx;
+    border-radius: 10rpx;
+    position: relative;
+}
+
+.yz {
+    position: absolute;
+    right: 180rpx;
+    height: 100%;
+    top: 0;
+    transform: rotate(-25deg);
+    display: flex;
+    align-items: center;
+    opacity: .8;
+}
+
+.yz [class*="yzd-"] {
+    font-size: 60rpx;
+    position: absolute;
+}
+
+.yz-panel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.yz-content,.yz [class*="yzd-"] .yz-content {
+    line-height: 60rpx;
+    letter-spacing: 5rpx;
+}
+
+.item .content {
+    display: flex;
+    align-items: center;
+    padding: 10rpx 0;
+    color: #FFFFFF;
+}
+
+.item .content .left {
+    --v: 45rpx;
+    border-radius: 10rpx;
+    font-size: 24rpx;
+    background: #ff5353;
+    width: var(--v);
+    height: var(--v);
+    line-height: var(--v);
+    text-align: center;
+}
+
+.item .content .left.a {
+    background: #fedc47;
+}
+
+.item .content .right {
+    padding-left: 15rpx;
+    color: #363636;
+    font-size: 28rpx;
+    line-height: 28rpx;
+}
+
+.item .content .right.t {
+    font-size: 30rpx;
+    line-height: 1.5;
+    flex: 1;
+}
+
+.item .content .right.n,.item .content .right.h,.item .content .right.num {
+    color: #adadad;
+}
+
+.item .content .right.n {
+    flex: 1;
+}
+
+.item .content .right.m {
+    color: var(--red);
+}
+
+.item .content.law image {
+    --v: 40rpx;
+    width: var(--v);
+    height: var(--v);
+    border-radius: 5000rpx;
+    border: 1px solid #cccccc;
+}

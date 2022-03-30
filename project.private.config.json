@@ -1,0 +1,23 @@
+{
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "u_pages/index/event-regist-detail/index",
+          "pathName": "u_pages/index/event-regist-detail/index",
+          "query": "id=13",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

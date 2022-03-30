@@ -1,0 +1,8 @@
+<view catchtap="toPage" class="bg-white round margin-tb-sm margin-lr padding-tb-sm padding-lr flex align-center shadow text-gray" style="{{mStyle}}">
+    <view class="padding-left-sm cuIcon-search"></view>
+    <input bindinput="input" class="text-left padding-lr-xs flex-sub text-grey" placeholder="输入商品名称" placeholderClass="text-gray"></input>
+    <view bindtap="search" class="padding-right-sm" style="color: {{system.foot_color2}};">搜索</view>
+</view>
+<goods list="{{good_list}}"></goods>
+<view class="cu-load {{!isLoad?'loading':'over'}} text-sm text-gray" wx:if="{{good_list.length}}"></view>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>

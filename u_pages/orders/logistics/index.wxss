@@ -1,0 +1,17 @@
+.cu-timeline {
+    display: block;
+    background-color: rgba(0,0,0,0);
+}
+
+.cu-timeline>.cu-item[class*="cuIcon-"]::before {
+    background-color: rgba(0,0,0,0);
+}
+
+.cu-timeline>.cu-item::before {
+    background-color: rgba(0,0,0,0);
+}
+
+image {
+    width: 90rpx;
+    height: 90rpx;
+}

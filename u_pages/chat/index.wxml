@@ -1,0 +1,22 @@
+<page-meta>
+    <navigation-bar title="消息列表"></navigation-bar>
+</page-meta>
+<view class="flex justify-center bg-white padding-tb" style="width: 100%;" wx:if="{{chatList&&!chatList[0]}}">
+    <image mode="widthFix" src="{{no_chat}}" style="width: 50%;"></image>
+</view>
+<view class="cu-list menu-avatar">
+    <view catchtap="toInfo" class="cu-item" data-toid="{{item.toid}}" wx:for="{{chatList}}">
+        <view class="cu-avatar round lg" style="background-image:url({{item.avatarUrl}});"></view>
+        <view class="content">
+            <view class="text-grey">{{item.nickName}}</view>
+            <view class="text-gray text-sm flex">
+                <text class="text-cut">{{item.last_message.content}}</text>
+            </view>
+        </view>
+        <view class="action">
+            <view class="text-grey text-xs">{{item.last_message.time}}</view>
+            <view class="cu-tag round bg-grey sm" wx:if="{{item.countNoread}}">{{item.countNoread}}</view>
+        </view>
+    </view>
+</view>
+<tabbar show="{{show_tabbar}}"></tabbar>

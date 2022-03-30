@@ -1,0 +1,59 @@
+<van-tabs swipeable type='line' color='#0B7BF9' animated='true' nav-class='nav' bind:change='getData'
+    title-active-color='#0B7BF9' wx:if="{{orderlist}}">
+    <block wx:for="{{orderlist}}" wx:key="index">
+    <van-tab  title="{{item.prostate}}" bindtap="goTab" data-key="{{index}}">
+        <scroll-view class="list-item" scroll-y='true' bindscrolltolower='loadMore'>
+            <view class="box">
+                <view class="order-item" wx:for="{{item.lists}}" wx:for-item="order" wx:key="orders">
+                    <view class="order-t">
+                        <text>{{order.submit_time}}</text>
+                        <text>{{order.statename}}</text>
+                    </view>
+                    <view class="order-text">
+                        <view class="text-item">
+                            <view class="l">订单号:</view>
+                            <view class="r">{{order.ordercode}}</view>
+                        </view>
+                        <view class="text-item">
+                            <view class="l">产品名称:</view>
+                            <view class="r">{{order.proname}}</view>
+                        </view>
+                        <view class="text-item">
+                            <view class="l">金融机构：</view>
+                            <view class="r">{{order.username}}</view>
+                        </view>
+                        <view class="text-item">
+                            <view class="l">订单类型：</view>
+                            <view class="r">{{order.typename}}</view>
+                        </view>
+                       
+                    </view>
+                    <view class="order-btn">
+                        <block wx:if="{{order.order_type == 1 && order.order_state != 62}}">
+                            <view bindtap="goPhone" data-phone="{{order.fphone}}">电话咨询</view>
+                        </block>
+                        <view bindtap="goOrderProgress" data-id="{{order.id}}">查看进度</view>
+                        <block wx:if="{{order.order_state != 0}}">
+                        <view bindtap="goOrderDetail" data-id="{{order.id}}">订单详情</view>
+                        </block>
+                        <block wx:if="{{order.order_state == 62 && order.unpass== 2}}">
+                        <view bindtap="goComment" data-id="{{order.id}}">评价</view>
+                        </block>
+                        
+                    </view>
+                    <!-- <block wx:if="{{order.bidding_id !=0}}">
+                            <view class="persent" style="border:none">
+                                <view class="p-n" >{{order.zbl}}%</view>
+                                <view class="p-sp">中标成功率</view>
+                            </view>
+                            </block> -->
+                </view>
+                
+            </view>
+        </scroll-view>
+    </van-tab>
+
+    </block>
+</van-tabs>
+<van-toast id="van-toast" />
+<login isShow="{{isLogin}}" mainColor="{{system.foot_color2}}"></login>

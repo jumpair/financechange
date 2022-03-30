@@ -1,0 +1,20 @@
+<view class="grid col-2" wx:if="{{list}}">
+    <view class="padding-xs" wx:for="{{list}}">
+        <view bindtap="toInfo" class="flex flex-direction align-center padding-xs bg-white shadow" data-id="{{item.id}}">
+            <view style="padding-top: 25rpx;">
+                <image class="radius" mode="aspectFill" src="{{item.img}}" style="height: 300rpx;width: 300rpx;"></image>
+            </view>
+            <view class="padding-top-sm padding-lr-xs text-cut" style="width: 300rpx;">{{item.title}}</view>
+            <view class="padding-tb-xs flex justify-between align-center text-sm" style="width: 300rpx;">
+                <block wx:if="{{item.attribute!='3'}}">
+                    <view class="text-red">￥{{item.price}}</view>
+                    <view class="text-grey padding-right-xs">{{item.volume}}人付款</view>
+                </block>
+                <view class="text-red flex-sub" wx:else>价格面议</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="flex justify-center padding-tb" style="width: 100%;" wx:if="{{list&&!list.length}}">
+    <image mode="widthFix" src="{{no_goods}}" style="width: 50%;"></image>
+</view>

@@ -1,0 +1,110 @@
+.main{
+    min-height: 100vh;
+    background-color: #F9F9F9;
+    padding-top: 30rpx;
+}
+.white-box{
+    background-color: #ffffff;
+    border-radius: 12rpx;
+    border: 1px solid #eeeeee;
+    padding: 30rpx;
+}
+
+.van-field__label,
+.input-text{
+    font-size: 28rpx!important;
+    color: #333333!important;
+    white-space: nowrap;
+}
+.input-item{
+    border-bottom: 1px solid #ebedf0;
+    padding: 30rpx 0;
+}
+textarea{
+    height: 10vh;
+    margin-top: 20rpx;
+    font-size: 28rpx;
+    color: #333333;
+}
+.fwxm{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 30rpx;
+}
+.fwxm-item{
+    width: calc(33.33% - 18rpx);
+    height: 64rpx;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 10rpx;
+    line-height: 64rpx;
+    margin-bottom: 20rpx;
+    font-size: 28rpx;
+    position: relative;
+    font-size: 26rpx;
+    color: #999999;
+}
+.fwxm-item:nth-child(3n),
+.fwxm-item:nth-child(3n-1){
+    margin-left: 18rpx;
+}
+.fwxm-item .close{
+    position: absolute;
+    right: -15rpx;
+    top: -15rpx;
+    width: 30rpx;
+    height: 30rpx;
+    border: 1px solid #666666;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+.fwxm-item .close text{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 22rpx;
+    height: 3rpx;
+    display: inline-block;
+}
+.fwxm-item .close text:nth-child(1){
+    transform: translate(-50%,-50%) rotate(45deg);
+}
+.fwxm-item .close text:nth-child(2){
+    transform: translate(-50%,-50%) rotate(-45deg);
+}
+.state-t{
+    font-size: 28rpx;
+    color: #333333;
+    text-align: center;
+    padding-top: 50rpx;
+    padding-bottom: 20rpx;
+    background-color: #ffffff;
+}
+.submit{
+    width: 280rpx;
+height: 72rpx;
+background: #FFFFFF;
+border: 1px solid #CCCCCC;
+opacity: 1;
+border-radius: 36rpx;
+margin: 50rpx auto 0;
+font-size: 28rpx;
+color: #333333;
+text-align: center;
+line-height: 72rpx;
+}
+.van-cell{
+    padding-top: 30rpx!important;
+    padding-bottom: 30rpx!important;
+}
+.submint{
+height: 86rpx;
+background: #0B7BF9;
+border-radius: 44rpx;
+font-size: 28rpx;
+color: #FFFFFF;
+line-height: 86rpx;
+margin-top: 40rpx;
+}

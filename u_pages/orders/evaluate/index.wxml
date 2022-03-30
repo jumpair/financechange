@@ -1,0 +1,34 @@
+<view class="bg-white padding">
+    <wux-cell hoverClass="none" title="{{type==0?'服务':'订单'}}评分">
+        <wux-rater activeColor="{{system.foot_color2}}" bind:change="raterChange" defaultValue="{{rater}}" icon="ios-star" slot="footer"></wux-rater>
+    </wux-cell>
+    <textarea autoHeight bindinput="input" class="padding-tb-xl text-black" placeholder="{{placeholder}}" style="width: 100%;min-height: 570rpx;"></textarea>
+    <block wx:if="{{type!=0}}">
+        <view class="cu-bar">
+            <view class="action">
+				图片上传
+			</view>
+            <view class="action">
+				{{imgList.length}}/4
+			</view>
+        </view>
+        <view class="cu-form-group">
+            <view class="grid col-4 grid-square flex-sub">
+                <view bindtap="ViewImage" class="bg-img" data-url="{{imgList[index]}}" wx:for="{{imgList}}" wx:key="{{index}}">
+                    <image mode="aspectFill" src="{{imgList[index]}}"></image>
+                    <view catchtap="DelImg" class="cu-tag bg-red" data-index="{{index}}">
+                        <text class="cuIcon-close"></text>
+                    </view>
+                </view>
+                <view bindtap="ChooseImage" class="solids" wx:if="{{imgList.length<4}}">
+                    <text class="cuIcon-cameraadd"></text>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+<view class="flex justify-center padding-top-xl">
+    <button bindtap="submit" class="text-df round padding-tb text-center" style="width: 90%;background: {{system.foot_color2}};color: {{system.text_color}};">发布</button>
+</view>
+<tabbar show="{{show_tabbar}}"></tabbar>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>

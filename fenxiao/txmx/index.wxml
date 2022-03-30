@@ -1,0 +1,26 @@
+<page-meta>
+    <navigation-bar title="提现明细"></navigation-bar>
+</page-meta>
+<scroll-view scrollX class="bg-white nav" wx:if="{{list}}">
+    <view class="flex text-center">
+        <view bindtap="tabSelect" class="cu-item flex-sub {{index==cur?'cur text-bold':''}}" data-index="{{index}}" style="color: {{index==cur?system.foot_color2:'#333'}};" wx:for="{{items}}">
+			{{item}}
+		</view>
+    </view>
+</scroll-view>
+<view class="padding">
+    <block wx:if="{{list[cur]&&list[cur].length}}">
+        <view class="_items margin-bottom-sm" wx:for="{{list[cur]}}">
+            <view class="padding-sm">
+                <view class="text-df">提现金额: <text style="color: red;"> {{item.money}} </text>元</view>
+                <view class="padding-top-sm text-gray">{{item.time1}}</view>
+            </view>
+            <view class="text-df" style="color: {{system.foot_color2}};">{{item.state=='1'?'提现中':item.state=='2'?'已打款':'驳回'}}</view>
+        </view>
+    </block>
+    <view class="flex justify-center padding-tb" style="width: 100%;" wx:if="{{list&&!list[cur].length}}">
+        <image mode="widthFix" src="{{no_detail}}" style="width: 50%;"></image>
+    </view>
+</view>
+<tabbar show="{{show_tabbar}}"></tabbar>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>

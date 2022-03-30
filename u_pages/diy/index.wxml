@@ -1,0 +1,63 @@
+<page-meta>
+    <navigation-bar title="{{page_data.head.params.title}}"></navigation-bar>
+</page-meta>
+<view class="myapp" style="background-color: {{page_data.head.params.add_bgcolor}};opacity: {{page_data.head.params.add_bgtmd==100?'1':'.'+page_data.head.params.add_bgtmd}};border-radius: {{page_data.head.params.add_bg_radius}}rpx;" wx:if="{{page_data.head.params.addxcx&&showAddxcx}}">
+    <view class="triangle" style="border-bottom: 16rpx solid {{page_data.head.params.add_bgcolor}};"></view>
+    <view class="cross-center">
+        <view bindtap="close" class="flex align-center text-center">
+            <text class="cuIcon-close close" style="color: {{page_data.head.params.add_text_color}};"></text>
+            <view style="width: 2rpx;height: 25rpx;background: {{page_data.head.params.add_text_color}};margin: 0 10rpx;opacity: .5;"></view>
+        </view>
+        <view class="point-text" style="color:{{page_data.head.params.add_text_color}};">
+				{{page_data.head.params.add_text}}
+			</view>
+    </view>
+</view>
+<block wx:for="{{items}}" wx:for-item="i">
+    <banner data="{{i.data}}" params="{{i.params}}" wx:if="{{i.type=='banner'}}"></banner>
+    <block wx:if="{{i.type=='notice'}}">
+        <view class="flex align-center margin-tb-xs" style="line-height: 70rpx;height: 70rpx;background: {{i.params.backgroundColor}};color: {{i.params.fontColor}};padding-left: {{i.params.paddingLeft}}rpx;" wx:if="{{i.data}}">
+            <image class="notice-icon" src="{{i.params.imgUrl||'../../static/icon/notice_icon.png'}}"></image>
+            <swiper autoplay circular vertical class="flex-sub padding-left-sm" style="height: 70rpx;">
+                <swiper-item wx:for="{{i.data}}">
+                    <view bindtap="showNotice" class="text-bold text-sm" data-data="{{i.data[index]}}" data-params="{{i.params}}">{{item.title}}</view>
+                </swiper-item>
+            </swiper>
+        </view>
+    </block>
+    <block wx:if="{{i.type=='navBar'}}">
+        <view class="grid col-{{i.params.rowNum}} padding-tb-sm" style="background: {{i.params.backgroundColor}};color: {{i.params.color}};" wx:if="{{i.data}}">
+            <view bindtap="toPage" class="flex flex-direction align-center padding-tb-xs" data-item="{{item}}" wx:for="{{i.data}}">
+                <image class="nav-icon" src="{{item.imgUrl}}"></image>
+                <view class="padding-top-sm text-sm">{{item.title}}</view>
+            </view>
+        </view>
+    </block>
+    <view style="height: {{i.params.height}}rpx;width: 100%;background: {{i.params.background}};" wx:if="{{i.type=='blank'}}"></view>
+    <view class="guide" style="height: {{i.params.height}}rpx;border-bottom: {{i.params.height}}rpx {{i.params.style==1?'solid':i.params.style==2?'dashed':'dotted'}} {{i.params.color}};" wx:if="{{i.type=='guide'}}"></view>
+    <block wx:if="{{i.type=='imageWindow'}}">
+        <view class="margin-tb-sm flex align-center justify-between" style="padding: {{i.params.paddingTop}}rpx {{i.params.paddingLeft}}rpx;background: {{i.params.backgroundColor}};flex-direction: row;flex-wrap: wrap;" wx:if="{{i.data.length}}">
+            <view bindtap="toPage" class="flex justify-center align-center" data-item="{{item}}" style="width: {{100/i.params.rowNum}}%;" wx:for="{{i.data}}">
+                <image class="ad" mode="widthFix" src="{{item.imgUrl}}"></image>
+            </view>
+        </view>
+    </block>
+    <title bg_tag="{{i.params.leftColor}}" mClass="padding-lr-sm padding-tb-sm" more_text="{{i.params.rightTitle}}" more_text_color="{{i.params.rightColor}}" more_url="{{i.params.linkUrl}}" title="{{i.params.leftTitle}}" title_color="{{i.params.leftColor}}" type="{{i.params.style}}" wx:if="{{i.type=='title'}}"></title>
+    <view class="padding-lr-sm" wx:if="{{i.type=='news'}}">
+        <news-list data="{{i.data}}"></news-list>
+    </view>
+    <view class="padding-lr-sm" wx:if="{{i.type=='lawyer'}}">
+        <lawyer-list data="{{i.data}}"></lawyer-list>
+    </view>
+    <view class="padding-sm" wx:if="{{i.type=='video'}}">
+        <video action="{{audioAction}}" autoplay="{{i.params.autoplay}}" poster="{{i.params.imgUrl}}" src="{{i.params.videoTrueUrl||i.params.videoTrueUrl.videoUrl}}" style="width: 100%;"></video>
+    </view>
+    <goods list="{{i.data}}" wx:if="{{i.type=='good'}}"></goods>
+    <view class="padding-xs" wx:if="{{i.type=='mpweixin'}}">
+        <official-account></official-account>
+    </view>
+    <audio controls author="{{i.params.author}}" loop="{{i.params.loop}}" name="{{i.params.name}}" poster="{{i.params.imgUrl}}" src="{{i.params.src}}" wx:if="{{i.type=='audio'}}"></audio>
+</block>
+<notice bindtap="showNotice" data="{{notice}}" isShow="{{isShow}}"></notice>
+<tabbar show="{{show_tabbar}}"></tabbar>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>

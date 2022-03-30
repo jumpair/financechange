@@ -1,0 +1,41 @@
+.t{
+    font-size: 46rpx;
+    line-height: 68rpx;
+    color: #000000;
+    padding-top: 25rpx;
+    font-weight: bold;
+    }
+    .time {
+        padding-top: 25rpx;
+    }
+    .time .text1{
+        font-size: 30rpx;
+    color: #333333;
+    }
+    .time .text2{
+    font-size: 24rpx;
+    color: #999999;
+    display: inline-block;
+    margin-left: 44rpx;
+    }
+    .line{
+        height: 1px;
+        width: 100%;
+        background-color: #cccccc;
+        margin-top: 28rpx;
+    }
+    .content{
+        padding-top: 30rpx;
+        padding-bottom: 30rpx;
+        font-size: 34rpx;
+    }
+    .content text{
+        font-size: 24rpx;
+        line-height: 32rpx;
+        color: #999999;
+        display: block;
+    }
+    .content image{
+        width: 100%;
+        margin: 20rpx 0;
+    }

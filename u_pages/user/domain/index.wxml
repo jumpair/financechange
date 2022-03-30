@@ -1,0 +1,11 @@
+<checkbox-group bindchange="checkbox" class="padding-lr padding-top bg-white shadow">
+    <label class="cu-form-group" wx:for="{{goodareas}}">
+        <view class="title">{{item.title}}</view>
+        <checkbox checked="{{item.checked}}" class="round blue" value="{{index}}"></checkbox>
+    </label>
+</checkbox-group>
+<view class="flex justify-center padding-tb-xl" wx:if="{{goodareas}}">
+    <button bindtap="submit" class="text-df round padding-tb text-center" style="width: 90%;background: {{system.foot_color2}};color: {{system.text_color}};">提交</button>
+</view>
+<tabbar show="{{show_tabbar}}"></tabbar>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>

@@ -1,0 +1,36 @@
+<view class="padding-lr bg-white margin-tb-sm">
+    <view class="cu-bar solid-bottom">
+        <view class="action">
+			{{type?'回复':'咨询'}}内容
+		</view>
+    </view>
+    <textarea autoHeight bindinput="input" class="margin-top" maxlength="-1" placeholder="请输入你的{{type?'回复':'咨询'}}内容"></textarea>
+</view>
+<view class="padding-lr bg-white">
+    <view class="cu-bar solid-bottom">
+        <view class="action">
+			图片上传
+		</view>
+        <view class="action">
+			{{imgList.length}}/9
+		</view>
+    </view>
+    <view class="cu-form-group margin-top padding-bottom">
+        <view class="grid col-3 grid-square flex-sub">
+            <view bindtap="ViewImage" class="bg-img" data-url="{{imgList[index]}}" wx:for="{{imgList}}" wx:key="{{index}}">
+                <image mode="aspectFill" src="{{imgList[index]}}"></image>
+                <view catchtap="DelImg" class="cu-tag bg-red" data-index="{{index}}">
+                    <text class="cuIcon-close"></text>
+                </view>
+            </view>
+            <view bindtap="ChooseImage" class="solids" wx:if="{{imgList.length<9}}">
+                <text class="cuIcon-cameraadd"></text>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="flex justify-center padding-tb-xl">
+    <button bindtap="submit" class="text-df round padding-tb text-center" style="width: 90%;background: {{system.foot_color2}};color: {{system.text_color}};">提交</button>
+</view>
+<tabbar show="{{show_tabbar}}"></tabbar>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>

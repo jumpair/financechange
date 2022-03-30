@@ -1,0 +1,287 @@
+<view class="main">
+    <view class="top" style="background: linear-gradient(to left, #428ad4 20%,#0c64d2 100%);">
+        <view class="t">{{statename}}</view>
+        <!-- pass:通过 unpass：未通过  active：当前 jump：跳过-->
+        <view class="box">
+            <view class="progress" >
+                <block wx:for="{{type}}" wx:key="index">
+                   
+                    <block wx:if="{{item.id == statepid && statelist.zlxz !=1}}">
+                    <view class="pg-item active">
+                            <image src="../../../assets/images/user/progress_active.png"></image>
+                            <text>{{item.title}}</text>
+                        </view>
+                    </block>
+                    <block wx:if="{{item.id == statepid && statelist.zlxz ==1 }}">
+                        <view class="pg-item over">
+                            <image src="../../../assets/images/user/over.png"></image>
+                            <text>{{item.title}}</text>
+                        </view>
+                    </block>
+
+                    <block wx:elif="{{item.id < statepid && item.jump == 0}}">
+                    <view class="pg-item pass">
+                        <image src="../../../assets/images/user/progress_active.png"></image>
+                        <text>{{item.title}}</text>
+                    </view>
+                    </block>
+                    <block wx:elif="{{item.id > statepid}}">
+                        <view class="pg-item unpass">
+                        <image src="../../../assets/images/user/progress_active.png"></image>
+                        <text>{{item.title}}</text>
+                    </view>
+                    </block>
+                    <block wx:elif="{{item.jump == 1}}">
+                        <view class="pg-item jump">
+                        <image src="../../../assets/images/user/progress_active.png"></image>
+                        <text>{{item.title}}</text>
+                    </view>
+                    </block>
+                </block>           
+            </view>
+        </view>
+    </view>
+    <view class="content">
+        <view class="box">
+            <!-- 不同状态框1 -->
+            <block wx:if="{{statelist.pstate != -60 }}" >
+            <view class="state" >
+                <block wx:if="{{statelist.pstate == -10 && statelist.zlxz != 1}}">
+                    <view class="state state2">
+                    <view class="state-t">{{statelist.typename}}</view>
+                    <block wx:if="{{statelist.name != ''}}">
+                    <view class="flex">
+                        <view class="p">负责人：{{statelist.name}}</view>
+                        <view class="p">电话：{{statelist.phone}}</view>
+                        <view class="p">时间：{{statelist.time}}</view>
+                    </view>
+                    </block>
+                </view>
+                </block>
+                <block wx:elif="{{statelist.pstate == -20 && statelist.zlxz != 1}}">
+                    <view class="state state2">
+                        <view class="state-t">{{statelist.typename}}</view>
+                        <block wx:if="{{statenumber == 20}}">
+                        <view class="flex">
+                            <view class="p">尽调人：{{statelist.name}}</view>
+                            <view class="p">电话：{{statelist.phone}}</view>
+                            <view class="p">职务：{{statelist.position}}</view>
+                            <view class="p">尽调时间：{{statelist.time}}</view>
+                        </view>
+                        </block>
+                        <block wx:elif="{{statenumber == 22 }}">
+                            <image class="pass-icon" src="../../../assets/images/user/pass.png"></image>
+                        </block>
+                        <block wx:elif="{{statenumber == 21}}">
+                            <image class="pass-icon" src="../../../assets/images/user/sh.png"></image>
+                        </block>
+                    </view>
+                </block>
+                <block wx:elif="{{statelist.pstate == -10 || statelist.pstate == -20 || statelist.pstate == -30 || statelist.pstate == -40 || statelist.pstate == -50}}">
+                    <view class="state-t">{{statelist.typename}}</view>
+                    <view class="state-pass" wx:if="{{statelist.zlxz != ''}}">
+                        <block wx:if="{{statelist.zlxz == 1}}">
+                            <view class="p">不通过</view>
+                        </block>
+                        <block wx:else>
+                            <view class="p">通过</view>
+                        </block>
+                        <view class="sp">{{statelist.time}}</view>
+                    </view>
+                    <view class="state-why" wx:if="{{statelist.zlxz == 1}}">
+                        <view class="p">原因：</view>
+                        <view class="p">{{statelist.remark}}</view>
+                    </view>
+                    <!-- 通过  已完成  审核  待审核 -->
+                    <!-- <block wx:if="{{false}}">
+                        <image class="pass-icon" src="../../../assets/images/user/unpass.png"></image>
+                    </block> -->
+                    <block wx:if="{{(statenumber == 12 || statenumber == 22 || statenumber == 32 || statenumber == 32 ||statenumber == 42 || statenumber == 52) && statelist.zlxz != 1}}">
+                        <image class="pass-icon" src="../../../assets/images/user/pass.png"></image>
+                    </block>
+                    <block wx:elif="{{statenumber == 11 || statenumber == 21 || statenumber == 31 || statenumber == 41 || statenumber == 51}}">
+                        <image class="pass-icon" src="../../../assets/images/user/sh.png"></image>
+                    </block>
+                    <block wx:elif="{{statenumber == 30 || statenumber == 40 || statenumber == 50}}">
+                        <image class="pass-icon" src="../../../assets/images/user/dsh.png"></image>
+                    </block>
+                    <block wx:if="{{(statenumber == 12 || statenumber == 22 || statenumber == 32 || statenumber == 42 || statenumber == 52) && statelist.zlxz == 1}}">
+                        <image class="pass-icon" src="../../../assets/images/user/unpass.png"></image>
+                    </block>
+                </block>
+               
+            </view>
+            </block>
+            <block wx:if="{{statelist.pstate == -60 }}">
+            <!-- 不同状态框3 -->
+            <block wx:if="{{statenumber == 61}}">
+                <view class="state" >
+                <view class="state-t">{{statelist.typename}}</view>
+   
+                    <view class="state-pass" wx:if="{{statelist.zlxz != ''}}">
+                        <block wx:if="{{statelist.zlxz == 1}}">
+                            <view class="p">不通过</view>
+                        </block>
+                        <block wx:else>
+                            <view class="p">通过</view>
+                        </block>
+                        <view class="sp">{{statelist.time}}</view>
+                    </view>
+                    <view class="state-why" wx:if="{{statelist.zlxz == 1}}">
+                        <view class="p">原因：</view>
+                        <view class="p">{{statelist.remark}}</view>
+                    </view>
+                    <!-- 通过  已完成  审核  待审核 -->
+                    <!-- <block wx:if="{{false}}">
+                        <image class="pass-icon" src="../../../assets/images/user/unpass.png"></image>
+                    </block> -->
+                    <block wx:if="{{ statelist.zlxz != 1}}">
+                        <image class="pass-icon" src="../../../assets/images/user/pass.png"></image>
+                    </block>
+  
+                    <block wx:if="{{ statelist.zlxz == 1}}">
+                        <image class="pass-icon" src="../../../assets/images/user/unpass.png"></image>
+                    </block>
+                    </view>
+            </block>
+            <block wx:else>
+            
+            <view class="state state2">
+                <view class="state-t">{{statename}}</view>
+                <view class="state-pass">
+                    <block wx:if="{{statenumber == 62}}">
+                    <view class="p">已完成</view>
+                    </block>
+                    <view class="sp">{{statelist.time}}</view>
+                </view>
+                <block wx:if="{{statenumber == 62 && finance.catid == 3}}">
+                <view class="more" bindtap="showTc">
+                    查看详情
+                </view>
+                </block>
+              
+                <block wx:if="{{statenumber == 62 && finance.catid != 3}}">
+                    <view class="more" bindtap="showfw">
+                        查看详情
+                    </view>
+                </block>
+                <!-- 通过  已完成  审核  待审核 -->
+     
+                <block wx:if="{{statenumber == 62}}">
+                    <image class="pass-icon" src="../../../assets/images/user/pass.png"></image>
+                </block>
+                <block wx:elif="{{statenumber == 61}}">
+                    <image class="pass-icon" src="../../../assets/images/user/sh.png"></image>
+                </block>
+                <block wx:elif="{{statenumber == 60}}">
+                    <image class="pass-icon" src="../../../assets/images/user/dsh.png"></image>
+                </block>
+            </view>
+            </block>
+            </block>
+        </view>
+        <view class="box">
+            <view class="white-box">
+                <view class="text1-item">
+                    <text>产品名称</text>
+                    <text>{{finance.proname}}</text>
+                </view>
+                <view class="text1-item">
+                    <text>金融机构</text>
+                    <text>{{finance.financename}}</text>
+                </view>
+                <view class="text1-item">
+                    <text>订单类型</text>
+                    <block wx:if="{{finance.order_type == 1}}">
+                        <text>电话咨询</text>
+                    </block >
+                    <block wx:elif="{{finance.order_type ==2}}">
+                        <text>留言咨询</text>
+                    </block>
+                    <block wx:elif="{{finance.order_type ==3}}">
+                        <text>在线咨询</text>
+                    </block>
+                </view>
+                <view class="text1-item" bindtap="callphone" data-phone="{{finance.companyphone}}">
+                    <text>手机号：</text>
+                    <text>{{finance.companyphone}}</text>
+                </view>
+                <view class="text1-item">
+                    <text>需求描述：</text>
+                    <text>{{finance.message}}</text>
+                </view>
+            </view>
+            
+                <view class="back" bindtap="backToprev">返回</view>
+        </view>
+    </view>
+</view>
+<view class="tc" wx:if="{{showTc}}">
+    <view class="tc-box">
+        <view class="text-item" bindtap="closetc">
+            <text style="font-size: 32rpx;font-weight: bold;color: #333333;">放款</text>
+            <image class="close" src="../../../assets/images/user/close.png"></image>
+        </view>
+        <view class="text-item">
+            <text>服务机构：</text>
+            <text>{{finance.financename}}</text>
+        </view>
+        <view class="text-item">
+            <text>产品名称：</text>
+            <text>{{finance.proname}}</text>
+        </view>
+
+        <view class="text-item">
+            <text>成交金额：</text>
+            <text>{{finance.price}}万元</text>
+        </view>
+        <view class="text-item">
+            <text>利率：</text>
+            <text>{{finance.rate}}%</text>
+        </view>
+        <view class="text-item">
+            <text>期限：</text>
+            <text>{{finance.term}}</text>
+        </view>
+        <view class="text-item">
+            <text>担保方式：</text>
+            <text>{{finance.guarantee}}</text>
+        </view>
+        <view class="text-item">
+            <text>起始日：</text>
+            <text>{{finance.start_time}}</text>
+        </view>
+        <view class="text-item">
+            <text>到期日：</text>
+            <text>{{finance.end_time}}</text>
+        </view>
+        <view class="text-item">
+            <text>经办客户经理：</text>
+            <text>{{finance.manager}}</text>
+        </view>
+        <view class="close-btn" bindtap="closetc">
+            返回
+            <image src="../../../assets/images/user/back.png"></image>
+        </view>
+    </view>
+</view>
+<view class="tc" wx:if="{{showfw}}">
+    <view class="tc-box">
+        <view class="text-item" bindtap="closefw">
+            <text style="font-size: 32rpx;font-weight: bold;color: #333333;">服务</text>
+            <image class="close" src="../../../assets/images/user/close.png"></image>
+        </view>
+        <textarea style="border: 1px solid #ccc;margin: 0 30rpx;display: block;width: calc(100% - 60rpx);border-radius: 10rpx;padding: 39rpx;color: #666666;font-size: 32rpx;" 
+                name="scontent" 
+                id="" 
+                cols="30" 
+                rows="10"
+                placeholder="暂无服务内容"
+                value="{{finance.des}}"
+                disabled></textarea>
+        <view class="close-btn" bindtap="closefw">
+            返回
+            <image src="../../../assets/images/user/back.png"></image>
+        </view>
+    </view>
+</view>

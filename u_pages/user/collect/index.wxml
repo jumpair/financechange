@@ -1,0 +1,29 @@
+<scroll-view scrollWithAnimation scrollX class="bg-white nav text-center shadow" scrollLeft="{{scrollLeft}}" style="position: fixed;top: 0;width: 100%;z-index: 2;">
+    <view bindtap="tabSelect" class="cu-item {{index==tabCur?'cur':''}}" data-index="{{index}}" style="{{index==tabCur?'color:'+system.foot_color2:''}}" wx:for="{{nav}}">
+		{{item}}
+	</view>
+</scroll-view>
+<view style="margin-top:105rpx">
+    <news-list data="{{data}}" sClass="padding-sm bg-white radius" wx:if="{{tabCur==0}}"></news-list>
+    <lawyer-list data="{{data}}" mClass="padding-sm bg-white radius margin-tb-sm" wx:if="{{tabCur==1}}"></lawyer-list>
+    <view class="padding-sm bg-white" wx:if="{{tabCur==2&&data}}">
+        <button bindtap="toInfo" class="flex align-center padding-sm {{index<data.length-1?'solid-bottom':''}}" data-id="{{item.id}}" wx:for="{{data}}">
+            <image class="radius" mode="aspectFill" src="{{item.img}}" style="width: 150rpx;height: 150rpx;"></image>
+            <view class="padding-lr-sm flex-sub text-sm text-grey">
+                <view class="text-df text-bold">{{item.title}}</view>
+                <view class="padding-tb-sm text-red">
+						￥{{item.price}} <text class="padding-left-xs text-grey" style="text-decoration: line-through;">￥{{item.hx_price}}</text>
+                </view>
+                <view class="text-xs text-gray">
+						已有{{item.volume}}人付款
+					</view>
+            </view>
+        </button>
+        <view class="flex justify-center bg-white padding-tb" style="width: 100%;" wx:if="{{!data.length}}">
+            <image mode="widthFix" src="{{no_goods}}" style="width: 50%;"></image>
+        </view>
+    </view>
+</view>
+<view class="cu-load {{!isLoad?'loading':'over'}} text-sm text-gray" wx:if="{{data.length}}"></view>
+<tabbar show="{{show_tabbar}}"></tabbar>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>

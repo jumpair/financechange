@@ -1,0 +1,50 @@
+
+.item{
+    padding-top: 30rpx;    
+}
+.item .box{
+  overflow: hidden;
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 30rpx;
+}
+.left{
+    width: calc(100% - 240rpx);
+    float: left;
+    padding-right: 66rpx;
+    box-sizing: border-box;
+}
+.left .t{
+font-size: 28rpx;
+font-weight: bold;
+line-height: 40rpx;
+color: #333333;
+height: 80rpx;
+overflow: hidden;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 2;
+}
+.left .time{
+font-size: 24rpx;
+color: #CCCCCC;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: flex-start;
+padding-top: 30rpx;
+}
+.left .time .img{
+    width: 26rpx;
+    height: 26rpx;
+    margin-right: 10rpx;
+}
+.right{
+    width: 240rpx;
+    height: 160rpx;
+    float: left;
+}
+.right .img{
+    width: 100%;
+    height: 100%;
+}

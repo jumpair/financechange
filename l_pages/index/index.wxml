@@ -1,0 +1,258 @@
+<page-meta>
+    <navigation-bar title="{{system.law_custom+'端'}}"></navigation-bar>
+</page-meta>
+<block wx:if="{{tabbar==0}}">
+    <view class="top">
+        <image class="bg" mode="aspectFill" src="{{src}}law_index_header_bg.png"></image>
+        <view class="header padding-lr-sm">
+            <view class="content bg-white shadow padding-lr-xl">
+                <view class="flex align-center">
+                    <image class="img round" mode="aspectFill" src="{{toubu.law_img}}"></image>
+                    <view class="padding-left flex-sub">
+                        <view class="name">{{toubu.law_name}}</view>
+                        <view class="padding-top-xs text-grey flex align-center justify-between text-sm">
+                            <view class="">{{toubu.law_phone}}</view>
+                            <view class="">到期时间:{{lawInfo.daoqi_time}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="flex align-center justify-between margin-top text-sm">
+                    <view class="text-center">
+						提现中：<text class="text-blue">￥{{toubu.txz_money}}</text>
+                    </view>
+                    <view class="text-center">
+						已提现：<text class="text-blue">￥{{toubu.ytx_money}}</text>
+                    </view>
+                    <view class="text-center">
+						可提现：<text class="text-blue">￥{{toubu.ktx_money}}</text>
+                    </view>
+                </view>
+                <view bindtap="toPage" class="money" data-url="l_finance">
+                    <image class="qb" src="{{src}}law_index_header_qb.png"></image>
+                    <view class="qb_text">钱包</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="margin-sm bg-white shadow m_radius">
+        <view class="padding-tb-sm solid-bottom padding-lr">数据概况</view>
+        <view class="flex align-center justify-between padding-lr padding-bottom-sm">
+            <view class="text-center padding-top-xs">
+                <view class="padding-sm text-xl text-blue">{{shujugaikuang.jrdds}}</view>
+                <view class="text-xs">今日订单数</view>
+            </view>
+            <view class="text-center padding-top-xs">
+                <view class="padding-sm text-xl text-blue">{{shujugaikuang.zdds}}</view>
+                <view class="text-xs">总订单数</view>
+            </view>
+            <view class="text-center padding-top-xs">
+                <view class="padding-sm text-xl text-blue">￥{{shujugaikuang.jrddje}}</view>
+                <view class="text-xs">今日订金额</view>
+            </view>
+            <view class="text-center padding-top-xs">
+                <view class="padding-sm text-xl text-blue">￥{{toubu.z_money}}</view>
+                <view class="text-xs">总订单金额</view>
+            </view>
+        </view>
+    </view>
+    <view class="padding-lr-sm flex align-center justify-between">
+        <view bindtap="toPage" class="m_radius bg-white shadow flex align-center justify-center flex-sub margin-right-sm" data-url="l_orders" style="min-height: 198rpx;">
+            <image class="order_img" mode="widthFix" src="{{src}}law_index_order.png"></image>
+            <view class="padding-left-sm  order">
+                <view class="text-xxl">{{shujugaikuang.wddd}}</view>
+                <view class="padding-top-xs text-sm">我的订单</view>
+            </view>
+        </view>
+        <view bindtap="toPage" class="m_radius bg-white shadow flex align-center justify-center flex-sub" data-url="l_evaluate" style="min-height: 198rpx;">
+            <image class="order_img" mode="widthFix" src="{{src}}law_index_comment.png"></image>
+            <view class="padding-left-sm order">
+                <view class="text-xxl">{{shujugaikuang.fwpl}}</view>
+                <view class="padding-top-xs text-sm">服务评论</view>
+            </view>
+        </view>
+    </view>
+    <view class="margin-sm bg-white shadow m_radius">
+        <view class="flex align-center justify-between padding-tb-sm padding-lr">
+            <view class="">服务订单</view>
+            <view bindtap="toPage" class="text-sm" data-url="l_orders">查看更多</view>
+        </view>
+        <view class="padding-lr padding-bottom-sm solid-top" wx:for="{{fwdd}}">
+            <view class="padding-tb-sm flex align-center">
+                <view class="flex-sub">
+                    <view class="">订单编号：{{item.ordercode}}</view>
+                    <view class="">提交时间：{{item.submit_time}}</view>
+                    <view class="">订单类型：{{item.order_type==1?'电话咨询':item.order_type==2?'图文咨询':'在线咨询'}}</view>
+                </view>
+                <view bindtap="toPage" class="btn bg-blue round text-sm shadow-blur" data-key="order_id" data-url="l_orders_info" data-value="{{item.id}}">
+					查看详情
+				</view>
+            </view>
+        </view>
+        <view class="flex justify-center bg-white padding-tb" style="width: 100%;" wx:if="{{fwdd&&!fwdd.length}}">
+            <image mode="widthFix" src="{{no_orders}}" style="width: 50%;"></image>
+        </view>
+    </view>
+</block>
+<block wx:if="{{tabbar==1}}">
+    <scroll-view enableFlex scrollWithAnimation scrollX class="bg-white nav flex fixed" scrollLeft="{{scrollLeft}}" style="height: 90rpx;">
+        <view bindtap="tabSelect" class="cu-item {{index==TabCur?'cur':''}}" data-id="{{index}}" style="color: {{index==TabCur?system.foot_color2:''}};" wx:for="{{TabItem}}">
+			{{item}}
+		</view>
+    </scroll-view>
+    <view class="padding-sm text-sm text-grey" style="margin-top: 90rpx;">
+        <view bindtap="toInfo" class="bg-white shadow radius padding margin-bottom-sm" data-item="{{item}}" wx:for="{{data}}">
+            <view class="flex align-center justify-between">
+                <view>订单号:{{item.ordercode}}</view>
+                <view>{{TabItem[item.order_state]}}</view>
+            </view>
+            <view class="flex align-center padding-tb-sm">
+                <image class="radius" mode="aspectFill" src="{{item.user_img}}" style="width: 140rpx;height: 140rpx;"></image>
+                <view class="padding-left-sm flex-sub">
+                    <view class="">用户:<text class="padding-left-xs">{{item.user_title}}</text>
+                    </view>
+                    <view class="padding-tb-xs">类型:<text class="padding-left-xs">{{item.order_type==1?'电话咨询':item.order_type==2?'图文咨询':'在线咨询'}}</text>
+                    </view>
+                    <view class="flex">
+                        <view class="flex-sub">下单时间:<text class="padding-left-xs">{{item.submit_time}}</text>
+                        </view>
+                        <view class="text-red">￥{{item.price}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="flex align-center justify-end" wx:if="{{item.order_state==1}}">
+                <button catchtap="toChat" class="m_button text-sm round padding-tb-sm padding-lr-sm" data-toid="{{item.user_id}}" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{item.order_type==3}}">在线联系</button>
+                <button catchtap="callPhone" class="m_button text-sm round padding-tb-sm padding-lr-sm" data-item="{{item}}" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{item.order_type!='3'}}">联系用户</button>
+            </view>
+            <view class="flex align-center justify-end" wx:if="{{item.order_state==2}}">
+                <button catchtap="toChat" class="m_button text-sm round padding-tb-sm padding-lr-sm" data-toid="{{item.user_id}}" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{item.order_type==3}}">在线联系</button>
+                <button catchtap="service_log" class="m_button text-sm round padding-tb-sm padding-lr-sm" data-item="{{item}}" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{item.order_type==2}}">服务记录</button>
+                <button catchtap="callPhone" class="m_button text-sm round padding-tb-sm padding-lr-sm margin-left-sm" data-item="{{item}}" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{item.order_type!='3'}}">联系用户</button>
+                <button catchtap="callOk" class="m_button text-sm round padding-tb-sm padding-lr-sm margin-left-sm" data-item="{{item}}" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{item.order_type=='1'||item.order_type=='3'}}">已联系用户</button>
+            </view>
+            <view class="flex align-center justify-end" wx:if="{{item.order_state==3}}">
+                <button catchtap="toChat" class="m_button text-sm round padding-tb-sm padding-lr-sm" data-toid="{{item.user_id}}" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{item.order_type==3}}">在线联系</button>
+                <button catchtap="callPhone" class="m_button text-sm round padding-tb-sm padding-lr-sm" data-item="{{item}}" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{item.order_type!='3'}}">联系用户</button>
+                <button catchtap="service_log" class="m_button text-sm round padding-tb-sm padding-lr-sm margin-left-sm" data-item="{{item}}" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{item.order_type=='2'}}">服务记录</button>
+                <button catchtap="orderOk" class="m_button text-sm round padding-tb-sm padding-lr-sm margin-left-sm" data-index="{{index}}" data-item="{{item}}" style="background: {{system.foot_color2}};color: {{system.text_color}};">确认服务</button>
+            </view>
+            <view class="flex align-center justify-end" wx:if="{{item.order_state==4}}">
+                <button catchtap="toChat" class="m_button text-sm round padding-tb-sm padding-lr-sm" data-toid="{{item.user_id}}" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{item.order_type==3}}">在线联系</button>
+                <button catchtap="callPhone" class="m_button text-sm round padding-tb-sm padding-lr-sm" data-item="{{item}}" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{item.order_type!='3'}}">联系用户</button>
+                <button catchtap="service_log" class="m_button text-sm round padding-tb-sm padding-lr-sm margin-left-sm" data-item="{{item}}" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{item.order_type==2}}">服务记录</button>
+            </view>
+            <view class="flex align-center justify-end" wx:if="{{item.order_state==5}}">
+                <button catchtap="toChat" class="m_button text-sm round padding-tb-sm padding-lr-sm" data-toid="{{item.user_id}}" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{item.order_type==3}}">在线联系</button>
+                <button catchtap="callPhone" class="m_button text-sm round padding-tb-sm padding-lr-sm" data-item="{{item}}" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{item.order_type!='3'}}">联系用户</button>
+                <button catchtap="service_log" class="m_button text-sm round padding-tb-sm padding-lr-sm margin-left-sm" data-item="{{item}}" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{item.order_type==2}}">服务记录</button>
+            </view>
+        </view>
+        <view class="flex justify-center bg-white padding-tb" style="width: 100%;" wx:if="{{data&&!data[0]}}">
+            <image mode="widthFix" src="{{no_orders}}" style="width: 50%;"></image>
+        </view>
+    </view>
+</block>
+<block wx:if="{{tabbar==2}}">
+    <view class="flex justify-center bg-white padding-tb" style="width: 100%;" wx:if="{{chatList&&!chatList[0]}}">
+        <image mode="widthFix" src="{{no_chat}}" style="width: 50%;"></image>
+    </view>
+    <view class="cu-list menu-avatar">
+        <view catchtap="toChat" class="cu-item {{modalName=='move-box-'+index?'move-cur':''}}" data-toid="{{item.toid}}" wx:for="{{chatList}}">
+            <view class="cu-avatar round lg" style="background-image:url({{item.avatarUrl}});"></view>
+            <view class="content">
+                <view class="text-grey">{{item.nickName}}</view>
+                <view class="text-gray text-sm flex">
+                    <text class="text-cut">{{item.last_message.content}}</text>
+                </view>
+            </view>
+            <view class="action">
+                <view class="text-grey text-xs">{{item.last_message.time}}</view>
+                <view class="cu-tag round bg-grey sm" wx:if="{{item.countNoread}}">{{item.countNoread}}</view>
+            </view>
+        </view>
+    </view>
+</block>
+<block wx:if="{{tabbar==3}}">
+    <view class="header text-white">
+        <view class="padding-xl flex align-start bg" style="background-image: url({{system.user_bg}});">
+            <view class="flex align-center flex-sub">
+                <image class="round" mode="aspectFill" src="{{lawInfo.img}}" style="width: 130rpx;height: 130rpx;background:#f3f3f3"></image>
+                <view class="flex justify-between align-center flex-sub">
+                    <view class="padding-left-sm flex-sub">
+                        <view bind:tap="login" class="text-df">{{lawInfo.name}}</view>
+                        <view class="text-sm padding-top-sm flex align-center justify-between">
+                            <view class="">{{lawInfo.phone}}</view>
+                            <view class="">到期时间：{{lawInfo.daoqi_time}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="nav bg-white padding-lr-xl grid col-5">
+            <view class="flex flex-direction align-center justify-center padding-sm" wx:for="{{nav}}">
+                <text>{{item.num}}</text>
+                <view class="text-sm padding-top-xs">{{item.title}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="padding-lr-sm">
+        <view class="margin-tb bg-white padding-lr-sm" style="border-radius: 15rpx;">
+            <button bindtap="toPage" class="item flex align-center text-lg" data-url="l_orders">
+                <text class="yzd-task"></text>
+                <view class="padding-left-sm flex-sub text-df">我的订单
+				</view>
+                <text class="cuIcon-right text-gray"></text>
+            </button>
+            <button bindtap="toPage" class="item flex align-center text-lg" data-url="l_finance">
+                <text class="yzd-dynamic"></text>
+                <view class="padding-left-sm flex-sub text-df">我的钱包
+				</view>
+                <text class="cuIcon-right text-gray"></text>
+            </button>
+            <button bindtap="toPage" class="item flex align-center text-lg" data-url="l_renew">
+                <text class="yzd-redpacket"></text>
+                <view class="padding-left-sm flex-sub text-df">入驻续费
+				</view>
+                <text class="cuIcon-right text-gray"></text>
+            </button>
+            <button bindtap="toPage" class="item flex align-center text-lg" data-url="l_enter">
+                <text class="yzd-businesscard"></text>
+                <view class="padding-left-sm flex-sub text-df">资料修改
+				</view>
+                <text class="cuIcon-right text-gray"></text>
+            </button>
+        </view>
+        <view class="bg-white padding-lr-sm" style="border-radius: 15rpx;">
+            <button bindtap="toPage" class="item flex align-center text-lg" data-url="helper">
+                <text class="yzd-prompt"></text>
+                <view class="padding-left-sm flex-sub text-df">帮助中心
+				</view>
+                <text class="cuIcon-right text-gray"></text>
+            </button>
+            <button bindtap="toUser" class="item flex align-center text-lg">
+                <text class="cuIcon-people"></text>
+                <view class="padding-left-sm flex-sub text-df">用户界面
+				</view>
+                <text class="cuIcon-right text-gray"></text>
+            </button>
+        </view>
+    </view>
+</block>
+<view class="cu-bar tabbar bg-white foot shadow">
+    <!-- <view bindtap="tabbar" class="action" data-index="0" style="color: {{tabbar==0?system.foot_color2:system.foot_color1}};">
+        <view class="cuIcon-home{{tabbar==0?'fill':''}}"></view>
+        <view>首页</view>
+    </view>
+    <view bindtap="tabbar" class="action" data-index="1" style="color: {{tabbar==1?system.foot_color2:system.foot_color1}};">
+        <view class="cuIcon-form{{tabbar==1?'fill':''}}"></view>
+        <view>订单</view>
+    </view> -->
+    <view bindtap="tabbar" class="action" data-index="2" style="color: {{tabbar==2?system.foot_color2:system.foot_color1}};">
+        <view class="cuIcon-message{{tabbar==2?'fill':''}}"></view>
+        <view>消息</view>
+    </view>
+    <!-- <view bindtap="tabbar" class="action" data-index="3" style="color: {{tabbar==3?system.foot_color2:system.foot_color1}};">
+        <view class="cuIcon-people{{tabbar==3?'fill':''}}"></view>
+        <view>我的</view>
+    </view> -->
+</view>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>

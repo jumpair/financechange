@@ -1,0 +1,4 @@
+<view catchtap="toPage" class="{{mClass}} bg-white round margin-tb-sm margin-lr padding-tb-sm padding-lr flex align-center shadow text-gray" style="{{mStyle}}">
+    <view class="padding-left-sm {{icon}}"></view>
+    <view class="text-left padding-left-xs">{{text}}</view>
+</view>

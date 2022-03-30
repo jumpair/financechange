@@ -1,0 +1,36 @@
+<view class="my_container">
+    <view class="map">
+     <map
+        id="map"
+        class="mapView"
+        style="width: 100%; height:100vh;"
+        latitude="{{mytrack.lat}}"
+        longitude="{{mytrack.lon}}"
+        markers="{{mytrack.markers}}"
+        scale="18" polyline="{{mytrack.polyline}}"
+        show-location="false"
+        controls="controls"
+        >
+    </map> 
+    </view>
+    <view class="top">
+        <image class="img" src="../../../assets/images/dingwei.svg"></image>
+        <view class="t1">您目前的位置是 : </view>
+        <view class="t2">{{address}}</view>
+    </view>
+    <view class="btm">
+        <view class="name">{{mytrack.peoplename}}</view>
+        <view class="p2">
+            <view class="t">
+                <view class="time">{{mytrack.starttime}}</view>
+                <view class="q"></view>
+                <view class="d">{{mytrack.startaddress}}</view>
+            </view>
+            <view class="t">
+                <view class="time">{{mytrack.endtime}}</view>
+                <view class="q"></view>
+                <view class="d">{{mytrack.endaddress}}</view>
+            </view>
+        </view>
+    </view>
+</view>

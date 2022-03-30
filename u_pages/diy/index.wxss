@@ -1,0 +1,67 @@
+.notice-icon {
+    height: 30rpx;
+    width: 67rpx;
+}
+
+.nav-icon {
+    width: 86rpx;
+    height: 86rpx;
+}
+
+.ad {
+    width: 100%;
+}
+
+page {
+    background: #FFF;
+}
+
+audio {
+    display: flex;
+    flex-direction: column;
+    margin: 10rpx;
+}
+
+.myapp {
+    position: fixed;
+    z-index: 9999;
+    top: 16rpx;
+    right: 24rpx;
+    height: 72rpx;
+    box-sizing: border-box;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-right: 16rpx solid transparent;
+    border-left: 16rpx solid transparent;
+    position: absolute;
+    top: -15rpx;
+    right: 110rpx;
+}
+
+.cross-center {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 100%;
+}
+
+.close {
+    padding-left: 20rpx;
+    line-height: 34rpx;
+    font-size: 26rpx;
+    box-sizing: border-box;
+}
+
+.point-text {
+    padding-right: 20rpx;
+    font-size: 24rpx;
+    box-sizing: border-box;
+}
+
+.guide {
+    width: 100%;
+}

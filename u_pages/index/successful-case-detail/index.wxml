@@ -1,0 +1,15 @@
+<view class="main">
+    <view class="box">
+        <view class="t">{{title}}</view>
+        <view class="time">
+            <text class="text1">{{type_name}}</text>
+            <text class="text2">{{time}}</text>
+        </view>
+        <view class="line"></view>
+        <view class="content">
+            <!-- <parser gestureZoom lazyLoad selectable showWithAnimation html="{{content}}"></parser> -->
+            <rich-text nodes="{{content}}"></rich-text>
+        </view>
+    </view>
+</view>
+<tabbar show="{{show_tabbar}}"></tabbar>

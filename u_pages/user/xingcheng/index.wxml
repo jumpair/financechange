@@ -1,0 +1,31 @@
+<view class="my_container">
+    <scroll-view class="scroll_box" scroll-y="true" bindscrolltolower="loadmore">
+        <view class="list">
+            <view class="item" wx:for="{{visitlist}}" wx:key="item">
+                <view class="p1">
+                    <view class="l">
+                        <image class="time_icon" src="../../../assets/images/time_icon.svg"></image>
+                        <view class="time">{{item.create_time}}</view>
+                    </view>
+                    <view class="r">
+                        <view class="more" bindtap="mytrack" data-id="{{item.id}}">出行轨迹</view>
+                        <image class="more_icon" src="../../../assets/images/more.png"></image>
+                    </view>
+                </view>
+                <view class="p2 l_">
+                    <view class="q"></view>
+                    <view class="t">打卡地 - {{item.startaddress}}</view>
+                </view>
+                <view class="p2 r_">
+                    <view class="q"></view>
+                    <view class="t">目的地 - {{item.endaddress}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="no_more" >
+        <block wx:if="{{visitlist == ''}}">
+        - 暂无更多行程 -
+    </block>
+        </view>
+    </scroll-view>
+</view>

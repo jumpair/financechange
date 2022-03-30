@@ -1,0 +1,23 @@
+<view class="main">
+    <scroll-view class="list-item" scroll-y='true'>
+        <view class="box" wx:for="{{lists}}" wx:key="index">
+            <view class="item">
+                <view class="title">标题：{{item.name}}</view>
+                <view class="content">{{item.content}}</view>
+                <view class="tb">
+                    <!-- 为投标 -->
+                    <block wx:if="{{item.istrue == 0}}">
+                        <view class="btn" bindtap="showPopup" data-id="{{item.id}}">投标</view>
+                    </block>
+                    <!-- 已投标 -->
+                    <block wx:else>
+                        <view class="btn btn_">已投标</view>
+                    </block>
+                </view>
+            </view>
+            
+        </view>
+    </scroll-view>
+</view>
+
+<login isShow="{{isLogin}}" mainColor="{{system.foot_color2}}"></login>

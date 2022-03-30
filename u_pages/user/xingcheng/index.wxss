@@ -1,0 +1,78 @@
+page{
+    background-color: #F4F4F4;
+}
+.scroll_box{
+    height: 100vh;
+    box-sizing: border-box;
+}
+.item{
+    background-color: #ffffff;
+    margin-top: 16rpx;
+    padding: 32rpx 32rpx 0;  
+}
+.item .p1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.item .p1 .l{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.item .p1 .l .time_icon{
+    width: 24rpx;
+    height: 24rpx;
+}
+.item .p1 .l .time{
+    font-size:28rpx;
+    color: #666666;
+    padding-left: 10rpx;
+}
+.item .p1 .r{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.item .p1 .r .more{ 
+    font-size:28rpx;
+    color: #666666;
+}
+.item .p1 .r .more_icon{
+    width: 8rpx;
+    height: 16rpx;
+    margin-left: 14rpx;
+}
+.item .p2{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.item .p2.l_{
+    border-bottom: 2rpx solid #eee;
+    padding: 48rpx 0 32rpx;
+}
+.item .p2.r_{
+    padding: 32rpx 0;
+}
+.item .p2 .q{
+    width: 12rpx;
+    height: 12rpx;
+    background-color: #5257FD;
+    border-radius: 50%;
+}
+.item .p2.r_ .q{
+    background-color: #FB9154;
+}
+.item .p2 .t{
+    font-size: 28rpx;
+    color: #666;
+    padding-left: 16rpx;
+}
+.no_more{
+    font-size: 24rpx;
+    color: #666666;
+    text-align: center;
+    padding-top: 128rpx;
+    padding-bottom: 100rpx;
+}

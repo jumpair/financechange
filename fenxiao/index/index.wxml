@@ -1,0 +1,60 @@
+<page-meta>
+    <navigation-bar title="{{system.fx_title1||'分销'}}中心"></navigation-bar>
+</page-meta>
+<view class="_page" style="color: {{system.text_color}};">
+    <view id="top" style="background: {{system.foot_color2}};">
+        <view class="user">
+            <image mode="aspectFill" src="{{userInfo.avatarUrl}}"></image>
+            <view class="padding-left" style="color: {{system.text_color}};">
+                <view class="text-lg text-bold">{{name}}</view>
+                <view class="padding-top-xs text-sm">推荐人: {{p_name}}</view>
+            </view>
+        </view>
+        <swiper autoplay circular bindchange="cardSwiper" class="swiper padding-lr" duration="700" interval="5000" nextMargin="{{swiper_margin}}" previousMargin="{{swiper_margin}}">
+            <swiper-item class="{{cur==index}}" wx:for="{{swiper_items}}">
+                <view class="_page-top">
+                    <view class="item">
+                        <view class="yue">{{item.key}}</view>
+                        <view class="money">{{item.value}}</view>
+                    </view>
+                </view>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="_page-radius" style="{{style}}"></view>
+    <view class="_page-float" style="color: {{system.foot_color2}};top: {{top}}px;" wx:if="{{top}}">
+        <view class="content grid col-3" style="background-color: {{system.text_color}};color:{{system.foot_color2}}">
+            <button bindtap="toPage" data-url="f_tx" style="color:{{system.foot_color2}}">提现</button>
+            <button style="color:{{system.foot_color2}}">|</button>
+            <button bindtap="toPage" data-url="f_team" style="color:{{system.foot_color2}}">团队</button>
+        </view>
+    </view>
+    <view class="_page-panel grid col-3">
+        <button bindtap="toPage" class="item solid-right solid-bottom" data-url="f_fxyj">
+            <image src="../../static/icon/fenxiao_money.png"></image>
+            <view>{{system.fx_title1||'分销'}}佣金</view>
+        </button>
+        <button bindtap="toPage" class="item solid-right solid-bottom" data-url="f_order">
+            <image src="../../static/icon/fenxiao_orders.png"></image>
+            <view>{{system.fx_title1||'分销'}}订单</view>
+        </button>
+        <button bindtap="toPage" class="item solid-bottom" data-url="f_txmx">
+            <image src="../../static/icon/fenxiao_withdraw.png"></image>
+            <view>提现明细</view>
+        </button>
+        <button bindtap="toPage" class="item solid-right" data-url="poster">
+            <image src="../../static/icon/fenxiao_share.png"></image>
+            <view>推广海报</view>
+        </button>
+        <button bindtap="toPage" class="item solid-right" data-url="html_page">
+            <image src="../../static/icon/fenxiao_xy.png"></image>
+            <view>{{system.fx_title1||'分销'}}协议</view>
+        </button>
+        <button class="item" openType="contact">
+            <image src="../../static/icon/fenxiao_kf.png"></image>
+            <view>联系客服</view>
+        </button>
+    </view>
+    <tabbar show="{{show_tabbar}}"></tabbar>
+</view>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>

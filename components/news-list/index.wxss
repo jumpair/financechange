@@ -1,0 +1,10 @@
+.photo {
+    min-width: 215rpx;
+    height: 142rpx;
+    overflow: hidden;
+}
+
+.photo image {
+    width: 100%;
+    height: 100%;
+}

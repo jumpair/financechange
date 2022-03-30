@@ -1,0 +1,15 @@
+.item {
+    min-height: 90rpx;
+}
+
+page {
+    padding-bottom: 100rpx;
+}
+
+.cu-form-group .title {
+    min-width: calc(4em + 30rpx);
+}
+
+.cu-form-group {
+    padding: 1rpx 0rpx;
+}

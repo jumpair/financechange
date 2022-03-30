@@ -1,0 +1,62 @@
+page {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.top-bg {
+    width: 750rpx;
+    height: 250rpx;
+}
+
+.form {
+    position: absolute;
+    width: 100%;
+    top: 180rpx;
+}
+
+.cu-form-group .title {
+    min-width: calc(4em + 30rpx);
+}
+
+.cu-form-group {
+    background-color: rgba(0,0,0,0);
+}
+
+button {
+    min-height: 65rpx;
+    min-width: 233rpx;
+    border-radius: 8rpx;
+    text-align: center;
+    line-height: 65rpx;
+}
+
+switch .wx-switch-input:not([class*="bg-"]) {
+    background: var(--pink)!important;
+}
+
+.m-switch .wx-switch-input:not([class*="bg-"]) {
+    background: var(--gray)!important;
+}
+
+.cu-form-group picker::after {
+    font-size: 28rpx;
+    color: var(--black);
+}
+
+[class*="cuIcon-"] {
+    font-size: 28rpx;
+    color: var(--black);
+}
+
+.img {
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 8rpx;
+}
+
+.sfz {
+    width: 196rpx;
+    height: 131rpx;
+    border-radius: 8rpx;
+}

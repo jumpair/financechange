@@ -1,0 +1,11 @@
+<view catchtouchmove="preventTouchMove" class="cu-modal {{isShow?'show':''}}">
+    <view class="cu-dialog">
+        <image class="b_img" mode="widthFix" src="{{src}}{{img}}"></image>
+        <view class="bg-white padding-top-sm text-grey">{{content}}</view>
+        <view class="cu-bar bg-white">
+            <view class="action margin-0 flex-sub {{index!=0?'solid-left':''}}" wx:for="{{button}}" wx:key="index">
+                <button showMessageCard bindtap="buttonDo" class="{{item.class}}" data-item="{{item}}" openType="{{item.open_type}}" style="{{mStyle}}">{{item.title}}</button>
+            </view>
+        </view>
+    </view>
+</view>

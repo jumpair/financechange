@@ -1,0 +1,11 @@
+<view catchtap="hideModal" catchtouchmove="true" class="cu-modal padding-tb {{isShow?'show':''}}">
+    <view catchtap class="cu-dialog_i">
+        <image mode="widthFix" src="{{data.params.notice_head_img}}" style="width: 100%;"></image>
+        <view style="background:{{data.params.backgroundColor}};margin-top: -6rpx;">
+            <view class="padding-bottom-sm padding-top">
+				{{data.data.content}}
+			</view>
+            <button catchtap="hideModal" class="margin-tb-sm btn padding-tb-sm padding-lr-xl round text-center text-sm" style="color: {{data.params.notice_btn_text_color}};background: {{data.params.notice_btn_color}};">{{data.params.notice_btn_text}}</button>
+        </view>
+    </view>
+</view>

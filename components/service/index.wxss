@@ -1,0 +1,23 @@
+._1-title,._1-item {
+    color: #676a6c;
+}
+
+._1-title {
+    text-align: center;
+    padding-bottom: 20rpx;
+    font-weight: 600;
+    font-size: 28rpx;
+}
+
+._1-item {
+    text-align: center;
+    font-size: 26rpx;
+}
+
+._1-item view:nth-child(1) {
+    padding-bottom: 10rpx;
+}
+
+._1-item view:nth-child(2) {
+    font-weight: 600;
+}

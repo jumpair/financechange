@@ -1,0 +1,27 @@
+<form reportSubmit bindsubmit="submitFromId" wx:if="{{data}}">
+    <view class="{{mClass}}" style="{{mStyle}} text-sm">
+        <button bind:tap="toInfo" data-d="{{[item.id,index]}}" formType="submit" style="width: 100%;" wx:if="{{data.length}}" wx:for="{{data}}">
+            <view class="padding-tb-sm flex align-center justify-between {{sClass}}" style="min-height: 212rpx;">
+                <view class="flex flex-direction justify-between">
+                    <view class="flex-sub padding-right">
+                        <text class="text-df text-black" style="line-height: 40rpx;">{{item.title}}</text>
+                    </view>
+                    <view class="flex align-center padding-top-sm text-sm">
+                        <text class="cuIcon-attention padding-right-xs"></text>
+                        <text class="padding-right-sm text-grey"> {{item.view_num}}</text>
+                        <text class="cuIcon-message padding-right-xs"></text>
+                        <text class="padding-right-sm text-grey">{{item.comment_num}}</text>
+                        <text class="cuIcon-appreciate padding-right-xs"></text>
+                        <text class="text-grey">{{item.zan_num}}</text>
+                    </view>
+                </view>
+                <view class="photo">
+                    <image class="radius" mode="aspectFill" src="{{item.img}}"></image>
+                </view>
+            </view>
+        </button>
+        <view class="flex justify-center bg-white padding-tb" style="width: 100%;" wx:if="{{data&&!data[0]}}">
+            <image mode="widthFix" src="{{no_news}}" style="width: 50%;"></image>
+        </view>
+    </view>
+</form>

@@ -1,0 +1,45 @@
+<view class="main" >
+    <block wx:if="{{lists.length != 0}}">
+    <view class="box">
+        <van-collapse value="{{ activeNames }}" bind:change="onChange">
+            <view class="item-p1"  wx:for="{{lists}}" wx:key="index">
+                <van-collapse-item title="产品名称：{{item.name}}" name="{{index}}" custom-class="item-p2">
+                    <view class="item-p3" wx:for="{{item.financelist}}" wx:for-item="fin"  wx:key="key"> 
+                        <view class="text-item">
+                            <text>金融机构：</text>
+                            <text>{{fin.financename}}</text>
+                        </view>
+                        <view class="text-item">
+                            <text>成交金额：</text>
+                            <text>{{fin.money}}万元</text>
+                        </view>
+                        <view class="text-item">
+                            <text>起始点利率：</text>
+                            <text>{{fin.rate}}%</text>
+                        </view>
+                        <view class="text-item">
+                            <text>业务开始时间：</text>
+                            <text>{{fin.start_time}}</text>
+                        </view>
+                        <view class="text-item">
+                            <text>业务结束时间：</text>
+                            <text>{{fin.end_time}}</text>
+                        </view>
+                    </view>
+                   
+                </van-collapse-item>
+                <view class="des">成交总金额：{{item.allmoney}}万元</view>
+            </view>
+          
+        </van-collapse>
+    </view>
+    </block>
+    <block wx:else>
+        <view style="    text-align: center;">
+            <!-- 当前暂无状态,请让对应金融机构修改状态 -->
+            <image src="../../../assets/images/zwzt.svg"></image>
+        </view>
+    </block>
+</view>
+
+<login isShow="{{isLogin}}" mainColor="{{system.foot_color2}}"></login>

@@ -1,0 +1,34 @@
+<view class="main">
+    <view class="box">
+    <block wx:if="{{lists.length != 0}}">
+    <view class="step"  >
+        <view class="step-item" wx:for="{{lists}}" wx:key="index" >
+
+            <view class="t">{{item.pname}}
+                <image src="../../../assets/images/user/c_y.png"></image>
+                <image src="../../../assets/images/user/c.png"></image>
+            </view>
+            <view class="t-item" wx:for="{{item.list}}" wx:for-item="val"  wx:key="index">
+                <view class="p">
+                    <text>{{val.typename}}</text>
+                    <text>{{val.time}}</text>
+                </view>
+                <block wx:if="{{val.name != ''}}">
+                <view class="sp">
+                    名称：{{val.name}}  电话：{{val.phone}}
+                </view>
+                </block>
+            </view>
+ 
+        </view>
+       
+    </view>
+    </block>
+    <block wx:else>
+    <view style="    text-align: center;">
+        <!-- 当前暂无状态,请让对应金融机构修改状态 -->
+        <image src="../../../assets/images/zwzt.svg"></image>
+    </view>
+    </block>
+</view>
+</view>

@@ -1,0 +1,7 @@
+.cu-btn[disabled] {
+    opacity: 0.4;
+}
+
+.cu-chat .cu-item .date {
+    font-size: 20rpx;
+}

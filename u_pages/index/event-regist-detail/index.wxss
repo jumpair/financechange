@@ -1,0 +1,81 @@
+.t {
+    font-size: 38rpx;
+    line-height: 42rpx;
+    color: #000000;
+    padding-top: 19px;
+    font-weight: bold;
+}
+
+.time {
+    padding-top: 25rpx;
+}
+.hxewm {
+    
+    line-height: 25px;
+    width: 77px;
+    border:none;
+    text-align: center;
+    border-radius: 5px;
+    /* margin-bottom: 30px; */
+    margin: 10px;
+    background-color: #0B7BF9;
+    color: #fff;
+
+}
+.time .text1 {
+    font-size: 32rpx;
+    color: #666666;
+}
+
+.time .text2 {
+    font-size: 32rpx;
+    color: #999999;
+    display: block;
+}
+
+.line {
+    height: 1px;
+    width: 100%;
+    background-color: #eeeeee;
+    margin-top: 28rpx;
+}
+
+.content {
+    padding-top: 30rpx;
+    padding-bottom: 30rpx;
+}
+.content .detail-t{
+font-size: 32rpx;
+color: #666666;
+}
+
+.content text {
+    font-size: 24rpx;
+    line-height: 32rpx;
+    color: #999999;
+    display: block;
+}
+
+.content image {
+    width: 100%;
+    margin: 20rpx 0;
+}
+
+.main .box {
+    position: relative;
+}
+
+.online-sign {
+    position: fixed;
+    left: 30rpx;
+    right: 30rpx;
+    bottom: 60rpx;
+    height: 86rpx;
+    background: #0B7BF9;
+    border-radius: 50rpx;
+    z-index: 10;
+    line-height: 86rpx;
+    color: #ffffff;
+    text-align: center;
+    font-size: 28rpx;
+}

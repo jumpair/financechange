@@ -1,0 +1,20 @@
+{
+    "component": true,
+    "usingComponents": {
+        "banner": "/components/banner/index",
+        "blacklist": "/components/blacklist/index",
+        "comment": "/components/comment/index",
+        "goods": "/components/goods/index",
+        "lawyer-list": "/components/lawyer-list/index",
+        "login": "/components/login/index",
+        "news-list": "/components/news-list/index",
+        "notice": "/components/notice/index",
+        "painter": "/components/painter/index",
+        "search": "/components/search/index",
+        "tabbar": "/components/tabbar/index",
+        "title": "/components/title/index",
+        "wux-cell": "/wux-weapp/cell/index",
+        "wux-rater": "/wux-weapp/rater/index",
+        "wxparser": "/components/wxparser/index"
+    }
+}

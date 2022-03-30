@@ -1,0 +1,39 @@
+<view class="main">
+    <view class="top"  style="background: linear-gradient(to left, #428ad4 20%,#0c64d2 100%);">
+        <view class="t">{{title}}</view>
+    </view>
+    <view class="content">
+        <view class="box">
+            <view class="item">
+                <text>活动时间：</text>
+                <text>{{starttime}} -- {{endtime}}</text>
+            </view>
+            <view class="item">
+                <text>活动地点：</text>
+                <text>{{address}}</text>
+            </view>
+           <!-- <view class="item">
+                <text>活动费用：</text>
+                <text></text>
+            </view>-->
+            <view class="item">
+                <text>活动详情：</text>
+                <view style="width: 100%;">
+                    <rich-text nodes="{{content}}"></rich-text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="submit" bindtap="showPopup">在线签到</view>
+</view>
+<van-popup show="{{ show }}" bind:close="onClose" custom-class="tc">
+    <view class="tc-box" style="background-image: url(../../../assets/images/tc_bg.png);">
+        <view class="tc-t">现场签到</view>
+        <view class="tc-img">
+            <image src="{{erweima}}"></image>
+        </view>
+        <view class="tc-text">请扫描上方二维码参与签到</view>
+        <image class="tc-icon" src="../../../assets/images/tc_icon.png"></image>
+
+    </view>
+</van-popup>

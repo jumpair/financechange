@@ -1,0 +1,5 @@
+<swiper autoplay circular indicatorDots class="screen-swiper square-dot" indicatorColor="{{params.color}}" interval="{{params.interval}}" style="min-height: {{params.height}}rpx;padding: {{params.paddingTop}}rpx {{params.paddingLeft}}rpx;">
+    <swiper-item bindtap="toPage" data-item="{{item}}" wx:for="{{data}}">
+        <image class="image" mode="aspectFill" src="{{item.img||item.imgUrl}}" style="border-radius: {{params.borderRadius}}rpx;"></image>
+    </swiper-item>
+</swiper>

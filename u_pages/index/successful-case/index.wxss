@@ -1,0 +1,79 @@
+.nav {
+    background: #F9F9F9;
+    box-sizing: border-box;
+}
+
+.list-item {
+    height: calc(100vh - 216rpx);
+    background: #ffffff;
+    border-top: 1px solid #e5e5e5;
+    position: relative;
+}
+
+.list-item {
+    height: calc(100vh - 80rpx);
+    box-sizing: border-box;
+}
+
+.case-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eeeeee;
+    padding: 40rpx 0 28rpx;
+}
+
+.case-item .image {
+    width: 240rpx;
+    height: 160rpx;
+    border-radius: 10rpx;
+    background-position: center;
+    background-size: cover;
+}
+
+.case-item .text {
+    width: calc(100% - 240rpx);
+    padding-right: 65rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 140rpx;
+}
+
+.case-item .text .t {
+    font-size: 28rpx;
+    font-weight: bold;
+    color: #333333;
+    line-height: 40rpx;
+    height: 80rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+}
+
+.case-item .text .time {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 30rpx;
+}
+
+.case-item .text .time .img {
+    width: 26rpx;
+    height: 26rpx;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.case-item .text .time .te {
+    padding-left: 20rpx;
+    font-size: 24rpx;
+    color: #CCCCCC;
+}

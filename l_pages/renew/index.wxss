@@ -1,0 +1,72 @@
+.bg {
+    width: 100%;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.icon {
+    width: 120rpx;
+    height: 120rpx;
+}
+
+.name {
+    display: flex;
+    align-items: center;
+    top: 70rpx;
+    left: 50rpx;
+    position: absolute;
+}
+
+.main {
+    color: #664630;
+}
+
+.scolor {
+    color: #a97835;
+}
+
+.time {
+    width: 500rpx;
+    top: 220rpx;
+    left: 50rpx;
+    position: absolute;
+}
+
+progress {
+    widows: 100%;
+}
+
+page {
+    background: white;
+}
+
+.item {
+    min-height: 100rpx;
+}
+
+.item:first-child {
+    color: #303030;
+}
+
+.yellow {
+    color: #dcad4a;
+}
+
+.btn {
+    color: #ffe7ac;
+    height: 60rpx;
+    width: 125rpx;
+    border-radius: 10rpx;
+    background: #505050;
+    line-height: 60rpx;
+}
+
+.btn-hover {
+    transform: translate(1rpx,1rpx);
+    background: #505050;
+    color: #ffe7ac;
+}

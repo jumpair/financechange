@@ -1,0 +1,85 @@
+<view class="goods" wx:if="{{imglist}}">
+    <swiper autoplay circular bindchange="swiperChange" class="goods_img" current="{{current}}">
+        <swiper-item wx:for="{{imglist}}">
+            <image bindtap="showImage" data-index="{{index}}" mode="aspectFill" src="{{item}}"></image>
+        </swiper-item>
+    </swiper>
+    <view class="c round">
+		{{current+1}}/{{imglist.length}}
+	</view>
+</view>
+<view class="bg-white padding" wx:if="{{price}}">
+    <view class="flex align-end" wx:if="{{attribute!='3'}}">
+        <text class="text-red text-xxl text-bold">￥{{price}}</text>
+        <text class="padding-left-xs text-grey" style="text-decoration: line-through;">￥{{hx_price}}</text>
+    </view>
+    <view class="flex align-start text-red text-xxl text-bold" wx:else>
+		价格面议
+	</view>
+    <view class="padding-tb-sm flex align-center justify-between">
+        <text class="title">{{title}}</text>
+        <button bindtap="shareModal" class="padding-left-xl padding-right-sm text-gray" style="font-size: 50rpx;">
+            <text class="cuIcon-share"></text>
+        </button>
+    </view>
+    <view class="flex align-center justify-between text-sm" style="color: #a7a7a7;">
+        <view wx:if="{{attribute!='3'}}">销量:{{volume}}{{unit}}</view>
+        <view wx:if="{{attribute=='2'}}">{{stock>0?'库存:'+stock+unit:'已售罄'}}</view>
+        <view wx:else></view>
+    </view>
+</view>
+<view class="margin-top bg-white">
+    <view class="flex align-center justify-center text-black text-bold padding-bottom-sm solid-bottom padding-top">
+		商品详情
+	</view>
+    <view class="padding-tb-sm">
+        <wxparser richText="{{content}}"></wxparser>
+    </view>
+</view>
+<view class="cu-bar bg-white tabbar border shop foot" style="bottom:{{show_tabbar?'100rpx':'0'}}" wx:if="{{attribute}}">
+    <view bindtap="toHome" class="action text-grey">
+        <view class="cuIcon-home" style="border-width: 0;"></view>
+        <view>首页</view>
+    </view>
+    <button class="action text-grey" openType="contact">
+        <view class="cuIcon-service"></view>
+        <view>客服</view>
+    </button>
+    <view bindtap="collect" class="action">
+        <view class="cuIcon-favor{{is_collect==2?'fill':''}}" style="color: {{is_collect==2?system.foot_color2:'#8799a3'}};"></view>
+        <view style="color: {{is_collect==2?system.foot_color2:'#8799a3'}};">{{is_collect==2?'已':''}}收藏</view>
+    </view>
+    <view bindtap="toOrder" class="submit" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{attribute==1}}">
+			立即购买
+		</view>
+    <view bindtap="toOrder" class="submit" style="background: {{stock>0?system.foot_color2:'var(--grey)'}};color: {{system.text_color}};" wx:if="{{attribute==2}}">
+			{{stock>0?'立即购买':'已售罄'}}
+		</view>
+    <button class="submit" openType="contact" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{attribute==3}}">
+			联系客服
+		</button>
+</view>
+<tabbar show="{{show_tabbar}}"></tabbar>
+<login isShow="{{isLogin}}" mainColor="{{system.foot_color2}}"></login>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>
+<view catchtouchmove catchtap="shareModal" class="cu-modal bottom-modal {{isShow?'show':''}}">
+    <view catchtap class="cu-dialog">
+        <view class="padding-xl flex align-center justify-around">
+            <button catchtap="shareModal" class="poster" openType="share">
+                <view class="img bg-gradual-green shadow-blur">
+                    <image mode="widthFix" src="/static/icon/share_friend.png"></image>
+                </view>
+                <view class="padding-top-sm text-grey text-sm">转发给朋友</view>
+            </button>
+            <button catchtap="poster" class="poster">
+                <view class="img bg-gradual-orange shadow-blur">
+                    <image mode="widthFix" src="/static/icon/share_poster.png"></image>
+                </view>
+                <view class="padding-top-sm text-grey text-sm">生成分享海报</view>
+            </button>
+        </view>
+        <view catchtap="shareModal" class="btn padding-tb bg-white">
+            <button class="padding-lr">取消</button>
+        </view>
+    </view>
+</view>

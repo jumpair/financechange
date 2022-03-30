@@ -1,0 +1,9 @@
+{
+  "usingComponents": {},
+  "permission": {
+    "scope.userLocation": {
+      "desc": "地图选点需获取您的实时位置"
+    }
+  },
+  "navigationBarTitleText": "出行记录"
+}

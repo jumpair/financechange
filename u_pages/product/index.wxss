@@ -1,0 +1,208 @@
+.nav {
+    background: #F9F9F9;
+    box-sizing: border-box;
+}
+
+.list-item {
+    background: #F5F5F5;
+    border-top: 1px solid #e5e5e5;
+    min-height: 300rpx;
+    position: relative;
+    height: calc(100vh);
+}
+.page{
+    position: relative;
+}
+/* 专家咨询开始 */
+.pro2-item {
+    padding: 44rpx 30rpx;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20rpx;
+}
+
+.pro2-item .image {
+    width: 140rpx;
+    height: 140rpx;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.pro2-item .more {
+    position: absolute;
+    right: 30rpx;
+    top: 44rpx;
+}
+
+.pro2-item .text {
+    flex: 1;
+    padding-left: 40rpx;
+    width: calc(100% - 140rpx);
+}
+
+.pro2-item .text .t {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #333333;
+}
+
+.pro2-item .text .sp {
+    font-size: 24rpx;
+    color: #FF9E00;
+    margin: 8rpx 0;
+}
+
+.pro2-item .text .p {
+    font-size: 28rpx;
+    color: #333333;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.pro2-item {
+    position: relative;
+}
+.pro2-item .more{
+    width: 152rpx;
+height: 60rpx;
+background: #FFFFFF;
+border: 1px solid #0B7BF9;
+border-radius: 34rpx;
+line-height: 60rpx;
+text-align: center;
+font-size: 24rpx;
+color: #2680EB;
+position: absolute;
+}
+
+/* 专家咨询结束 */
+
+
+
+/* product */
+.item {
+    background-color: #ffffff;
+    padding-top: 30rpx;
+    margin-bottom: 14rpx;
+}
+
+.item .item-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.item .item-top .item-name {
+    font-size: 32rpx;
+    color: #333333;
+    padding-left: 6rpx;
+    font-weight: bold;
+}
+
+.item .item-top .item-name .img {
+    width: 24rpx;
+    height: 30rpx;
+}
+
+.item .item-top .more {
+    width: 160rpx;
+    height: 60rpx;
+    background: #36A4FF;
+    border: 2rpx solid #36A4FF;
+    border-radius: 100rpx;
+    font-size: 24rpx;
+    color: #ffffff;
+    text-align: center;
+    line-height: 60rpx;
+}
+
+.item .item-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 34rpx 0;
+}
+.item .item-content.active{
+    justify-content: flex-start;
+}
+.item .item-content .content-item:nth-child(3) {
+    width: 160rpx;
+}
+.item .item-content.active .content-item{
+    flex:1;
+}
+.item .item-content .sp {
+    font-size: 24rpx;
+    color: #999999;
+}
+
+.item .item-content .p {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #FF9E00;
+}
+
+.item .item-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #F5F5F5;
+    padding: 20rpx 0;
+}
+
+.item .item-bottom .name {
+    width: calc(100% - 20rpx)
+}
+
+.item .item-bottom .name .t {
+    font-size: 28rpx;
+    color: #666666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.item .item-bottom .name .img {
+    width: 20rpx;
+    height: 25rpx;
+    margin-left: 10rpx;
+}
+
+.item .item-bottom .more {
+    width: 20rpx;
+}
+
+.item .item-bottom .more .img {
+    height: 22rpx;
+    width: 12rpx;
+}
+.fenlei{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    padding: 20rpx 20rpx;
+    align-items: center;
+    
+}
+.fenlei view{
+    font-size: 24rpx;
+    color: #666;
+    border: 1px solid #e6e6e6;
+    padding: 15rpx 30rpx;
+    margin-right: 10rpx;
+    border-radius: 10rpx;
+}
+.main{
+    height: 100vh;
+}
+.page{
+    height: 100vh;
+}

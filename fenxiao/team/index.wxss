@@ -1,0 +1,30 @@
+._item {
+    display: flex;
+    padding: 20rpx 30rpx;
+}
+
+._item:first-child::after {
+    border-top: 0 solid #000;
+}
+
+._item image {
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 6rpx;
+}
+
+._item .content {
+    padding-left: 20rpx;
+    flex: 1;
+}
+
+._item .content view:nth-child(1) {
+    font-size: 30rpx;
+    color: #333;
+    font-weight: 600;
+}
+
+._item .content view:nth-child(2) {
+    padding-top: 10rpx;
+    font-size: 23rpx;
+}

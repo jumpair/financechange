@@ -1,0 +1,33 @@
+"use strict";
+var inlineTags = ({
+    abbr: 1,
+    b: 1,
+    big: 1,
+    code: 1,
+    del: 1,
+    em: 1,
+    i: 1,
+    ins: 1,
+    label: 1,
+    q: 1,
+    small: 1,
+    span: 1,
+    strong: 1,
+});
+module.exports = ({
+    getStyle: (function(t) {
+        if (t) {
+            var e;
+            var n;
+            var i = "";
+            return (-1 != (e = t.indexOf("display")) && (i = t.substring(e, -1 == (n = t.indexOf(";", e)) ? t.length : n)), -1 != t.indexOf("flex") && (i += ";" + (t.match(getRegExp("flex[:-][^;]+/g")) || []).join(";")), i)
+        };
+        return ("")
+    }),
+    getNode: (function(t, e) {
+        return (e || "0" == t.attrs.i || (delete(t.attrs.src, t.attrs.style += ";width:20px;height:20px")), [t])
+    }),
+    useRichText: (function(t) {
+        return (!(t.c || inlineTags[((nt_0 = (t.name), null == nt_0 ? undefined : 'number' === typeof nt_0 ? nt_0 : "" + nt_0))] || t.attrs.style && -1 != t.attrs.style.indexOf("display:inline")))
+    }),
+});

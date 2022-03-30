@@ -1,0 +1,3 @@
+<slot wx:if="{{!html[0].name&&!html[0].type}}"></slot>
+<trees animation="{{scaleAm}}" bindtap="_tap" bindtouchmove="_touchmove" bindtouchstart="_touchstart" class="top" lazyLoad="{{lazyLoad}}" nodes="{{html[0].name||html[0].type?html:[]}}" style="{{selectable?'user-select:text;-webkit-user-select:text;':''}}{{showAm}}"></trees>
+<image hidden bindload="_load" id="{{index}}" src="{{item}}" wx:for="{{imgs}}" wx:key="index"></image>

@@ -1,0 +1,17 @@
+<view class="bg-white" style="{{params}}" wx:if="{{style==1}}">
+    <view class="_1-title" wx:if="{{topTitle}}">{{topTitle}}</view>
+    <view class="grid col-3">
+        <view class="_1-item">
+            <view>总咨询数</view>
+            <view style="color: {{system.foot_color2}};">{{zzxs}}</view>
+        </view>
+        <view class="_1-item">
+            <view>本月咨询数</view>
+            <view style="color: {{system.foot_color2}};">{{byzxs}}</view>
+        </view>
+        <view class="_1-item">
+            <view>总{{system.law_custom}}数</view>
+            <view style="color: {{system.foot_color2}};">{{zlss}}</view>
+        </view>
+    </view>
+</view>

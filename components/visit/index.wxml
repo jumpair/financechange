@@ -1,0 +1,16 @@
+<view class="bg-white flex align-center" style="{{params}}" wx:if="{{style==1}}">
+    <view class="text-black _1-title">{{leftTitle}}<text>|</text>
+    </view>
+    <view class="flex align-center flex-sub">
+        <image class="_1-icon" mode="aspectFill" src="{{item}}" wx:for="{{avatarUrlList}}"></image>
+    </view>
+    <view class="padding-left-sm text-black">等<text class="_1-count" style="color: {{system.foot_color2}};">{{count}}</text>次</view>
+</view>
+<view class="_2-view col-8" style="{{params}}" wx:if="{{style==2}}">
+    <view wx:for="{{avatarUrlList}}">
+        <image class="_2-icon" src="{{item}}"></image>
+    </view>
+    <view class="_2-count">
+        <view>|</view>等<text style="color: {{system.foot_color2}};">{{count}}</text>次
+		</view>
+</view>

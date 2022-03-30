@@ -1,0 +1,186 @@
+
+<view class="container" style="position: relative;" >
+<scroll-view class="main" scroll-y='true' throttle='false' upper-threshold="50" bindscrolltoupper="showbg" bindscroll='scroll'>
+    <index-banner aaa="{{statusHeight}}" bbb="{{showWhiteBg}}" banner="{{banner}}"></index-banner>
+    <view class="index-nav" >
+        
+        <view wx:for="{{nav}}" class="index-nav-item" bindtap="goUrl"   data-url="{{item.url}}" wx:key="key">
+            <image class="img" src="{{item.img}}"></image>
+            <text class="text">{{item.title}}</text>
+        </view>
+       
+ 
+    </view>
+    <!-- <view class="index-number">
+        <text class="title">平台大数据</text>
+        <view class="index-number-list">
+            <view class="item">
+                <view class="text">
+                    <text class="p">{{dj_num}}</text>
+                    <text class="sp">办理笔数</text>
+                </view>
+                <view style="width: 66rpx;margin-bottom: 20rpx;">
+                    <image class="img" src="../../assets/images/indexNum/1.png"></image>
+                </view>
+            </view>
+            <view class="item">
+                <view class="text">
+                    <text class="p">{{cj_num}}</text>
+                    <text class="sp">成交笔数</text>
+                </view>
+                <view style="width: 66rpx;margin-bottom: 20rpx;">
+                    <image class="img" src="../../assets/images/indexNum/2.png"></image>
+                </view>
+                
+            </view>
+            <view class="item">
+                <view class="text">
+                    <text class="p">{{cj_price}}</text>
+                    <text class="sp">成交金额（万元）</text>
+                </view>
+                <view style="width: 66rpx;margin-bottom: 20rpx;">
+                    <image class="img" src="../../assets/images/indexNum/3.png"></image>
+                </view>
+
+            </view>
+            <view class="item">
+                <view class="text">
+                    <text class="p">{{users_num}}</text>
+                    <text class="sp">总会员数</text>
+                </view>
+                <view style="width: 66rpx;margin-bottom: 20rpx;">
+                    <image class="img" src="../../assets/images/indexNum/4.png"></image>
+                </view>
+            </view>
+        </view>
+    </view> -->
+    <view class="index_ptsj">
+        <view class="title">
+            <image class="img" src="../../assets/images/indexNum/g_01.svg"></image>
+            <view class="text">平台大数据</view>
+        </view>
+        <view class="con_01">
+            <view class="text">
+                <text class="t1">{{user_num}}</text>
+                <text class="t2">用户访问量</text>
+            </view>
+            <view class="list">
+                <view class="item"  wx:for="{{catelist}}" wx:key="index">
+                    <view class="t1">{{item.catename}}</view>
+                    <view class="t2" style="color:{{item.zt_color}}">{{item.numlv}}</view>
+                </view>
+            
+            </view>
+        </view>
+        <view class="con_02">
+            <view class="list">
+                <view class="item">
+                    <image class="image" src="../../assets/images/indexNum/gg_01.svg"></image>
+                    <view class="t1">办理笔数</view>
+                    <view class="t2">{{dj_num}}</view>
+                </view>
+                <view class="item">
+                    <image class="image" src="../../assets/images/indexNum/gg_02.svg"></image>
+                    <view class="t1">成交金额（万元）</view>
+                    <view class="t2">{{cj_price}}</view>
+                </view>
+                <view class="item">
+                    <image class="image" src="../../assets/images/indexNum/gg_03.svg"></image>
+                    <view class="t1">成交笔数</view>
+                    <view class="t2">{{cj_num}}</view>
+                </view>
+                <view class="item">
+                    <image class="image" src="../../assets/images/indexNum/gg_04.svg"></image>
+                    <view class="t1">总会员数</view>
+                    <view class="t2">{{users_num}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="index-product">
+        <view class="box">
+            <index-title class="pub-index-title">
+                <view class="left">热门服务Top10</view>
+                <view bindtap="goUrl" class="right" data-url="/u_pages/product/index">更多产品
+                    <image class="img" src="../../assets/images/more.png"></image>
+                </view>
+            </index-title>
+        </view>
+        <view class="index-product-list-hot">
+            <view class="item" wx:for="{{lawyer_list}}" wx:key="index">
+                <view class="box">
+                    <view class="item-top">
+                        <view class="item-name">
+                            <block wx:if="{{ index<3 }}">
+                                <image class="img" src="../../assets/images/indexPro/{{index+1}}.png"></image>
+                            </block>
+                            
+                            {{item.name}}
+                        </view>
+                        <view class="more" bindtap="goProdetail" data-id="{{item.id}}" data-num="{{item.finance_num}}" data-fid="{{item.financeid}}">了解产品</view>
+                    </view>
+                    <view class="item-content">
+                        <view class="content-item">
+                            <view class="sp">成交金额（万元）</view>
+                            <view class="p">{{item.price}}</view>
+                        </view>
+                        <view class="content-item">
+                            <view class="sp">办理笔数</view>
+                            <view class="p">{{item.bl_num}}</view>
+                        </view>
+                        <view class="content-item">
+                            <view class="sp">好评</view>
+                            <view class="p">{{item.hp_num}}</view>
+                        </view>
+                    </view>
+                    <block wx:if="{{item.finance_num == 1}}">
+                    <view class="item-bottom" bindtap="goProIntro" data-id="{{item.financeid}}" data-lawid="{{item.id}}">
+                        <view class="name" >
+                            <text class="t">{{item.jg_name}}</text>
+                            <image class="img" src="../../assets/images/text.png"></image>
+                        </view>
+                        <view class="more">
+                            <image class="img" src="../../assets/images/more.png"></image>
+                        </view>
+                    </view>
+                    </block>
+      
+                </view>
+            </view>
+            
+        </view>
+    </view>
+    <!-- <view class="index-product-list">
+        <product-item aaa='{{lawyer_list}}'></product-item>
+    </view> -->
+    <view class="index-news">
+        <view class="box">
+            <index-title class="pub-index-title">
+                <view class="left">金融资讯</view>
+                <view bindtap="goUrl" class="right" data-url="/u_pages/index/successful-case/index">查看更多
+                    <image class="img" src="../../assets/images/more.png"></image>
+                </view>
+            </index-title>
+        </view>
+        <view class="index-news-list">
+            
+            <view class="item" wx:for="{{news_list}}" wx:key="key" bindtap="goNewsDetail" data-id="{{item.id}}">
+                <view class="box">
+                    <view class="left">
+                        <view class="t">{{item.title}}</view>
+                        <view class="time">
+                        <image class="img" src="../../assets/images/time.png"></image>
+                        {{item.time}}</view>
+                    </view>
+                    <view class="right" style="border-radius: 12rpx;overflow: hidden;">
+                        <image class="img" src="{{item.img}}"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+      
+    </view>
+    <view style="height: 10rpx;"></view>
+</scroll-view>
+</view>
+<tabbar show="{{new_tabbar}}"></tabbar>

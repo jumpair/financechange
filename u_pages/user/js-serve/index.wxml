@@ -1,0 +1,31 @@
+<view class="main">
+    <scroll-view class="list-item" scroll-y='true'>
+    <block wx:for="{{lists}}">
+        <view class="item">
+            <view class="box">
+                <view class="item-t">{{item.name}}</view>
+                <view class="item-n">
+                    <view class="n">
+                        <text>{{item.cate_name}}</text>
+                        <text>{{item.cj_price}}</text>
+                    </view>
+                    <view class="n">
+                        <text>办理笔数</text>
+                        <text>{{item.bl_num}}</text>
+                    </view>
+                    <view class="n">
+                        <text>成交笔数</text>
+                        <text>{{item.zx_num}}</text>
+                    </view>
+                </view>
+                <view class="item-p">
+                    <view>好评：<text>{{item.hp_lv}}</text>分</view>
+                    <view>差评：<text>{{item.cp_lv}}</text>分</view>
+                </view>
+            </view>
+        </view>
+    </block>
+       
+    </scroll-view>
+</view>
+<login isShow="{{isLogin}}" mainColor="{{system.foot_color2}}"></login>

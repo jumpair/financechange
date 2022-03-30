@@ -1,0 +1,31 @@
+._items {
+    padding: 15rpx 20rpx;
+    color: var(--black);
+    font-size: 24rpx;
+    background-color: #FFFFFF;
+    border-radius: 6rpx;
+}
+
+._items:last-child {
+    border-bottom: none;
+}
+
+._items .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+._items .content .orderno {
+    font-size: 26rpx;
+}
+
+._items .content image {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 5000rpx;
+}
+
+._items .content .text {
+    width: 200rpx;
+}

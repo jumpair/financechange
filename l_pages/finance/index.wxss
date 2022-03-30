@@ -1,0 +1,9 @@
+.panel {
+    min-height: 300rpx;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.item view {
+    padding: 2rpx 0;
+}

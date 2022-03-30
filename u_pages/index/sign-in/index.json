@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {},
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "现场签到",
+  "navigationBarTextStyle": "black"
+}

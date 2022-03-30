@@ -1,0 +1,20 @@
+<view class="padding margin-bottom-sm bg-white">
+    <view class="">
+		快递单号:<text class="padding-left-sm">{{LogisticCode}}</text>
+    </view>
+    <view class="margin-tb-sm">
+		快递公司:<text class="padding-left-sm">{{kuaidi.name}}</text>
+    </view>
+    <view class="">
+		快递状态:<text class="padding-left-sm">{{log_state[State]}}</text>
+    </view>
+</view>
+<view class="cu-timeline">
+    <view class="cu-item" style="color: {{system.foot_color2}};" wx:for="{{Traces}}">
+        <view class="content text-sm" style="background: {{system.foot_color2}};color: {{system.text_color}};opacity: .8;">
+			{{item.AcceptStation}}
+		</view>
+    </view>
+</view>
+<tabbar show="{{show_tabbar}}"></tabbar>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>

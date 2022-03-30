@@ -1,0 +1,62 @@
+<view class="my_container">
+    <view class="map">
+      
+        <map
+        id="map"
+        class="mapView"
+        style="width: 100%; height:100vh;"
+        latitude="{{latitude}}"
+        longitude="{{longitude}}"
+        markers="{{markers}}"
+        scale="18" polyline="{{polyline}}"
+        show-location="false"
+        controls="controls"
+        >
+    </map> 
+    </view>
+    <view class="top">
+        <image class="img" src="../../../assets/images/dingwei.svg" bindtap="getLocation"></image>
+        <view class="t1">您目前的位置是 : </view>
+        <block wx:if="{{address}}">
+            <view class="t2">{{address}}</view>
+        </block>
+        <block wx:else>
+            <view class="t2">暂未获取</view>
+        </block>
+    </view>
+    <view class="btm">
+        <view class="name">{{peoplename}}</view>
+        <view class="p2">
+            <view class="t">
+                <view class="time">{{starttime}}</view>
+                <view class="q"></view>
+                <block wx:if="{{address}}">
+                    <view class="d">{{address}}</view>
+                </block>
+                <block wx:else>
+                    <view class="d">暂未获取</view>
+                </block>
+                
+            </view>
+            <view class="t">
+                <view class="time">{{endtime}}</view>
+                <view class="q"></view>
+                <block wx:if="{{endaddress}}">
+                    <view class="d">{{endaddress}}</view>
+                </block>
+                <block wx:else>
+                    <view class="d">暂未获取</view>
+                </block>
+            </view>
+        </view>
+        <view class="btn">
+            <block wx:if="{{clicklocation == 0}}">
+                <view class="btn_" bindtap="starRun" >开始打卡</view>
+            </block>
+            <block wx:elif="{{clicklocation == 1}}">
+                <view class="btn_" bindtap="endRun" >结束打卡</view>
+            </block>
+            <view class="btn_" bindtap="setlocation">标点</view>
+        </view>
+    </view>
+</view>

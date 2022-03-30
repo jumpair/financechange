@@ -1,0 +1,61 @@
+._top {
+    padding: 60rpx 60rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+._top .left {
+}
+
+._top .left view:nth-child(1) {
+    padding-bottom: 20rpx;
+}
+
+._top .left view:nth-child(2) {
+    font-size: 40rpx;
+}
+
+._top .btn {
+    padding: 16rpx 30rpx;
+    border: 1rpx solid #FFF;
+    border-radius: 5000rpx;
+}
+
+._panel {
+    padding: 20rpx;
+    margin: 20rpx;
+    background-color: #FFF;
+    border-radius: 6rpx;
+}
+
+._panel .item {
+    padding: 30rpx 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #333;
+    font-size: 26rpx;
+}
+
+._panel .item view:nth-child(2) text {
+    font-weight: 600;
+    padding-right: 10rpx;
+    font-size: 28rpx;
+}
+
+._tx {
+    padding: 40rpx 20rpx 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+._tx button {
+    width: 80%;
+    padding: 25rpx 0;
+    text-align: center;
+    border-radius: 5000rpx;
+    box-shadow: 0 6rpx 8rpx rgba(0,0,0,.05);
+}

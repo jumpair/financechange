@@ -1,0 +1,32 @@
+<page-meta>
+    <navigation-bar title="{{system.fx_title1||'分销'}}佣金"></navigation-bar>
+</page-meta>
+<view class="_top" style="background-color: {{system.foot_color2}};">
+    <view class="left" style="color: {{system.text_color}};">
+        <view>总佣金</view>
+        <view>{{z_money}}元</view>
+    </view>
+    <button bindtap="toPage" class="btn" data-url="f_txmx" style="color: {{system.text_color}};border-color: {{system.text_color}};">提现明细</button>
+</view>
+<view class="_panel">
+    <view class="item solid-bottom">
+        <view>可提现佣金</view>
+        <view>
+            <text>{{ktx_money}}</text>元</view>
+    </view>
+    <view class="item solid-bottom">
+        <view>已提现佣金</view>
+        <view>
+            <text>{{ytx_money}}</text>元</view>
+    </view>
+    <view class="item">
+        <view>未结算佣金</view>
+        <view>
+            <text>{{bktx_money}}</text>元</view>
+    </view>
+</view>
+<view class="_tx">
+    <button bindtap="toPage" class="shadow" data-url="f_tx" style="background-color: {{system.foot_color2}};color: {{system.text_color}};">提现</button>
+</view>
+<tabbar show="{{show_tabbar}}"></tabbar>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>

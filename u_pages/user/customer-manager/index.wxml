@@ -1,0 +1,69 @@
+<view class="main">
+    <van-tabs swipeable type='line' color='#0B7BF9' animated='true' nav-class='nav' 
+        title-active-color='#0B7BF9'>
+     
+        <van-tab title="企业客户">
+            <scroll-view class="list-item" scroll-y='true' bindscrolltolower='loadMore'>
+                <view class="box">
+                    <van-collapse value="{{ activeNames }}" bind:change="onChange" wx:for="{{companylist}}" wx:for-item="com" wx:key="index">
+                    <block wx:if="{{com.companyname}}">
+                        <view class="item" >
+                            <van-collapse-item title="{{com.companyname}}" name="{{index+1}}">
+                                <view class="text-item">
+                                    <text>联系人</text>
+                                    <text>{{com.contacts}}</text>
+                                </view>
+                                <view  class="text-item">
+                                    <text>电话</text>
+                                    <text>{{com.tel}}</text>
+                                </view>
+                                <view class="project">
+                                    <text>项目服务</text>
+                                    <view style="display: flex;flex-flow: row wrap;align-items: flex-start;justify-content: flex-start;">
+                                    <text class="flex" wx:for="{{com.proname}}" wx:for-item="val" wx:key="index">
+
+                                        <text>{{val}}</text>
+                                        
+                                    </text>
+                                    </view>
+                                </view>
+                               
+                            </van-collapse-item>
+                        </view>
+                    </block>
+                    </van-collapse>
+
+                </view>
+            </scroll-view>
+        </van-tab>
+        <van-tab title="个人客户">
+            <scroll-view class="list-item" scroll-y='true'>
+                <view class="box">
+                    
+                    <van-collapse value="{{ activeNames }}" bind:change="onChange" wx:for="{{personlist}}" wx:for-item="per" wx:key="index">
+                        <view class="item">
+                            <van-collapse-item title="{{per.name}}" name="{{index+1}}">
+                                <view  class="text-item">
+                                    <text>电话</text>
+                                    <text>{{per.tel}}</text>
+                                </view>
+                                <view class="project">
+                                    <text>项目服务</text>
+                                    <view style="display: flex;flex-flow: row wrap;align-items: flex-start;justify-content: space-between;">
+                                        <text class="flex" wx:for="{{per.proname}}" wx:for-item="val" wx:key="index">
+
+                                        <text>{{val}}</text>
+
+                                        </text>
+                                    </view>
+                                </view>
+                               
+                            </van-collapse-item>
+                        </view>
+                    </van-collapse>
+                </view>
+            </scroll-view>
+        </van-tab>
+    </van-tabs>
+</view>
+<login isShow="{{isLogin}}" mainColor="{{system.foot_color2}}"></login>

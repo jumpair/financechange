@@ -1,0 +1,26 @@
+<form bindsubmit="saveperson" report-submit>
+<view class="main">
+    <view class="box">
+        <van-cell-group>
+            <van-field label="招标名称：" name="title" value="{{title}}" placeholder="请输入招标名称" input-align="right"/>
+            <van-field label="姓名：" name="name" value="{{name}}" placeholder="请输入姓名" input-align="right"/>
+            <van-field label="手机：" name="tel" value="{{tel}}"  placeholder="请输入电话" input-align="right" bindinput='getInputValue'/>
+            <van-field label="验证码：" name="code" value="{{code}}" placeholder="请输入验证码" use-button-slot input-align="right" >
+                <van-button slot="button" size="small" type="primary" custom-class='code-btn' disabled='{{disabled}}' bindtap="getCode"> 
+                    {{coder}}
+                </van-button>
+            </van-field>
+        </van-cell-group>
+        <view class="text">
+            <view class="t">招标需求：</view>
+           <textarea name="content" placeholder="请输入需求" style="height: 33vw;margin-top: 20px; border: 1px solid #eeeeee;padding: 20rpx;border-radius: 5px;width:100%;"></textarea>
+        </view>
+        <view class="btn">
+            <view class="back btn_" bindtap="back">返回</view>
+            <button class="ok btn_" formType="submit" >确认</button>
+        </view>
+    </view>
+</view>
+<van-dialog id="van-dialog" />
+</form>
+<login isShow="{{isLogin}}" mainColor="{{system.foot_color2}}"></login>

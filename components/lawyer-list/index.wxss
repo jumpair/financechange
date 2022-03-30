@@ -1,0 +1,41 @@
+.headPhoto {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+    background: #fafafa;
+    overflow: hidden;
+}
+
+.headPhoto image {
+    width: 120rpx;
+    height: 120rpx;
+}
+
+.name {
+    color: #0b121f;
+}
+
+.text-color {
+    color: #818a99;
+}
+
+.item-padding-tb {
+    padding-top: 5rpx;
+    padding-bottom: 5rpx;
+}
+
+.tag-border {
+    border: 1rpx solid #818a99;
+    border-radius: 6rpx;
+    padding: 5rpx 5rpx;
+    font-size: 20rpx;
+}
+
+.btn {
+    background: #2363fc;
+    width: 120rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    border-radius: 20rpx;
+    color: #FFF;
+}

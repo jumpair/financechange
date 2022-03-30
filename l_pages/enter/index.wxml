@@ -1,0 +1,4 @@
+<image class="top-bg" mode="aspectFill" src="{{src}}law_update.png"></image>
+
+<tabbar show="{{show_tabbar}}"></tabbar>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>

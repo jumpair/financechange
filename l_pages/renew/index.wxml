@@ -1,0 +1,33 @@
+<view class="margin-sm top bg-white shadow">
+    <image class="bg radius" mode="widthFix" src="{{bg}}"></image>
+    <view class="name">
+        <image class="icon round bg-white shadow" src="{{img}}"></image>
+        <view class="padding-left-sm">
+            <view class="text-lg main text-bold">{{name}}</view>
+            <view class="padding-top-xs flex align-center main">
+				收藏 {{collect_num}}
+				<view class="margin-lr-xs scolor text-bold">|</view> 评论 {{evaluate_num}}
+			</view>
+        </view>
+    </view>
+    <view class="time">
+        <view class="flex align-center justify-between text-sm scolor">
+            <view class="">开始:{{tongguo_time}}</view>
+            <view class="">到期:{{daoqi_time}}</view>
+        </view>
+        <progress backgroundColor="#c29251" borderRadius="10" class="padding-top-sm" color="#FFF" percent="{{percent}}" strokeWidth="8"></progress>
+        <view class="padding-top-sm day scolor text-sm">已入驻总天数:{{in_day}}天</view>
+    </view>
+</view>
+<view class="padding-lr">
+    <view bindtap="renew" class="item flex align-center solid-bottom" data-item="{{item}}" wx:for="{{getinTerm}}">
+        <view class="text-lg flex-sub">
+			{{item.name}}
+			<text class="yellow text-sm">{{item.in_day}}天</text>
+        </view>
+        <view class="yellow padding-right-sm">{{item.is_pay==1?'免费':'￥'+item.in_money}}</view>
+        <button class="btn text-center">续费</button>
+    </view>
+</view>
+<tabbar show="{{show_tabbar}}"></tabbar>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>

@@ -1,0 +1,26 @@
+page {
+}
+
+text[class*="cuIcon-"] {
+    padding: 10rpx 0 0 15rpx;
+}
+
+picker-view-column view {
+    height: 50rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cu-modal .action:last-child {
+    margin-right: 30rpx!important;
+}
+
+.m {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1024;
+    height: 100rpx;
+}

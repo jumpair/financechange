@@ -1,0 +1,14 @@
+<!--components/news-item/news-item.wxml-->
+<view class="item">
+    <view class="box">
+        <view class="left">
+            <view class="t">“金融服务毛细血管工程”之蓝色智谷创业1号</view>
+            <view class="time">
+            <image class="img" src="../../assets/images/time.png"></image>
+            2020.20.20</view>
+        </view>
+        <view class="right">
+            <image class="img" src="../../assets/images/del1.png"></image>
+        </view>
+    </view>
+</view>

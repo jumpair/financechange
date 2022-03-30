@@ -1,0 +1,27 @@
+<page-meta>
+    <navigation-bar title="{{toinfo.name}}"></navigation-bar>
+</page-meta>
+<view class="cu-chat" style="padding-bottom: 100rpx;">
+    <view id="item_{{item.id}}" wx:for="{{chat}}">
+        <view class="cu-item {{item.fromid==userInfo.id?'self':''}}">
+            <view class="cu-avatar radius" style="background-image:url({{toinfo.avatarUrl}});" wx:if="{{item.fromid!=userInfo.id}}"></view>
+            <view class="main">
+                <view class="content shadow" style="background-color: {{system.foot_color2}};color: {{system.text_color}};">
+                    <text bindlongpress="copy" data-content="{{item.content}}" wx:if="{{item.type=='1'}}">{{item.content}}</text>
+                    <image lazyLoad bindload="imgLoad" bindtap="showImage" data-index="{{index}}" mode="widthFix" src="{{system.attachurl}}{{item.content}}" style="width: 502rpx;" wx:else></image>
+                </view>
+            </view>
+            <view class="cu-avatar radius" style="background-image:url({{frominfo.img}});" wx:if="{{item.fromid==userInfo.id}}"></view>
+            <view class="date">{{item.time}}</view>
+        </view>
+    </view>
+</view>
+<view id="chat"></view>
+<view class="cu-bar foot input">
+    <view bindtap="send_img" class="action">
+        <text class="cuIcon-pic text-grey" style="color: {{system.foot_color2}};"></text>
+    </view>
+    <input adjustPosition bindconfirm="say" bindinput="input" class="solid-bottom" confirmType="发送" value="{{content}}"></input>
+    <button bindtap="say" class="cu-btn {{!is_send?'shadow':''}} radius" disabled="{{is_send}}" style="background-color: {{system.foot_color2}};color: {{system.text_color}};">发送</button>
+</view>
+<view class="padding"></view>

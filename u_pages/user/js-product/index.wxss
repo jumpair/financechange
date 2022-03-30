@@ -1,0 +1,142 @@
+.main{
+    height: 100vh;
+    background: #F5F5F5;
+}
+
+.nav {
+    background: #F9F9F9;
+    box-sizing: border-box;
+}
+
+.list-item {
+    height: calc(100vh - 110rpx);
+    background: #F5F5F5;
+    border-top: 1px solid #e5e5e5;
+    position: relative;
+}
+.pro-item{
+    background-color: #ffffff;
+    margin-bottom: 20rpx;
+    padding-top: 50rpx;
+}
+.top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.top text:nth-child(1){
+font-size: 36rpx;
+font-weight: bold;
+color: #333333;
+}
+.top text:nth-child(2){
+    width: 152rpx;
+height: 60rpx;
+background: #FFFFFF;
+border: 1px solid #0B7BF9;
+border-radius: 34rpx;
+line-height: 60rpx;
+text-align: center;
+color: #0B7BF9;
+font-size: 24rpx;
+}
+.content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.item-n{
+    display: flex;
+    flex-direction: column;
+    padding: 40rpx 0;
+}
+.item-n  text:nth-child(1){
+    font-size: 24rpx;
+    color: #999999;
+    display: inline-block;
+}
+.item-n text:nth-child(2){
+font-size: 36rpx;
+display: inline-block;
+color: #FF9E00;
+}
+.sh-item{
+    background-color: #ffffff;
+    border-radius: 1px solid #eeeeee;
+    border-radius: 12rpx;
+    padding: 30rpx 30rpx 50rpx;
+    margin-top: 48rpx;
+}
+.sh-item .flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eeeeee;
+    padding: 30rpx 0;
+}
+.sh-item text{
+    font-size: 28rpx;
+    color: #333333;
+    line-height: 40rpx;
+}
+.block{
+    padding: 30rpx 0;
+    border-bottom: 1px solid #eeeeee;
+}
+.block text:nth-child(1){
+    display: block;
+}
+
+.block text:nth-child(2){
+    padding: 30rpx 0;
+    display: block;
+}
+.btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 80rpx;
+}
+
+.btn_ {
+    width: 280rpx;
+    height: 86rpx;
+    opacity: 1;
+    border-radius: 44rpx;
+    line-height: 86rpx;
+    text-align: center;
+    font-size: 28rpx;
+    margin:0;
+}
+
+.ok {
+    background: #0B7BF9;
+    color: #ffffff;
+}
+
+.back {
+    border: 1px solid #0B7BF9;
+    color: #0B7BF9;
+}
+.white-bg{
+    background-color: #fff;
+    margin-top: 30rpx;
+    padding: 50rpx 0rpx;
+    border: 1px solid #eeeeee;
+    border-radius: 12rpx;
+}
+.van-field__label,
+.inputtext text{
+    font-size: 28rpx!important;
+    color: #333333!important;
+}
+.inputtext{
+    padding: 30rpx;
+}
+.inputtext textarea{
+    margin-top: 30rpx;
+}

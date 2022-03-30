@@ -1,0 +1,48 @@
+<view class="my_container">
+    <view class="list">
+        <view 
+            class="item" 
+            wx:for="{{list}}"
+            wx:key="item"
+            wx:for-index="index"
+        >
+            <view class="t_top">
+                <view class="t_top_01">
+                    <view 
+                        class="select {{item.id == id?'selected':''}}" 
+                        bindtap="select"
+                        data-id="{{item.id}}"
+                        data-index="{{index}}"
+                        data-tel="{{item.contact}}"
+                        data-name="{{item.name}}"
+                        data-userid ="{{item.user_id}}"
+                    ></view>
+                    <view 
+                        class="name"
+                        bindtap="select"
+                        data-id="{{item.id}}"
+                        data-index="{{index}}"
+                        data-tel="{{item.contact}}"
+                        data-name="{{item.name}}"
+                        data-userid ="{{item.user_id}}"
+                    >{{item.name}}</view>
+                    <view 
+                        class="icon {{item.drop?'drop':''}}"
+                        bindtap="drop"
+                        data-index="{{index}}"
+                        data-drop="{{item.drop}}"
+                    >
+                        <image class="icon_img" src="../../assets/images/drop.svg"></image>
+                    </view>
+                </view>
+                <!-- <view class="t_top_02">特长：{{item.specialty}}</view> -->
+            </view>
+            <view class="t_btm {{item.drop?'drop':''}}">
+                <view style="height: 32rpx;"></view>
+                <view class="js">介绍</view>
+                <view class="yw"> <rich-text nodes="{{item.jg_des}}"></rich-text></view>
+                <!-- <view class="yw">机构名称：{{item.jg_name}}</view> -->
+            </view>
+        </view>
+    </view>
+</view>

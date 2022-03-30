@@ -1,0 +1,57 @@
+<scroll-view class="main" scroll-y="true">
+    <view class="box">
+        <view class="white-box">
+            <view class="name-box">
+                <view class="public-t">
+                    <image class="img" src="../../../assets/images/text.png"></image>
+                    <text class="text">金融机构：</text>
+                </view>
+                <view class="name">
+                    <text class="text">{{name}}</text>
+                    <view style="display: flex;flex-direction: column;align-items: center;width:180rpx;">
+                        <view class="p-n" >{{zbl}}</view>
+                        <view class="p-sp">中标成功率</view>
+                    </view>
+                </view>
+            </view>
+            <view class="product-intr">
+                <view class="public-t">
+                    <image class="img" src="../../../assets/images/intr.png"></image>
+                    <text class="text">机构介绍：</text>
+                </view>
+                <view class="des">
+                    <!-- <text class="text">{{content}}</text> -->
+                    <rich-text nodes="{{content}}"></rich-text>
+                </view>
+            </view>
+        </view>
+        <view class="serve-project">
+            <view class="image" style="display: flex; align-items: center; justify-content: center;">
+                        <image style="width: 30rpx;height: 30rpx;" src="../../../assets/images/user/hot_icon.png"></image>
+                    </view>
+            <text class="text">服务项目</text>
+        </view>
+        <view class="white-box project-list" style="margin-top: 24rpx;" wx:for="{{lawlist}}" wx:key="{{key}}">
+            <view class="item-top">
+                <view class="item-name">
+                    {{item.name}}
+                </view>
+                <view class="more" bindtap="goProdetail" data-id="{{item.id}}" data-num="{{item.finance_num}}" data-fid="{{item.financeid}}">了解产品</view>
+            </view>
+            <view class="item-content">
+                <view class="content-item">
+                    <view class="sp">{{item.cate_name}}</view>
+                    <view class="p">{{item.price}}</view>
+                </view>
+                <view class="content-item">
+                    <view class="sp">办理笔数</view>
+                    <view class="p">{{item.bl_num}}</view>
+                </view>
+                <view class="content-item">
+                    <view class="sp">好评</view>
+                    <view class="p">{{item.hp_num}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</scroll-view>

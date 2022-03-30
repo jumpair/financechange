@@ -1,0 +1,41 @@
+<view class="main">
+    <view class="box">
+        <view class="t">{{title}}</view>
+        <view class="time" style="line-height: 28px;">
+            <text class="text1">活动地点：{{address}}</text>
+            <text class="text2">活动日期：{{starttime}} -- {{endtime}}</text>
+        </view>
+        <view class="line"></view>
+        <view class="content">
+        <view style="display: flex;flex-direction: row;justify-content: space-between;align-items: center;padding-bottom: 30rpx;">
+            <view class="detail-t">活动详情</view>
+            <block wx:if="{{hxid==userid}}">
+                <view bindtap="hxScan" class="hxewm" style="margin: 0;">核销员扫码</view>
+            </block>
+        </view>
+            <view class="detail-content">
+                   <rich-text nodes="{{content}}"></rich-text> 
+            </view>
+        </view>
+  
+       
+        <block wx:if="{{ end==1 }}">
+            <view class="online-sign" >活动已结束</view>
+        </block>
+        <block wx:else>
+            <block wx:if="{{ is_sign==0}}">
+                <view class="online-sign" bindtap="goSign" data-id="{{id}}">在线报名</view>
+            </block>
+           <block wx:else>
+                <block wx:if="{{ sure_sign }}">
+                    <view class="online-sign">已签到</view>
+                </block>
+                <block wx:else>
+                    <view class="online-sign" bindtap="sureSign" data-id="{{id}}">现场签到</view>
+                </block>
+                
+           </block>
+
+        </block>
+    </view>
+</view>

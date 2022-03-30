@@ -1,0 +1,44 @@
+<form bindsubmit="saveperson" report-submit>
+<view class="main">
+    <view class="box">
+        <view class="white-box">
+            <van-cell-group>
+                <van-field label="机构名称：" input-align="right" name="name" value="{{lists.name}}" placeholder="请输入机构名字"  required="{{jg_mc}}"/>
+                <view class="box">
+                    <view class="input-item" style=" margin-left: -5px;">
+                        <view class="input-text"><text style="color: red;" wx:if="{{jg_js == 'true'}}">*</text>机构介绍：</view>
+                        <textarea placeholder="请输入机构介绍" name="des" value="{{lists.content}}"></textarea>
+                    </view>
+                    <!-- <view class="input-item">
+                        <view class="input-text">服务项目：</view>
+                        <view class="fwxm">
+                            <view wx:for="{{serve_list}}" wx:key="index" class="fwxm-item"
+                                style="color:{{item.color}};border-color:{{item.color}}">
+                                {{item.name}}
+                            </view>
+                        </view>
+                    </view> -->
+                </view>
+                <van-field label="企业联系人：" input-align="right" name="contact" value="{{lists.contact_name}}" placeholder="请输入联系人名字"  required="{{jg_lxr}}" />
+                <van-field label="职务：" input-align="right" name="job" value="{{lists.position}}" placeholder="请输入您的职务"  required="{{jg_zw}}"/>
+                <van-field label="联系人电话：" input-align="right" name="tel" value="{{lists.contact_phone}}" placeholder="请输入电话号码"  required="{{jg_dh}}" />
+                <!-- <van-field label="行业分类：" input-align="right" name="industry" value="{{lists.industry}}" placeholder="请输入行业" /> -->
+                <view class="input-item" style="display: flex;  justify-content: space-between;padding: 13px 17px; margin-left:-5px;">
+                    <text class="t"><text style="color: red;" wx:if="{{jg_hy == 'true'}}">*</text>行业分类:</text>
+                    <picker value="{{ Index }}" range="{{ industry }}" range-key="name" bindchange="bindIndustry">
+                        <view class="picker">{{industry[industryindex].name ? industry[industryindex].name : '请选择行业'}}</view>
+                    </picker>
+                </view>
+            </van-cell-group>
+        </view>
+        <button class="submint" formType="submit">保存</button>
+    </view>
+</view>
+</form>
+<van-toast id="van-toast" />
+<van-popup show="{{ show }}" bind:close="onClose" position="bottom">
+    <view class="state-t">选择服务项目</view>
+    <van-picker columns="{{ columns }}" bind:change="onChange" />
+    <view class="submit" bindtap="onClose">确定</view>
+</van-popup>
+<login isShow="{{isLogin}}" mainColor="{{system.foot_color2}}"></login>

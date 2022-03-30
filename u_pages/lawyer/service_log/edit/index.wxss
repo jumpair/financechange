@@ -1,0 +1,16 @@
+textarea {
+    min-height: 500rpx;
+}
+
+.cu-bar .action:first-child {
+    margin-left: 0;
+}
+
+.cu-bar .action:last-child {
+    margin-right: 0;
+}
+
+.cu-form-group {
+    padding: 0;
+    padding-bottom: 30rpx;
+}

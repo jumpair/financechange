@@ -1,0 +1,35 @@
+.icon {
+    width: 140rpx;
+    height: 140rpx;
+}
+
+.pic {
+    width: 140rpx;
+    height: 140rpx;
+}
+
+.foot {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    height: 100rpx;
+    width: 100%;
+    background: white;
+    align-items: center;
+    justify-content: flex-end;
+    box-shadow: 6rpx -3rpx 8rpx rgba(0,0,0,0.05);
+}
+
+button {
+    min-width: 150rpx;
+    text-align: center;
+}
+
+.cu-tag {
+    height: 30rpx;
+    font-size: 20rpx;
+    background-color: rgb(236,245,255);
+    color: rgb(64,158,255);
+    border: 1px solid rgb(217,236,255);
+    padding: 5rpx 15rpx;
+}

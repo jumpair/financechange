@@ -1,0 +1,5 @@
+<view class="_hover-button">
+    <button bindtap="toPage" data-url="{{item.linkUrl}}" openType="{{item.linkUrl}}" wx:for="{{items}}">
+        <image mode="aspectFill" src="{{item.imgUrl}}"></image>
+    </button>
+</view>

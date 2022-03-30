@@ -1,0 +1,77 @@
+<!-- <form reportSubmit bindsubmit="submit"> -->
+    <view class="main">
+    <view class="box">
+        <view class="card" style="background: linear-gradient(to left, #428ad4 20%,#0c64d2 100%);">
+            <view class="p">{{name}}</view>
+            <view class="sp">{{jg_name}}</view>
+            <block wx:if="{{type == 0}}">
+                <view class="b">订单类型：电话咨询</view>
+            </block>
+            <block wx:elif="{{type == 1}}">
+                <view class="b">订单类型：留言咨询</view>
+            </block>
+            <block wx:elif="{{type == 2}}">
+                <view class="b">订单类型：在线咨询</view>
+            </block>
+        </view>
+        <!--<form bindsubmit="goApplySuccess" report-submit>
+        <view class="white-box" style="margin-top: 46rpx;">
+            <van-cell-group>
+                <van-field name="company_name" value="{{sname}}" label="名称" disabled="true" placeholder="请输入名称" />
+                <van-field name="company_phone" value="{{tel}}" label="手机号" placeholder="请输入手机号" border="{{ false }}" bindinput='getInputValue' />
+                <van-field name="code"  center clearable label="验证码" placeholder="请输入短信验证码" border="{{ false }}"
+                    use-button-slot>
+                    <van-button slot="button" type='primary' size="small" color="#f5f5f5" round custom-class="yzm-btn"  disabled='{{disabled}}' bindtap="getCode">
+                        {{coder}}
+                    </van-button>
+                    
+                </van-field>
+                <van-field name="message" value="{{ message }}" label="留言" type="textarea" placeholder="请输入留言" autosize
+                    border="{{ false }}" />
+            </van-cell-group>
+           
+        </view>
+        <view style="margin-top: 72rpx;">
+            <button type="submit" block color="#0B7BF9" formType="submit" round >提交订单</button>
+        </view>
+        </form>-->
+        <form bindsubmit="goApplySuccess" report-submit class="form" style="padding-bottom: 60rpx;">
+            <view class="tt">
+                <text class="t1">名称</text>
+                <text class="t2">{{sname}}</text>
+            </view>
+            <block wx:if="{{managerstate == 1}}">
+            <view class="list">
+                <person
+                    list="{{list}}"
+                    id="1"
+                    bindmyevent="myevent"
+                ></person>
+            </view>
+            </block>
+            <!-- 如果是在线聊天，把留言文字隐藏 -->
+            <block wx:if="{{type != 2}}">
+                <view class="tt">
+                    <text class="t1">留言</text>
+                </view>
+                <view class="textarea">
+                    <textarea 
+                        class="ta1"
+                        placeholder="请输入留言"
+                        placeholder-style="color:#ccc,font-size:24rpx"
+                        maxlength="400"
+                        confirm-type="done"
+                        bindinput="textareaChange"
+                        name = 'message'
+                        style="height: 140rpx;"
+                    ></textarea>
+                </view>
+            </block>
+            <view style="height: 50rpx;"></view>
+            <button type="submit" block color="#0B7BF9" formType="submit" round style="background-color: #0B7BF9;color: #fff; border-radius: 30px;">提交订单</button>
+        </form>
+       
+    </view>
+    </view>
+<!-- </from> -->
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>

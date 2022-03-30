@@ -1,0 +1,34 @@
+<view class="item">
+    <view class="box">
+        <view class="item-top">
+            <view class="item-name">
+                转贷过桥
+                <image class="img" src="../../assets/images/indexPro/hot.png"></image>
+            </view>
+            <view class="more">了解产品</view>
+        </view>
+        <view class="item-content">
+            <view class="content-item">
+                <view class="sp">成交金额（万元）</view>
+                <view class="p">36535453.274</view>
+            </view>
+            <view class="content-item">
+                <view class="sp">办理笔数</view>
+                <view class="p">9380</view>
+            </view>
+            <view class="content-item">
+                <view class="sp">好评</view>
+                <view class="p">980</view>
+            </view>
+        </view>
+        <view class="item-bottom">
+            <view class="name">
+                <text class="t">滨州普惠中小企业服务有限公司</text>
+                <image class="img" src="../../assets/images/text.png"></image>
+            </view>
+            <view class="more">
+                <image class="img" src="../../assets/images/more.png"></image>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,92 @@
+<view class="top-bg"></view>
+<scroll-view class="main" scroll-y="true">
+    <view class="box">
+        <view class="white-box">
+            <view class="t">{{name}}</view>
+            <view class="num-list">
+                <view class="num-item">
+                    <view class="sp">成交金额（万元）</view>
+                    <view class="p">{{cj_price}}</view>
+                </view>
+                <view class="num-item">
+                    <view class="sp">办理比数</view>
+                    <view class="p">{{bl_num}}</view>
+                </view>
+                <view class="num-item">
+                    <view class="sp">好评</view>
+                    <view class="p">{{hp_num}}</view>
+                </view>
+            </view>
+            <view class="name-box">
+                <view class="public-t">
+                    <image class="img" src="../../../assets/images/text.png"></image>
+                    <text class="text">金融机构：</text>
+                </view>
+                <view class="name">
+                    <text class="text">{{jg_name}}</text>
+                    <image class="img" src="../../../assets/images/more.png"></image>
+                </view>
+            </view>
+            <view class="product-intr">
+                <view class="public-t">
+                    <image class="img" src="../../../assets/images/intr.png"></image>
+                    <text class="text">产品介绍：</text>
+                </view>
+                <view class="des">
+                   <text class="text">{{content}}
+                   </text>
+                </view>
+            </view>
+            <view class="product-intr no-border">
+                <view class="public-t">
+                    <text class="text">产品优势：</text>
+                </view>
+                <view class="des">
+                   {{pro_youshi}}
+                </view>
+            </view>
+            <view class="product-intr no-border">
+                <view class="public-t">
+                    <text class="text">办理条件：</text>
+                </view>
+                <view class="des">
+                    {{pro_tiaojian}}
+                </view>
+            </view>
+        </view>
+        <view class="white-box" style="margin-top: 18rpx;">
+            <view class="order-type">订单类型</view>
+            <view class="order-type-box">
+        
+                <view bindtap="choiceServe" class="flex align-center {{index<fulu_list.length-1?'solid-bottom':''}} padding-tb-xs" data-index="{{index}}" wx:for="{{fulu_list}}">
+                    <image src="{{item.icon}}" style="width: 90rpx;height: 90rpx;"></image>
+                    <view class="flex-sub padding-left-sm">
+                        <view class="text-lg">{{item.title}}</view>
+                        <view class="padding-top-xs text-sm text-grey">{{item.desc}}</view>
+                    </view>
+                    <view class="text-red text-bold padding-right-sm" wx:if="{{item.price>0}}">
+						￥{{item.price}}/{{item.unit||'单'}}
+					</view>
+                    <view class="text-red text-bold padding-right-sm" wx:else>
+						{{system.free_name||'免费咨询'}}
+					</view>
+                    <view class="cuIcon-roundcheckfill" style="color: {{index==choice_index?system.foot_color2:'#e3e3e3'}};font-size: 40rpx;"></view>
+                </view>
+                <view bindtap="checkXy" class="flex align-center padding-top-sm justify-center" wx:if="{{system.is_order_notice=='2'}}">
+                    <view class="cuIcon-roundcheckfill" style="color: {{check_xy?system.foot_color2:'#e3e3e3'}};font-size: 40rpx;"></view>
+                    <view class="padding-left-xs">
+						阅读并勾选
+						<text catchtap="toPage" class="padding-left-xs" style="color: {{system.foot_color2}};">《用户下单须知》</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</scroll-view>
+<van-goods-action custom-class="bottom-btn">
+    <view class="flex1">
+        <van-goods-action-icon icon="wap-home-o" />
+        <van-goods-action-icon icon="share-o" />
+    </view>
+    <van-goods-action-button color='#0B7BF9' text="立即申请" class="flex2" bindtap="toSubscribe" />
+</van-goods-action>

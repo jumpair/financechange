@@ -1,0 +1,46 @@
+<scroll-view class="main" scroll-y="true">
+    <view class="box">
+        <view class="white-box">
+            <view class="detail-top">
+                <text class="t">信保融资</text>
+                <text class="sp">高级经济师</text>
+                <view class="p">银行金融、投资银行</view>
+            </view>
+            <view class="product-intr">
+                <view class="public-t">
+                    <image class="img" src="../../../assets/images/intr.png"></image>
+                    <text class="text">专家介绍：</text>
+                </view>
+                <view class="des">
+                    <text class="text">1、车抵贷：是指以用户的车辆做抵押，向阳光财产保险公司申请的贷款业务。</text>
+                    <text class="text">2、信保贷：是指用户以房贷、车贷还款记录及商业保单为依据，而向用户发放的信用贷款业
+                        务。</text>
+                </view>
+            </view>
+        </view>
+        <view class="white-box" style="margin-top: 18rpx;">
+            <view class="order-type">订单类型</view>
+            <view class="order-type-box">
+                <view class="order-type-item" wx:for="{{orderList}}" wx:key="index"  >
+                    <view class="image">
+                        <image class="img" src="{{item.icon}}"></image>
+                    </view>
+                    <view class="text">
+                        <view class="p">{{item.text1}}</view>
+                        <view class="sp">{{item.text2}}</view>
+                    </view>
+                    <view class="checkbox">
+                        <van-checkbox value="{{ checked == index?true:false }}" icon-size="25px" data-index="{{index}}" bindtap="onChange"></van-checkbox>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</scroll-view>
+<van-goods-action custom-class="bottom-btn">
+    <view class="flex1">
+        <van-goods-action-icon icon="wap-home-o" />
+        <van-goods-action-icon icon="share-o" />
+    </view>
+    <van-goods-action-button color='#0B7BF9' text="立即申请" class="flex2" />
+</van-goods-action>

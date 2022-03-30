@@ -1,0 +1,50 @@
+<view class="padding">
+    <view class="padding panel text-white" style="background-image: url({{wallet_bg}});">
+        <view class="padding-xs text-sm">可提现金额</view>
+        <view class="flex align-center justify-between padding-lr-xs padding-tb">
+            <view class="" style="font-size: 70rpx;">{{wallet.ktx_money||'0.00'}}</view>
+            <view bindtap="toWithdraw" class="text-df padding-tb padding-left">
+				提现<text class="cuIcon-right"></text>
+            </view>
+        </view>
+        <view class="flex justify-between align-center padding-xs text-sm">
+            <view class="text-center">
+                <view class="padding-bottom-xs">已提现</view>
+                <view>￥{{wallet.ytx_money||'0.00'}}</view>
+            </view>
+            <view class="text-center">
+                <view class="padding-bottom-xs">提现中</view>
+                <view>￥{{wallet.txz_money||'0.00'}}</view>
+            </view>
+            <view class="text-center">
+                <view class="padding-bottom-xs">总收益</view>
+                <view>￥{{wallet.z_money||'0.00'}}</view>
+            </view>
+            <view class="text-center">
+                <view class="padding-bottom-xs">不可提现</view>
+                <view>￥{{wallet.bktx_money||'0.00'}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="padding-lr">
+    <text class="text-lg text-black">明细</text>
+</view>
+<view class="padding">
+    <view class="{{index==0?'margin-bottom':'margin-tb'}} bg-white c-shadow-sm padding flex justify-between align-center" style="min-height: 178rpx;" wx:for="{{record}}">
+        <view class="item text-sm">
+            <view class="text-lg text-black">{{item.title}}</view>
+            <view class="text-grey" wx:if="{{item.type==1}}">{{item.order||''}}</view>
+            <view class="text-grey" wx:else>{{item.tx_type_name||''}}</view>
+            <view class="text-grey">{{item.state_t}}</view>
+        </view>
+        <view class="flex flex-direction align-end text-sm">
+            <view class="text-xl padding-bottom-xs text-{{item.type==1?'blue':'red'}}">{{item.type==1?'+':'-'}}{{item.money}}</view>
+            <view class="text-grey">{{item.time}}</view>
+        </view>
+    </view>
+    <view class="flex justify-center padding-tb" style="width: 100%;" wx:if="{{record&&!record.length}}">
+        <image mode="widthFix" src="{{no_detail}}" style="width: 50%;"></image>
+    </view>
+</view>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>

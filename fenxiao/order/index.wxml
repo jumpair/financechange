@@ -1,0 +1,31 @@
+<page-meta>
+    <navigation-bar title="{{system.fx_title1||'分销'}}订单"></navigation-bar>
+</page-meta>
+<scroll-view scrollX class="bg-white nav" wx:if="{{list}}">
+    <view class="flex text-center">
+        <view bindtap="tabSelect" class="cu-item flex-sub {{index==cur?'cur text-bold':''}}" data-index="{{index}}" style="color: {{index==cur?system.foot_color2:'#333'}};" wx:for="{{items}}">
+			{{item}}
+		</view>
+    </view>
+</scroll-view>
+<view class="padding">
+    <block wx:if="{{list&&list[cur].length}}">
+        <view class="_items margin-bottom-sm" wx:for="{{list[cur]}}">
+            <view class="content padding-bottom-xs">
+                <view class="orderno">订单号: {{item.data.orderno}}</view>
+                <view style="color: {{system.foot_color2}};">{{item.state=='2'?'待结算':item.state=='3'?'已完成':'已退款'}}</view>
+            </view>
+            <view class="content padding-top-xs solid-top">
+                <image mode="aspectFill" src="{{item.user.avatarUrl}}"></image>
+                <view class="text text-cut">{{item.user.nickName}}</view>
+                <view>{{item.type=='1'?'商城订单':item.type=='2'?'服务订单':'入驻订单'}}</view>
+                <view class="text text-cut text-right">佣金:<text style="color: red;">{{item.yongjin}}</text>元</view>
+            </view>
+        </view>
+    </block>
+    <view class="flex justify-center padding-tb" style="width: 100%;" wx:if="{{list&&!list[cur].length}}">
+        <image mode="widthFix" src="{{no_orders}}" style="width: 50%;"></image>
+    </view>
+</view>
+<tabbar show="{{show_tabbar}}"></tabbar>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>

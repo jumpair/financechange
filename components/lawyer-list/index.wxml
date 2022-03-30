@@ -1,0 +1,37 @@
+<form reportSubmit bindsubmit="submitFromId">
+    <view class="{{mClass}}" style="{{mStyle}}" wx:if="{{data}}">
+        <button bind:tap="toInfo" data-id="{{item.id}}" formType="submit" style="width: 100%;" wx:if="{{data.length}}" wx:for="{{data}}">
+            <view class=" text-sm text-color">
+                <view class="padding-tb-sm flex align-center justify-between">
+                    <view class="headPhoto solid">
+                        <image src="{{item.img}}"></image>
+                    </view>
+                    <view class="padding-left-sm flex flex-direction justify-between flex-sub">
+                        <view class="flex align-center item-padding-tb">
+                            <view class="name text-bold">{{item.name}}</view>
+                            <view class="padding-left-xs workAge">{{zhiye}}{{item.work_year}}年</view>
+                        </view>
+                        <view class="flex align-center item-padding-tb">
+                            <view class="">{{item.province_name}} {{item.city_name}}</view>
+                            <view class="padding-lr-xs">|</view>
+                            <view class="">{{item.lawfirm}}</view>
+                        </view>
+                        <view class="flex align-center item-padding-tb" wx:if="{{item.juli}}">
+                            <view class="">距您:{{item.juli}}</view>
+                        </view>
+                        <view class="flex align-center item-padding-tb">
+                            <view class="margin-right-xs tag-border" wx:for="{{item.good}}" wx:for-item="i">{{i}}</view>
+                        </view>
+                    </view>
+                    <view class="flex flex-direction align-center">
+                        <view class="text-red padding-bottom-xs">￥{{item.price}}/次起</view>
+                        <view class="btn text-xs text-center" style="background:{{btn_color}};">了解更多</view>
+                    </view>
+                </view>
+            </view>
+        </button>
+        <view class="flex justify-center bg-white padding-tb" style="width: 100%;" wx:if="{{data&&!data[0]}}">
+            <image mode="widthFix" src="{{no_laws}}" style="width: 50%;"></image>
+        </view>
+    </view>
+</form>

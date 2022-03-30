@@ -1,0 +1,319 @@
+<view class="main" wx:if="{{lists}}">
+    <van-tabs swipeable type='line' color='#0B7BF9' animated='true' nav-class='nav' bind:change='getData'
+        title-active-color='#0B7BF9'>
+        <block wx:for="{{lists}}" wx:key="index">
+        <van-tab title="{{item.prostate}}">
+            <scroll-view class="list-item" scroll-y='true' bindscrolltolower='loadMore'>
+                <view class="box" wx:for="{{item.lists}}" wx:for-item="order" wx:key="num">
+                    <view class="order-item">
+                        <view class="order-t">
+                            <text>{{order.submit_time}}</text>
+                            <block wx:if="{{order.statename}}">
+                            <text>{{order.statename}}</text>
+                            </block>
+                            <block wx:else>
+                                <text>暂无状态</text>
+                            </block>
+                        </view>
+                        <view class="order-text">
+                            <view class="text-item">
+                                <view class="l">订单号：</view>
+                                <view class="r">{{order.ordercode}}</view>
+                            </view>
+                            <view class="text-item">
+                                <view class="l">名称：</view>
+                                <view class="r">{{order.yhname}}</view>
+                            </view>
+                            <view class="text-item">
+                                <view class="l">产品名称：</view>
+                                <view class="r">{{order.proname}}</view>
+                            </view>
+                            <view class="text-item">
+                                <view class="l">订单类型：</view>
+                                <view class="r">{{order.typename}}</view>
+                            </view>
+                            <!-- <view class="text-item">
+                                <view class="l">总评分数：</view>
+                                <view class="r">10</view>
+                            </view> -->
+                        </view>
+                        <view class="order-btn">
+                            <!--<view bindtap="goOrderProgress">修改状态
+                                <block wx:if="{{true}}">
+                                    <image src="../../../assets/images/user/j.png"></image>
+                                </block>
+                            </view>-->
+                            <view class="input-item" wx:if="{{order.over != 2}}">
+                                <picker value="{{ Index }}" range="{{ order.statelist }}" data-id = "{{order.user_id}}" range-key="title" data-id="{{order.id}}" data-catid="{{order.catid}}" data-statelist="{{order.statelist}}" bindchange="bindState" bindtap="bindOrderid">
+                                    <view class="picker">修改状态</view>
+                                </picker>
+                            </view>
+                            <block wx:if="{{order.order_state != 0 }}">
+                            <view bindtap="goOrderDetail" data-id="{{order.id}}">订单详情</view>
+                            </block>
+                      
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+        </van-tab>
+    </block>
+        <!-- <van-tab title="已中标">
+            <scroll-view class="list-item" scroll-y='true'>
+                <view class="box">
+                    <view class="order-item">
+                        <view class="order-t">
+                            <text>2021-05-23 11:41:34</text>
+                            <text>已完成</text>
+                        </view>
+                        <view class="order-text">
+                            <view class="text-item">
+                                <view class="l">公司名称:</view>
+                                <view class="r">山东网亿网络科技有限公司</view>
+                            </view>
+                            <view class="text-item">
+                                <view class="l">产品名称：</view>
+                                <view class="r">转贷过桥</view>
+                            </view>
+                            <view class="text-item">
+                                <view class="l">订单类型：</view>
+                                <view class="r">电话咨询</view>
+                            </view>
+                            <view class="text-item">
+                                <view class="l">总评分数：</view>
+                                <view class="r">10</view>
+                            </view>
+                        </view>
+                        <view class="order-btn">
+                            <view bindtap="goOrderProgress">修改状态
+                                <block wx:if="{{true}}">
+                                    <image src="../../../assets/images/user/j.png"></image>
+                                </block>
+                            </view>
+                            <view bindtap="goOrderDetail">订单详情</view>
+                        </view>
+                        <view class="persent">
+                            <view class="p-n">30%</view>
+                            <view class="p-sp">中标成功率</view>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+        </van-tab> -->
+    </van-tabs>
+  
+ <!--   <van-toast id="van-toast" />
+    <van-popup show="{{ show }}" bind:close="onClose" position="bottom">
+        <view class="state-t">修改状态</view>
+        <van-picker columns="{{ columns }}" state="{{ id }}" bind:change="onChange" />
+        <view class="submit"  bindtap="onCloseFile">确定</view>
+    </van-popup>-->
+</view>
+<van-popup show="{{ show0 }}" bind:click-overlay="aaa" custom-class="tc-box">
+<form bindsubmit="savedj" report-submit>
+    <view class="tc-t">
+        <text>对接中</text>
+        <image src="../../../assets/images/close_ico.png" bindtap="aaa"></image>
+    </view>
+    <view class="tc-item">
+        <van-cell-group>
+            <van-field label="对接人" placeholder="请输入对接人姓名" name="name"  input-align="right" />
+            <van-field label="手机号" placeholder="请输入手机号" name="tel" input-align="right" />
+        </van-cell-group>
+        <button class="submit submitform" formType="submit">提交</button>
+    </view>
+</form>
+</van-popup>
+<van-popup show="{{ show1 }}" bind:click-overlay="aaa" custom-class="tc-box">
+<form bindsubmit="saveDD" report-submit>
+    <view class="tc-t">
+        <text>现场尽调</text>
+        <image src="../../../assets/images/close_ico.png" bindtap="aaa"></image>
+    </view>
+    <view class="tc-item">
+        <van-cell-group>
+            <van-field label="尽调人" placeholder="请输入尽调人姓名" name="name" input-align="right" />
+            <van-field label="职务" placeholder="请输入职务" name="zhiwu" input-align="right" />
+            <van-field label="电话" placeholder="请输入电话" name="tel" input-align="right" />
+            <van-field model:value="{{jdTime}}" label="尽调时间" placeholder="请输入尽调时间" input-align="right"  disabled bind:click-input="opentimebox" bind:blur="bindinput" />
+        </van-cell-group>
+        <button class="submit submitform" formType="submit">提交</button>
+    </view>
+</form>
+</van-popup>
+<van-popup show="{{ show11 }}" bind:click-overlay="aaa" custom-class="tc-box">
+<form bindsubmit="saveMaterial" report-submit>
+    <view class="tc-t">
+        <text>对接</text>
+        <image src="../../../assets/images/close_ico.png" bindtap="aaa"></image>
+    </view>
+    <view class="tc-item">
+        <view class="zl-state">
+            <text class="{{zlstateindex == 0?'active':''}}" bindtap="zlChangeState">通过</text>
+            <text class="{{zlstateindex == 1?'active':''}}" bindtap="zlChangeState1">不通过</text>
+        </view>
+        <view wx:if="{{zlstateindex}}">
+            <van-field label="原因" placeholder="请输入不通过原因" name="zil" type="textarea" />
+        </view>
+        <button class="submit submitform" formType="submit">提交</button>
+    </view>
+</form>
+</van-popup>
+<van-popup show="{{ show22 }}" bind:click-overlay="aaa" custom-class="tc-box">
+<form bindsubmit="saveMaterial" report-submit>
+    <view class="tc-t">
+        <text>现场尽调</text>
+        <image src="../../../assets/images/close_ico.png" bindtap="aaa"></image>
+    </view>
+    <view class="tc-item">
+        <view class="zl-state">
+            <text class="{{zlstateindex == 0?'active':''}}" bindtap="zlChangeState">通过</text>
+            <text class="{{zlstateindex == 1?'active':''}}" bindtap="zlChangeState1">不通过</text>
+        </view>
+        <view wx:if="{{zlstateindex}}">
+            <van-field label="原因" placeholder="请输入不通过原因" name="zil" type="textarea" />
+        </view>
+        <button class="submit submitform" formType="submit">提交</button>
+    </view>
+</form>
+</van-popup>
+<van-popup show="{{ show2 }}" bind:click-overlay="aaa" custom-class="tc-box">
+<form bindsubmit="saveMaterial" report-submit>
+    <view class="tc-t">
+        <text>资料收集</text>
+        <image src="../../../assets/images/close_ico.png" bindtap="aaa"></image>
+    </view>
+    <view class="tc-item">
+        <view class="zl-state">
+            <text class="{{zlstateindex == 0?'active':''}}" bindtap="zlChangeState">通过</text>
+            <text class="{{zlstateindex == 1?'active':''}}" bindtap="zlChangeState1">不通过</text>
+        </view>
+        <view wx:if="{{zlstateindex}}">
+            <van-field label="原因" placeholder="请输入不通过原因" name="zil" type="textarea" />
+        </view>
+        <button class="submit submitform" formType="submit">提交</button>
+    </view>
+</form>
+</van-popup>
+<van-popup show="{{ show3 }}" bind:click-overlay="aaa" custom-class="tc-box">
+    <form bindsubmit="saveMaterial" report-submit>
+    <view class="tc-t">
+        <text>授信审批</text>
+        <image src="../../../assets/images/close_ico.png" bindtap="aaa"></image>
+    </view>
+    <view class="tc-item">
+        <view class="zl-state">
+            <text class="{{zlstateindex == 0?'active':''}}" bindtap="zlChangeState">通过</text>
+            <text class="{{zlstateindex == 1?'active':''}}" bindtap="zlChangeState1">不通过</text>
+        </view>
+        <view wx:if="{{zlstateindex}}">
+            <van-field label="原因" placeholder="请输入不通过原因" name="zil" type="textarea" />
+        </view>
+        <button class="submit submitform" formType="submit">提交</button>
+    </view>
+</form>
+</van-popup>
+<van-popup show="{{ show4 }}" bind:click-overlay="aaa" custom-class="tc-box">
+<form bindsubmit="saveMaterial" report-submit>
+    <view class="tc-t">
+        <text>抵押登记</text>
+        <image src="../../../assets/images/close_ico.png" bindtap="aaa"></image>
+    </view>
+    <view class="tc-item">
+        <view class="zl-state">
+            <text class="{{zlstateindex == 0?'active':''}}" bindtap="zlChangeState">通过</text>
+            <text class="{{zlstateindex == 1?'active':''}}" bindtap="zlChangeState1">不通过</text>
+        </view>
+        <view wx:if="{{zlstateindex}}">
+            <van-field label="原因" placeholder="请输入不通过原因" name="zil" type="textarea" />
+        </view>
+        <button class="submit submitform" formType="submit">提交</button>
+    </view>
+</form>
+</van-popup>
+<van-popup show="{{ show5 }}" bind:click-overlay="aaa" custom-class="tc-box">
+    <form bindsubmit="saveLoan" report-submit>
+    <view class="tc-t">
+        <text>放款</text>
+        <image src="../../../assets/images/close_ico.png" bindtap="aaa"></image>
+    </view>
+    <view class="tc-item">
+        <van-cell-group>
+            <van-field label="成交金额" placeholder="请输入成交金额（万元）" name="price" input-align="right" />
+            <van-field label="利率" placeholder="请输入利率（%）" name="rate" input-align="right" />
+            <van-field label="期限" placeholder="请输入期限" name="term" input-align="right" />
+            <van-field label="担保方式" placeholder="请输入担保方式" name="guarantee" input-align="right" />
+            <van-field model:value="{{jdTime1}}" label="起始日" name="start_time"  placeholder="请输入起始日" input-align="right" disabled bind:click-input="opentimebox1" bind:blur="bindinput" />
+            <van-field model:value="{{jdTime2}}" label="到期日" name="end_time" placeholder="请输入到期日" input-align="right" disabled bind:click-input="opentimebox2" bind:blur="bindinput" />
+            <van-field label="经办客户经理"  name="manager" placeholder="请输入经办客户经理" input-align="right" />
+        </van-cell-group>
+        <button class="submit submitform" formType="submit">提交</button>
+    </view>
+    </form>
+</van-popup>
+<van-popup show="{{ show6 }}" bind:click-overlay="aaa" custom-class="tc-box">
+    <form bindsubmit="saveServer" report-submit>
+    <view class="tc-t">
+        <text>服务</text>
+        <image src="../../../assets/images/close_ico.png" bindtap="aaa"></image>
+    </view>
+    <view class="tc-item">
+        <van-cell-group>
+            <textarea style="border: 1px solid #ccc;margin: 0 30rpx;display: block;width: calc(100% - 60rpx);border-radius: 10rpx;padding: 39rpx;color: #666666;font-size: 32rpx;" 
+                name="scontent" 
+                id="" 
+                cols="30" 
+                rows="10"
+                placeholder="请输入服务内容"
+                ></textarea>
+        </van-cell-group>
+        <button class="submit submitform" formType="submit">提交</button>
+    </view>
+    </form>
+</van-popup>
+<van-popup show="{{ show7 }}" bind:click-overlay="aaa" custom-class="tc-box">
+<form bindsubmit="saveMaterial" report-submit>
+    <view class="tc-t">
+        <text>放款确认</text>
+        <image src="../../../assets/images/close_ico.png" bindtap="aaa"></image>
+    </view>
+    <view class="tc-item">
+        <view class="zl-state">
+            <text class="{{zlstateindex == 0?'active':''}}" bindtap="zlChangeState">通过</text>
+            <text class="{{zlstateindex == 1?'active':''}}" bindtap="zlChangeState1">不通过</text>
+        </view>
+        <view wx:if="{{zlstateindex}}">
+            <van-field label="原因" placeholder="请输入不通过原因" name="zil" type="textarea" />
+        </view>
+        <button class="submit submitform" formType="submit">提交</button>
+    </view>
+</form>
+</van-popup>
+<van-popup show="{{ showtime }}" position="bottom" bind:click-overlay="closetimebox">
+    <van-datetime-picker 
+    type="date" 
+    value="{{ currentDate }}" 
+    bindinput="onInput" 
+    bindconfirm="confirmTime"
+    bindcancel="cancelTime"
+    />
+</van-popup>
+<van-popup show="{{ showtime1 }}" position="bottom" bind:click-overlay="closetimebox">
+    <van-datetime-picker 
+    type="date" 
+    value="{{ currentDate }}" 
+    bindinput="onInput1" 
+    bindconfirm="confirmTime1"
+    bindcancel="cancelTime1"
+    />
+</van-popup>
+<van-popup show="{{ showtime2 }}" position="bottom" bind:click-overlay="closetimebox">
+    <van-datetime-picker 
+    type="date" 
+    value="{{ currentDate }}" 
+    bindinput="onInput2" 
+    bindconfirm="confirmTime2"
+    bindcancel="cancelTime2"
+    />
+</van-popup>
+<login isShow="{{isLogin}}" mainColor="{{system.foot_color2}}"></login>

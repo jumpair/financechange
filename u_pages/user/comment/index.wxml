@@ -1,0 +1,24 @@
+<form bindsubmit="SaveComment" report-submit>
+<view class="main">
+    <view class="top" style="background: linear-gradient(to left, #428ad4 20%,#0c64d2 100%);">
+        <view class="t">您的订单已完成</view>
+        <view class="t1">请为我们的产品和服务进行评价吧</view>
+    </view>
+    <view class="content">
+        <view class="box">
+            <view class="black-t">{{proname}}</view>
+            <view class="public-t">
+                <image class="img" src="../../../assets/images/text.png"></image>
+                <text class="text">金融机构：</text>
+            </view>
+            <text class="text1">{{financename}}</text>
+            <view class="black-t">服务评价</view>
+            <van-rate custom-class="score" name="star" value="{{ value }}" size="{{ 25 }}" color="#ffd21e" void-icon="star"
+                void-color="#eee" bind:change="onChange" />
+            <block wx:if="{{overstar != 1}}">
+            <button class="submit" formType="submit">提交</button>
+            </block>
+        </view>
+    </view>
+</view>
+</form>

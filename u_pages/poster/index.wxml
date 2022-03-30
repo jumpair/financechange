@@ -1,0 +1,5 @@
+<painter bind:imgOK="onImgOK" palette="{{json}}"></painter>
+<canvas canvasId="canvas" class="canvas" wx:if="{{poster}}">
+    <cover-view bindtap="save" class="cover-view bg-blue top" hoverClass="hover">保存到相册</cover-view>
+</canvas>
+<tabbar show="{{show_tabbar}}"></tabbar>

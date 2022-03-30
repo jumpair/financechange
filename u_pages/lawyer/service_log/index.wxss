@@ -1,0 +1,28 @@
+.cu-timeline {
+    display: block;
+    background-color: rgba(0,0,0,0);
+}
+
+.floating {
+    display: flex;
+    position: fixed;
+    right: 30rpx;
+    bottom: 30rpx;
+    box-shadow: 0rpx 3rpx 18rpx rgba(0,0,0,.2);
+    height: 110rpx;
+    width: 110rpx;
+    border-radius: 5000rpx;
+    justify-content: center;
+    align-items: center;
+    font-size: 45rpx;
+    color: var(--grey);
+}
+
+.cu-timeline>.cu-item[class*="cuIcon-"]::before {
+    background-color: rgba(0,0,0,0);
+}
+
+image {
+    width: 90rpx;
+    height: 90rpx;
+}

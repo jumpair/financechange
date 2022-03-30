@@ -1,0 +1,50 @@
+<view class="main">
+    <view class="top" style="background: linear-gradient(to left, #428ad4 20%,#0c64d2 100%);">
+        <view class="left">
+            <view class="p">欢迎来电咨询 </view>
+            <view class="sp">合作发展，共创未来</view>
+        </view>
+        <view class="right">
+            <image src="../../../assets/images/person_icon.png"></image>
+        </view>
+        <view class="pub-title pa">
+            <view class="box">
+                <view class="t">联系我们</view>
+            </view>
+        </view>
+    </view>
+    
+    
+    <view class="p1" style="white-space: normal;">
+        <view class="box">
+            <view class="contact-item">
+                <rich-text nodes="{{content}}"></rich-text>
+            </view>
+            
+        </view>
+    </view>
+
+    <view class="pub-title" style="margin-top: 30rpx;">
+        <view class="box">
+            <view class="t">中心地址</view>
+        </view>
+    </view>
+    <view class="p1">
+        <view class="box">
+            <button type="default" bindtap="openMap">点击打开地图</button>
+            <!-- <view class="map">
+                <map
+                id="myMap"
+                style="width: 100%; height:100%;"
+                latitude="{{latitude}}"
+                longitude="{{longitude}}"
+                markers="{{markers}}"
+                covers="{{covers}}"
+                show-location
+                ></map>
+            </view> -->
+        </view>
+    </view>
+
+</view>
+<tabbar show="{{show_tabbar}}"></tabbar>

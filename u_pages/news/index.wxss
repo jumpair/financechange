@@ -1,0 +1,7 @@
+.cu-bar.fixed,.nav.fixed {
+    box-shadow: none;
+}
+
+.nav .cu-item {
+    min-width: 152rpx;
+}

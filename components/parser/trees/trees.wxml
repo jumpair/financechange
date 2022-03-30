@@ -1,0 +1,28 @@
+<block wx:for="{{nodes}}" wx:key="index">
+    <rich-text bindlongpress="imglongtap" bindtap="imgtap" class="_img" data-attrs="{{item.attrs}}" id="{{item.attrs.id}}" nodes="{{handler.getNode(item,!lazyLoad||imgLoad)}}" style="{{handler.getStyle(item.attrs.style)}}" wx:if="{{item.name=='img'}}"></rich-text>
+    <rich-text class="_entity" nodes="{{[item]}}" wx:elif="{{item.decode}}"></rich-text>
+    <text wx:elif="{{item.type=='text'}}">{{item.text}}</text>
+    <text wx:elif="{{item.name=='br'}}">
+</text>
+    <view bindtap="linkpress" class="_a {{item.attrs.class}}" data-attrs="{{item.attrs}}" hoverClass="_hover" style="{{item.attrs.style}}" wx:elif="{{item.name=='a'}}">
+        <trees nodes="{{item.children}}"></trees>
+    </view>
+    <block wx:elif="{{item.name=='video'}}">
+        <view bindtap="loadVideo" class="_video {{item.attrs.class}}" id="{{item.attrs.id}}" style="{{item.attrs.style}}" wx:if="{{item.lazyLoad}}"></view>
+        <video autoplay="{{item.attrs.autoplay}}" binderror="error" bindplay="play" class="{{item.attrs.class}}" controls="{{item.attrs.controls}}" data-from="Video" data-source="{{item.attrs.source}}" id="{{item.attrs.id}}" loop="{{item.attrs.loop}}" muted="{{item.attrs.muted}}" poster="{{item.attrs.poster}}" src="{{item.attrs.source[controls[item.attrs.id]||0]}}" style="{{item.attrs.style}}" unitId="{{item.attrs['unit-id']}}" wx:else></video>
+    </block>
+    <audio author="{{item.attrs.author}}" binderror="error" class="{{item.attrs.class}}" controls="{{item.attrs.controls}}" data-from="Audio" data-source="{{item.attrs.source}}" id="{{item.attrs.id}}" loop="{{item.attrs.loop}}" name="{{item.attrs.name}}" poster="{{item.attrs.poster}}" src="{{item.attrs.source[controls[item.attrs.id]||0]}}" style="{{item.attrs.style}}" wx:elif="{{item.name=='audio'}}"></audio>
+    <ad binderror="error" class="{{item.attrs.class}}" data-from="ad" style="{{item.attrs.style}}" unitId="{{item.attrs['unit-id']}}" wx:elif="{{item.name=='ad'}}"></ad>
+    <view class="{{item.attrs.class}}" style="{{item.attrs.style}};display:flex" wx:elif="{{item.name=='li'}}">
+        <view class="_ol-bef" wx:if="{{item.type=='ol'}}">{{item.num}}</view>
+        <view class="_ul-bef" wx:else>
+            <view class="_ul-p1" wx:if="{{item.floor%3==0}}">█</view>
+            <view class="_ul-p2" wx:elif="{{item.floor%3==2}}"></view>
+            <view class="_ul-p1" style="border-radius:50%" wx:else>█</view>
+        </view>
+        <trees class="_node _li" lazyLoad="{{lazyLoad}}" nodes="{{item.children}}"></trees>
+    </view>
+    <rich-text class="_p __{{item.name}}" id="{{item.attrs.id}}" nodes="{{[item]}}" style="{{handler.getStyle(item.attrs.style)}}" wx:elif="{{handler.useRichText(item)}}"></rich-text>
+    <trees class="_node _{{item.name}} {{item.attrs.class}}" id="{{item.attrs.id}}" lazyLoad="{{lazyLoad}}" nodes="{{item.children}}" style="{{item.attrs.style}}" wx:else></trees>
+</block>
+<wxs module="handler" src="handler.wxs" />

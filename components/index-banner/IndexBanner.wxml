@@ -1,0 +1,13 @@
+<!--components/swiper/IndexBanner.wxml-->
+<view class="status {{bbb?'bg':''}}">
+    <view style="height: {{aaa}};"></view>
+    <view class="status-name">金融超市</view>
+</view>
+<view class="index-top">
+    <swiper class="swiper" indicator-dots="true" indicator-color="rgba(255,255,255,.4)" indicator-active-color="rgba(255,255,255,.8)" autoplay="true">
+        <swiper-item wx:for="{{banner}}" wx:key="key">
+            <image class="img" src="{{item.img}}"></image>
+        </swiper-item>
+       
+    </swiper>
+</view>

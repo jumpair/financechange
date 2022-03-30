@@ -1,0 +1,18 @@
+<view class="page">
+    <view class="pic">
+        <view class="title">{{system.xcx_name}}</view>
+        <image class="img" mode="widthFix" src="../../static/images/accredit_bg.png"></image>
+        <view class="desc">
+            <text class="yzd-info"></text>
+			为了您获取更好的体验，请您点击按钮并同意授权
+		</view>
+    </view>
+    <view class="btn-group">
+        <button bind:tap="getUserProfile" class="_from_btn" disabled="{{userInfo.nickName!='游客'}}" openType="getUserInfo" wx:if="{{system.is_force_login=='1'}}">
+            <view style="background: {{userInfo.nickName=='游客'?system.foot_color2:'#efefef'}}; color: {{userInfo.nickName=='游客'?system.text_color:'#333333'}} ">立即登录</view>
+        </button>
+        <button bindgetphonenumber="getPhoneNumber" class="_from_btn" disabled="{{userInfo.phone}}" openType="getPhoneNumber" wx:if="{{system.is_force_getphone=='1'}}">
+            <view style="background: {{!userInfo.phone?system.foot_color2:'#efefef'}}; color: {{!userInfo.phone?system.text_color:'#333333'}} ">绑定手机号</view>
+        </button>
+    </view>
+</view>

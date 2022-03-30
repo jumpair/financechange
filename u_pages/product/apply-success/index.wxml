@@ -1,0 +1,11 @@
+<view class="main">
+    <view class="box">
+        <image class="img" src="../../../assets/images/success.png"></image>
+        <text class="p">订单提交成功</text>
+        <text class="sp">我们将于1个工作日内和您联系</text>
+        <view class="btn">
+            <van-button round block custom-class="button-btn button-btn1">返回首页</van-button>
+            <van-button round block custom-class="button-btn  button-btn2">查看订单</van-button>
+        </view>
+    </view>
+</view>

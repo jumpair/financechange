@@ -1,0 +1,14 @@
+.btn {
+    position: absolute;
+    bottom: 60rpx;
+    width: 100%;
+}
+
+.cu-btn {
+    padding: 0 60rpx;
+}
+
+.border {
+    border: 1rpx solid rgba(0,0,0,0.1);
+    min-height: 500rpx;
+}

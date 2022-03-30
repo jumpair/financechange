@@ -1,0 +1,366 @@
+<view class="main">
+    <block wx:if="{{userInfo.gender.length }}">
+    <block wx:if="{{userInfo.level != 2}}">
+    <view class="box">
+            <!-- <view class="card df" style="background-image: url(../../assets/images/card_bg.png);"> -->
+            <view class="card df" style="background: linear-gradient(to left, #428ad4 20%,#0c64d2 100%);">
+                <view class="tx"
+                    style="background-image: url({{userInfo.is_law!=0?userInfo.avatarUrl:'../../assets/images/tx.png'}})">
+                </view>
+                <view class="name">
+                    <view class="p">
+                        <text bindtap="updeta">{{userInfo.nickName}}</text> 
+                      
+                        <view class="alarm" bindtap="goMessage"> 
+                            <image style="width: 36rpx;height: 42rpx;" src="../../assets/images/alerm.png"></image>
+                            <!-- 是否有消息 -->
+                            <!-- <block wx:if="{{false}}">
+                                <view class="xx"></view>
+                            </block> -->
+                        </view>
+                    </view>
+                    <block wx:if="{{userInfo.level == 0}}">
+                        <view class="sp">个人用户</view>
+                    </block>
+                    <block wx:elif="{{userInfo.level == 1}}">
+                        <view class="sp">企业用户</view>
+                    </block>
+                    <block wx:elif="{{userInfo.level == 2}}">
+                        <view class="sp">金融机构</view>
+                    </block>
+                </view>
+                <block wx:if="{{userInfo.level == 0}}">
+                <button class="tobecompany" bindtap="Getcompany">成为企业</button>
+                </block>
+                <button class="tobecompany" bindtap="Getinformation" style="margin-bottom: 25px;">咨询列表</button>
+            </view>
+        
+    </view>
+    </block>
+    <block wx:if="{{userInfo.level == 2}}">
+        <view class="user-jg">
+            <view class="card df">
+                <view class="tx"
+                    style="background-image: url({{userInfo.is_law!=0?userInfo.avatarUrl:'../../assets/images/tx.png'}})">
+                </view>
+                <view class="name">
+                    <view class="p">
+                        <text bindtap="updeta">{{finace.name}}</text>
+                        <view class="alarm" bindtap="goMessage">
+                            <image style="width: 36rpx;height: 42rpx;" src="../../assets/images/alerm.png"></image>
+                            <!-- 是否有消息 -->
+                            <!-- <block wx:if="{{true}}">
+                                <view class="xx"></view>
+                            </block> -->
+                        </view>
+                    </view>
+                    <block wx:if="{{userInfo.level == 0}}">
+                        <view class="sp">个人用户</view>
+                    </block>
+                    <block wx:elif="{{userInfo.level == 1}}">
+                        <view class="sp">企业用户</view>
+                    </block>
+                    <block wx:elif="{{userInfo.level == 2}}">
+                        <view class="sp">金融机构</view>
+                    </block>
+                </view>
+                <button class="tobecompany" bindtap="Getinformation" style="margin-bottom: 25px;">咨询列表</button>
+               
+  
+            </view>
+            <view class="data-num">
+                <view class="box">
+                    <view class="data-list">
+                        <view class="data-item" >
+                            <view class="num-p">{{finace.qy_kh}}</view>
+                            <view class="num-sp">企业客户</view>
+                        </view>
+                        <view class="data-item">
+                            <view class="num-p">{{finace.gr_kh}}</view>
+                            <view class="num-sp">个人客户</view>
+                        </view>
+                        <view class="data-item">
+                            <view class="num-p">{{finace.cj_price}}</view>
+                            <view class="num-sp">成交金额（万元）</view>
+                        </view>
+                        <view class="data-item">
+                            <view class="num-p">{{finace.cj_num}}</view>
+                            <view class="num-sp">成交笔数</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+    </block>
+    <block wx:else>
+    <view class="box">
+        <view class="card" style="background: linear-gradient(to left, #428ad4 20%,#0c64d2 100%);">
+            <view class="image" style="background-image: url(../../assets/images/tx.png);"></view>
+            <view class="text" bindtap="updeta">立即登录</view>
+        </view>
+    </view>
+    </block>
+ 
+    <view class="box">
+        <!-- 个人和企业 -->
+        <block wx:if="{{userInfo.level != 2}}">
+        <view class="person-list">
+            <view class="person-item" bindtap="goMyOrder">
+                <view class="left">
+                    <image src="../../assets/images/user/icon1.png"></image>
+                    <text>我的订单</text>
+                </view>
+                <view class="more">
+                    <image src="../../assets/images/more.png"></image>
+                </view>
+            </view>
+            <view class="person-item" bindtap="goFinace">
+                <view class="left">
+                    <image src="../../assets/images/user/icon2.png"></image>
+                    <text>我的融资</text>
+                </view>
+                <view class="more">
+                    <image src="../../assets/images/more.png"></image>
+                </view>
+            </view>
+            <block wx:if="{{userInfo.level == 0}}">
+            <view class="person-item" bindtap="goPerInfo">
+                <view class="left">
+                    <image src="../../assets/images/user/icon3.png"></image>
+                    <text>个人信息</text>
+                </view>
+                <view class="more">
+                    <image src="../../assets/images/more.png"></image>
+                </view>
+            </view>
+            </block>
+            <view class="person-item" bindtap="goSeo">
+                <view class="left">
+                    <image src="../../assets/images/user/icon4.png"></image>
+                    <text>我的推广码</text>
+                </view>
+                <view class="more">
+                    <image src="../../assets/images/more.png"></image>
+                </view>
+            </view>
+           
+            <block wx:if="{{userInfo.level == 1}}">
+                <view class="person-item" bindtap="goCompany">
+                <view class="left">
+                    <image src="../../assets/images/user/icon3.png"></image>
+                    <text>企业信息</text>
+                </view>
+                <view class="more">
+                    <image src="../../assets/images/more.png"></image>
+                </view>
+            </view>
+            </block>
+            <view class="person-item" bindtap="goTender">
+                <view class="left">
+                    <image src="../../assets/images/user/icon5.png"></image>
+                    <text>我要招标</text>
+                </view>
+                <view class="more">
+                    <image src="../../assets/images/more.png"></image>
+                </view>
+            </view>
+            <view class="person-item" bindtap="goTenderlist">
+                <view class="left">
+                    <image src="../../assets/images/user/icon6.png"></image>
+                    <text>招标列表</text>
+                </view>
+                <view class="more">
+                    <image src="../../assets/images/more.png"></image>
+                </view>
+            </view>
+            <block wx:if="{{mypeople == 1 }}">
+            <view class="person-item" bindtap="goDaka">
+                <view class="left">
+                    <image src="../../assets/images/user/icon8.png"></image>
+                    <text>出行打卡</text>
+                </view>
+                <view class="more">
+                    <image src="../../assets/images/more.png"></image>
+                </view>
+            </view>
+            <view class="person-item" bindtap="xingcheng">
+                <view class="left">
+                    <image src="../../assets/images/user/icon7.png"></image>
+                    <text>行程列表</text>
+                </view>
+                <view class="more">
+                    <image src="../../assets/images/more.png"></image>
+                </view>
+            </view>
+        </block>
+        </view>
+        <!-- 机构中心 -->
+        </block>
+        <block wx:else>
+            <view class="jg-list">
+                <view class="jg-item" bindtap="goCustomer">
+                    <view class="image">
+                        <image src="../../assets/images/user/jg1.png"></image>
+                    </view>
+                    <view class="jg-text">
+                        <text class="jg-p">{{finace.kh_num}}</text>
+                        <text class="jg-sp">我的客户</text>
+                    </view>
+                </view>
+                <view class="jg-item" bindtap="goFinaceorder">
+                    <view class="image">
+                        <image src="../../assets/images/user/jg2.png"></image>
+                    </view>
+                    <view class="jg-text">
+                        <text class="jg-p">{{finace.dd_num}}</text>
+                        <text class="jg-sp">我的订单</text>
+                    </view>
+                </view>
+                <view class="jg-item" bindtap="goServer">
+                    <view class="image">
+                        <image src="../../assets/images/user/jg3.png"></image>
+                    </view>
+                    <view class="jg-text">
+                        <text class="jg-p">{{finace.fw_num}}</text>
+                        <text class="jg-sp">我的服务</text>
+                    </view>
+                </view>
+                <view class="jg-item"  bindtap="goProduct">
+                    <view class="image">
+                        <image src="../../assets/images/user/jg4.png"></image>
+                    </view>
+                    <view class="jg-text">
+                        <text class="jg-p">{{finace.cp_num}}</text>
+                        <text class="jg-sp">我的产品</text>
+                    </view>
+                </view>
+                <view class="jg-item"  bindtap="goBiddingdata">
+                    <view class="image">
+                        <image src="../../assets/images/user/jg5.png"></image>
+                    </view>
+                    <view class="jg-text">
+                        <text class="jg-p">{{finace.tb_num}}</text>
+                        <text class="jg-sp">我要投标</text>
+                    </view>
+                </view>
+                <view class="jg-item" bindtap="getfbidding">
+                    <view class="image">
+                        <image src="../../assets/images/user/jg7.png"></image>
+                    </view>
+                    <view class="jg-text">
+                        <text class="jg-sp">招标列表</text>
+                    </view>
+                </view>
+                <view class="jg-item" bindtap="goFinaceinfo">
+                    <view class="image">
+                        <image src="../../assets/images/user/jg6.png"></image>
+                    </view>
+                    <view class="jg-text">
+                        <text class="jg-sp">机构信息</text>
+                    </view>
+                </view>
+                <view class="jg-item" bindtap="goSeo">
+                    <view class="image">
+                        <image src="../../assets/images/user/jg8.png"></image>
+                    </view>
+                    <view class="jg-text">
+                        <text class="jg-sp">我的推广码</text>
+                    </view>
+                </view>
+                <block wx:if="{{finace.mypeople == 1}}">
+                <view class="jg-item" bindtap="goDaka">
+                    <view class="image">
+                        <image src="../../assets/images/user/cx.png"></image>
+                    </view>
+                    <view class="jg-text">
+                        <text class="jg-sp">出行打卡</text>
+                    </view>
+                </view>
+
+                <view class="jg-item" bindtap="xingcheng">
+                    <view class="image">
+                        <image src="../../assets/images/user/dklist.png"></image>
+                    </view>
+                    <view class="jg-text">
+                        <text class="jg-sp">我的行程</text>
+                    </view>
+                </view>
+                </block>
+            </view>
+            <!-- <view class="jg-item1" bindtap="goFinaceinfo" style="display: flex;flex-direction: row;justify-content: space-between; align-items: center;padding: 13px 66rpx;background-color: #ffffff;">
+                    <view class="image" style="display: flex;align-items: center; justify-content: flex-start;">
+                        <image src="../../assets/images/user/jg6.png" style="width: 88rpx;height: 88rpx;"></image>
+                        <text class="jg-sp" style="padding-left: 40rpx;font-size: 15px;color: #333;">机构信息</text>
+                    </view>
+                    <view class="jg-text">
+                        <image src="../../assets/images/more.png" style="width: 24rpx;height: 24rpx;"></image>
+                    </view>
+                </view>
+            <view class="jg-item1" bindtap="goSeo" style="display: flex;flex-direction: row;justify-content: space-between; align-items: center;padding: 13px 66rpx;background-color: #ffffff;">
+                    <view class="image" style="display: flex;align-items: center; justify-content: flex-start;">
+                        <image src="../../assets/images/user/jg8.png" style="width: 88rpx;height: 88rpx;"></image>
+                        <text class="jg-sp" style="padding-left: 40rpx;font-size: 15px;color: #333;">我的推广码</text>
+                    </view>
+                    <view class="jg-text">
+                        <image src="../../assets/images/more.png" style="width: 24rpx;height: 24rpx;"></image>
+                    </view>
+                </view> -->
+               
+        </block>
+
+            <view class="hot">
+                <view class="serve-project">
+                    <view class="image" style="display: flex; align-items: center; justify-content: center;">
+                        <image style="width: 30rpx;height: 30rpx;" src="../../assets/images/user/hot_icon.png"></image>
+                    </view>
+                    <text class="text">热销服务项目</text>
+                </view>
+                <view class="white-box project-list" wx:for="{{list}}" wx:key='index' style="margin-top: 24rpx;">
+                    <view class="item-top">
+                        <view class="item-name">
+                            {{item.name}}
+                        </view>
+                        <view class="more" bindtap="golaw" data-id="{{item.id}}" data-num="{{item.finance_num}}" data-fid="{{item.financeid}}">了解产品</view>
+                    </view>
+                    <view class="item-content">
+                        <block wx:if="{{item.catid == 3}}">
+                        <view class="content-item">
+                            <view class="sp">成交金额（万元）</view>
+                            <view class="p">{{item.cj_price}}</view>
+                        </view>
+                        </block>
+                        <block wx:else>
+                        <view class="content-item">
+                            <view class="sp">服务价格（元）</view>
+                            <view class="p">{{item.cj_price}}</view>
+                        </view>
+                        </block>
+                        <view class="content-item">
+                            <view class="sp">办理笔数</view>
+                            <view class="p">{{item.bl_num}}</view>
+                        </view>
+                        <view class="content-item">
+                            <view class="sp">好评</view>
+                            <view class="p">{{item.hp_num}}</view>
+                        </view>
+                    </view>
+                    <block wx:if="{{item.finance_num == 1}}">
+                    <view class="item-bottom" bindtap="getFinance" data-id="{{item.financeid}}" data-lawid="{{item.id}}">
+                        <view class="name">
+                            <text class="t">{{item.jg_name}}</text>
+                            <image class="img" src="../../assets/images/text.png"></image>
+                        </view>
+                        <view class="more">
+                            <image class="img" src="../../assets/images/more.png"></image>
+                        </view>
+                    </view>
+                </block>
+                </view>
+
+            </view>
+   
+    </view>
+</view>
+<login isShow="{{isLogin}}" mainColor="{{system.foot_color2}}"></login>
+<tabbar show="{{show_tabbar}}"></tabbar>

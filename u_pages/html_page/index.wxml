@@ -1,0 +1,5 @@
+<view class="padding-sm bg-white">
+    <parser gestureZoom lazyLoad selectable showWithAnimation html="{{content}}"></parser>
+</view>
+<tabbar show="{{show_tabbar}}"></tabbar>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>

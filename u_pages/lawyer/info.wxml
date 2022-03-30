@@ -1,0 +1,153 @@
+<page-meta>
+    <navigation-bar title="{{system.law_custom+'详情'}}"></navigation-bar>
+</page-meta>
+<form reportSubmit bindsubmit="submitFromId">
+    <scroll-view class="main" scroll-y="true">
+        <view class="box">
+            <view class="white-box">
+                <view class="t">{{name}}</view>
+                <view class="num-list">
+                    <view class="num-item">
+                        <block wx:if="{{catid == 3}}">
+                            <view class="sp">成交金额（万元）</view>
+                        </block>
+                        <block wx:else>
+                            <view class="sp">服务价格（万元）</view>
+                        </block>
+                        <view class="p">{{cj_price}}</view>
+                    </view>
+                    <view class="num-item">
+                        <view class="sp">办理笔数</view>
+                        <view class="p">{{bl_num}}</view>
+                    </view>
+                    <view class="num-item">
+                        <view class="sp">好评</view>
+                        <view class="p">{{hp_num}}</view>
+                    </view>
+                </view>
+                <block wx:if="{{catid != 8}}">
+                    <view class="name-box" bindtap="goFinance" data-id="{{fid}}" >
+                        <view class="public-t">
+                            <image class="img" src="../../assets/images/text.png"></image>
+                            <text class="text">金融机构：</text>
+                        </view>
+
+                        <view class="name">
+                            <text class="text">{{jg_name}}</text>
+                            <image class="img" src="../../assets/images/more.png"></image>
+                        </view>
+                    </view>
+                </block>
+                <view class="product-intr">
+                    <view class="public-t">
+                        <image class="img" src="../../assets/images/intr.png"></image>
+                        <block wx:if="{{catid != 8}}">
+                            <text class="text">产品介绍：</text>
+                        </block>
+                        <block wx:else>
+                            <text class="text">专家简介：</text>
+                        </block>
+                    </view>
+                    <view class="des">
+                        <rich-text nodes="{{content}}"></rich-text>
+                    </view>
+                </view>
+                <view class="product-intr no-border">
+                    <view class="public-t">
+                        <block wx:if="{{catid != 8}}">
+                            <text class="text">产品优势：</text>
+                        </block>
+                        <block wx:else>
+                            <text class="text">技术职称：</text>
+                        </block>
+                    </view>
+
+                    <view class="des">
+                        <rich-text nodes="{{pro_ys}}"></rich-text>
+                    </view>
+                </view>
+                <view class="product-intr no-border">
+                    <view class="public-t">
+                        <block wx:if="{{catid != 8}}">
+                            <text class="text">办理条件：</text>
+                        </block>
+                        <block wx:else>
+                            <text class="text">专业方向：</text>
+                        </block>
+                    </view>
+                    <view class="des">
+                        <rich-text nodes="{{pro_tj}}"></rich-text>
+                    </view>
+                </view>
+            </view>
+            <view class="white-box" style="margin-top: 18rpx;">
+                <view class="order-type">订单类型</view>
+                <view class="padding-top-sm">
+                    <view bindtap="choiceServe"
+                        class="flex align-center {{index<fulu_list.length-1?'solid-bottom':''}} padding-tb-xs"
+                        data-index="{{index}}" wx:for="{{fulu_list}}" wx:key="index">
+                        <image src="{{item.icon}}" style="width: 80rpx;height: 80rpx;"></image>
+                        <view class="flex-sub padding-left-sm">
+                            <view class="text-lg">{{item.title}}</view>
+                            <!-- <view class="padding-top-xs text-sm text-grey">{{item.desc}}</view> -->
+                        </view>
+                        <!-- <view class="text-red text-bold padding-right-sm" wx:if="{{item.price>0}}">
+                            ￥{{item.price}}/单
+                        </view> -->
+                        <!-- <view class="text-red text-bold padding-right-sm" wx:else>
+                            {{system.free_name||'免费咨询'}}
+                        </view> -->
+                        <view class=" bg-gray text-sm round text-center text-bold"
+                            style="width: 35rpx;height: 35rpx;line-height: 35rpx;background: {{index==choice_index?system.foot_color2:'#f1f1f1'}};">
+                            <text class="cuIcon-check text-white"></text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+
+        </view>
+    </scroll-view>
+    <view class="cu-bar bg-white tabbar border shop foot" style="bottom:{{show_tabbar?'100rpx':'0'}}; left: 0;">
+        <view bindtap="toHome" class="action text-grey">
+            <view class="cuIcon-home" style="border-width: 0;"></view>
+            <view>首页</view>
+        </view>
+        <button bindtap="shareModal" class="action text-grey">
+            <view class="cuIcon-forward"></view>
+            <view>分享</view>
+        </button>
+        <view bindtap="toSubscribe" style="width: 60rpx;" class="text-df submit"
+            style="background: {{system.foot_color2}};color: {{system.text_color}};border-radius: 25px;"
+            wx:if="{{user_id&&user_id!=userInfo.id}}">
+            立 即 咨 询
+        </view>
+        <view class="text-df submit bg-grey" wx:if="{{user_id&&user_id==userInfo.id}}">
+            不可为自己下单
+        </view>
+    </view>
+</form>
+<tabbar show="{{show_tabbar}}"></tabbar>
+<login isShow="{{isLogin}}" mainColor="{{system.foot_color2}}"></login>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>
+<view catchtouchmove catchtap="shareModal" class="cu-modal bottom-modal {{isShow?'show':''}}">
+    <view catchtap class="cu-dialog">
+        <view class="padding-xl flex align-center justify-around">
+            <button catchtap="shareModal" class="poster" openType="share">
+                <view class="img bg-gradual-green shadow-blur">
+                    <image mode="widthFix" src="/static/icon/share_friend.png"></image>
+                </view>
+                <view class="padding-top-sm text-grey text-sm">转发给朋友</view>
+            </button>
+            <!-- <button catchtap="poster" class="poster">
+                <view class="img bg-gradual-orange shadow-blur">
+                    <image mode="widthFix" src="/static/icon/share_poster.png"></image>
+                </view>
+                <view class="padding-top-sm text-grey text-sm">生成分享海报</view>
+            </button> -->
+        </view>
+        <view catchtap="shareModal" class="btn padding-tb bg-white">
+            <button class="padding-lr">取消</button>
+        </view>
+    </view>
+</view>

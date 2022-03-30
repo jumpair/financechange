@@ -1,0 +1,10 @@
+<view style="padding-top: 100rpx;" wx:if="{{dataNav&&show}}">
+    <view class="cu-bar tabbar bg-white" style="z-index: 1025;">
+        <view catchtap="toPage" class="action" data-index="{{index}}" data-item="{{item}}" wx:for="{{dataNav.tabbar}}" wx:key="index">
+            <view class="cuIcon-cu-image">
+                <image src="{{route==item.url?item.selectedImg:item.img}}"></image>
+            </view>
+            <view style="color:{{route==item.url?dataNav.selectedColor:dataNav.color}}">{{item.title}}</view>
+        </view>
+    </view>
+</view>

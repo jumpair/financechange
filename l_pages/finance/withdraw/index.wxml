@@ -1,0 +1,54 @@
+<form bindsubmit="submit">
+    <view class="padding">
+        <view class="padding-xl panel text-white bg-gradual-blue shadow-blur" style="background-image: url({{tx_bg}});">
+            <view class="padding-bottom-sm">可提现金额</view>
+            <view style="font-size: 70rpx;">{{value}}</view>
+        </view>
+    </view>
+    <view class="padding-lr padding-tb-xl">
+        <view class="text-lg text-blue">提现金额</view>
+        <view class="margin-top padding-tb-sm bg-white c-shadow-sm radius flex justify-between align-center">
+            <input class="margin-lr flex-sub" name="money" placeholder="请输入提现金额" type="digit" value="{{money}}"></input>
+            <view bindtap="allMoney" class="text-blue padding-lr">全部提现</view>
+        </view>
+    </view>
+    <view class="padding-lr">
+        <view class="text-lg text-blue">提现方式</view>
+        <view class="flex justify-{{is_weixin==1&&is_bank==1&&is_zfb==1?'center':'start'}} margin-top padding-tb-sm align-center">
+            <view bindtap="check" class="margin-lr-xs padding-tb-xs text-sm item {{checked==1&&'checked'}}" data-type="1" wx:if="{{is_weixin==1}}">
+                <image mode="widthFix" src="/static/images/wxpay.png"></image>
+                <view class="padding-left-xs">微信支付</view>
+            </view>
+            <view bindtap="check" class="margin-lr-xs padding-tb-x item {{checked==2&&'checked'}}" data-type="2" wx:if="{{is_zfb==1}}">
+                <image mode="widthFix" src="/static/images/alipay.png"></image>
+                <view class="padding-left-xs">支付宝</view>
+            </view>
+            <view bindtap="check" class="margin-lr-xs padding-tb-xs item {{checked==3&&'checked'}}" data-type="3" wx:if="{{is_bank==1}}">
+                <image mode="widthFix" src="/static/images/bankpay.png"></image>
+                <view class="padding-left-xs">银行卡</view>
+            </view>
+        </view>
+        <view wx:if="{{checked!=1}}">
+            <view class="margin-top padding-tb-sm bg-white c-shadow-sm radius">
+                <view class="flex margin-lr align-center padding-tb-xs">
+                    <view class="padding-right-sm text-sm title">姓名</view>
+                    <input class="margin-lr flex-sub" name="name" placeholder="{{checked==3&&checked!=1?'请输入银行卡户主姓名':'请输入支付宝用户姓名'}}"></input>
+                </view>
+                <view class="flex margin-lr align-center padding-tb-xs">
+                    <view class="padding-right-sm text-sm title">{{checked==3&&checked!=1?'银行卡号':'支付宝号'}}</view>
+                    <input class="margin-lr flex-sub" name="account" placeholder="{{checked==3&&checked!=1?'请输入银行卡号':'请输入支付宝账号'}}" type="text"></input>
+                </view>
+            </view>
+        </view>
+        <view class="flex justify-center padding-tb-xl">
+            <button class="text-df round padding-tb text-center text-white" formType="submit" style="width: 90%;background: var(--blue);">提 现</button>
+        </view>
+    </view>
+    <view class="padding-lr padding-tb-xl">
+        <view>提现须知</view>
+        <view class="padding-xs text-sm text-grey">
+            <wxparser richText="{{tx_notice}}"></wxparser>
+        </view>
+    </view>
+</form>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>

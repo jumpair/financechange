@@ -1,0 +1,27 @@
+.float {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.float button {
+    width: 45%;
+    padding: 40rpx 0;
+}
+
+.hover {
+    background: var(--blue);
+    transform: translate(1rpx,1rpx);
+}
+
+.cover-view {
+    width: 100%;
+    background: rgba(0,0,0,0.2);
+    color: #FFF;
+}
+
+.canvas {
+    width: 305px;
+    height: 305px;
+    background-color: #fff;
+}

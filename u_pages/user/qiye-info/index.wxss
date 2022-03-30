@@ -1,0 +1,67 @@
+.main{
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    padding-top: 30rpx;
+}
+.main .box{
+    padding-bottom: 60rpx;
+    background-color: #ffffff;
+}
+.code-btn{
+    background-color: #F5F5F5!important;
+    border: none!important;
+    color: #ccc!important;
+    padding: 0 20rpx!important;
+    border-radius: 30rpx!important;
+}
+.submit{
+    margin-top: 60rpx;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    text-align: center;
+    height: 86rpx;
+    line-height: 86rpx;
+    background-color: #0B7BF9;
+    border-radius: 50rpx;
+    color: #ffffff;
+    font-size: 28rpx;
+}
+.van-cell{
+    padding: 30rpx 30rpx!important;
+}
+.input-item{
+    padding: 30rpx 0;
+    border-bottom: 1px solid #eeeeee;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+}
+.input-item .t{
+    font-size: 28rpx;
+    color: #646566;
+}
+.input-item textarea{
+    height: 50rpx;
+    margin-top: 20rpx;
+    font-size: 28rpx;
+    color: #646566;
+}
+.state-t {
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #333333;
+    padding: 40rpx 0 30rpx;
+    text-align: center;
+    border-bottom: 1px solid #eeeeee;
+    background-color: #ffffff;
+}
+.selectstyle{
+    font-size: 28rpx;
+    color: #646566;
+}
+.van-field__label{
+    white-space: nowrap;
+}
+.van-button{
+    color: #ffffff!important;
+    background-color: #157be4!important;
+}

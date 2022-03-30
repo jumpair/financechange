@@ -1,0 +1,4 @@
+<import src="tmpl/tmpl.wxml"></import>
+<view class="wxParser">
+    <template is="wxParser" data="{{wxParserData:richTextNode}}"></template>
+</view>

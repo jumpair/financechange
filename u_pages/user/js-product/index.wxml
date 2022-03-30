@@ -1,0 +1,104 @@
+<view class="main" wx:if="{{lists}}">
+    <van-tabs swipeable type='line' color='#0B7BF9' animated='true' nav-class='nav' scrollspy="true">
+        <block wx:for="{{lists}}" wx:key="index" >
+            <block wx:if="{{ index<3 }}">
+        <van-tab title="{{item.prostate}}">
+            <scroll-view class="list-item" scroll-y='true' bindscrolltolower='loadMore'>
+            <block wx:for="{{item.lists}}" wx:for-item="v" wx:key="index">
+                <view class="pro-item">
+                    <view class="box">
+                        <view class="top">
+                            <text>{{v.name}}</text>
+                            <text data-id="{{v.id}}" bindtap="goProductdetail" data-num="{{v.finance_num}}" >查看</text>
+                        </view>
+                        <view class="content">
+                            <view class="item-n">
+                                <text>{{v.cate_name}}</text>
+                                <text>{{v.cj_price}}</text>
+                            </view>
+                            <view class="item-n">
+                                <text>办理笔数</text>
+                                <text>{{v.bl_num}}</text>
+                            </view>
+                            <view class="item-n">
+                                <text>咨询笔数</text>
+                                <text>{{v.zx_num}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+             
+            </scroll-view>
+        </van-tab>
+        </block>
+        </block>
+  
+        <van-tab title="新增产品">
+            <scroll-view class="list-item" scroll-y='true'>
+                <form bindsubmit="AddProduct" report-submit>
+                <view class="box white-bg" >
+                    <!-- <van-cell-group>
+                        <van-field label="产品名称："  name="name" input-align="right" />
+                        <van-field label="服务类型："   model:value="{{ leixing }}"  input-align="right" bind:click-input="showPopup" disabled/>
+                    </van-cell-group>
+                    <view class="picker-box"> -->
+                    <!-- <van-field label="产品名称："  name="name" input-align="right" /> -->
+                    <!-- <view class='skill-picker' style="display: flex;justify-content: space-between;padding: 20rpx 30rpx;">
+                        <text>服务类型：</text>
+                        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+                        <view class="skill-title"> 
+                            当前选择：{{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
+                        </view>
+                       
+                        </picker>
+                        <!-- <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+                            <view class="picker">
+                           {{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}
+                            </view>
+                        </picker> -->
+                    <!-- </view>  -->
+                    
+
+                    <!-- <van-field label="产品名称："  name="name" input-align="right" /> -->
+                    <view class="inputtext" style="display: flex;justify-content: space-between;padding: 20rpx 30rpx;">
+                        <text>产品名称：</text>
+                        <picker value="{{ Index }}" range="{{ prolist }}"  range-key="name" bindchange="bindPro">
+                            <view class="picker">{{prolist[proindex].name ? prolist[proindex].name : '请选择产品名称 >'}}</view>
+                        </picker>
+                    </view>
+                    <block wx:if="{{procatid != 3}}">
+                        <van-field label="服务价格：" placeholder="请输入价格（元）"  name="server_price" value="" input-align="right" />
+                    </block>
+                    <!-- <view class="inputtext" style="display: flex;justify-content: space-between;padding: 20rpx 30rpx;">
+                        <text>服务类型：</text>
+                        <picker value="{{ Index }}" range="{{ typelist }}"  range-key="catename" bindchange="bindType">
+                            <view class="picker">{{typelist[typeindex].catename ? typelist[typeindex].catename : '请选择服务类型'}}</view>
+                        </picker>
+                    </view> -->
+                    <view class="inputtext">
+                        <text>服务简介/专业方向：</text>
+                        <textarea maxlength="140"  name="content" style=" height: 148px!important;border: 1px solid #999;border-radius: 5px;width: 100%;"></textarea>
+                    </view>
+                    <view class="inputtext">
+                        <text>产品优势/技术职称：</text>
+                        <textarea maxlength="140"  name="pro_ys"  style=" height: 148px!important ;border: 1px solid #999;border-radius: 5px;width: 100%;"></textarea>
+                    </view>
+                    <view class="inputtext">
+                        <text>办理条件/专家简介：</text>
+                        <textarea maxlength="140"  name="pro_tj"  style=" height: 148px!important;border: 1px solid #999;border-radius: 5px;width: 100%;"></textarea>
+                    </view>
+                    <view class="btn">
+                        <view class="back btn_" bindtap="back">取消</view>
+                        <button class="ok btn_" formType="submit">添加</button>
+                    </view>
+                </view>
+                </form>
+            </scroll-view>
+        </van-tab>
+    </van-tabs>
+</view>
+<login isShow="{{isLogin}}" mainColor="{{system.foot_color2}}"></login>
+<van-popup show="{{ show }}" bind:close="onClose" position="bottom">
+    <van-picker show-toolbar bind:cancel="onCancel" bind:confirm="onConfirm" columns="{{ columns }}" bind:change="onChange" />
+</van-popup>

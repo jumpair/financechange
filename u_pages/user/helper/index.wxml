@@ -1,0 +1,11 @@
+<form reportSubmit bindsubmit="submitFromId">
+    <view class="cu-list menu sm-border card-menu margin-top">
+        <button bindtap="toInfo" class="cu-item arrow" data-item="{{item}}" formType="submit" wx:for="{{list}}">
+            <view class="content">
+                <text class="text-grey">{{item.title}}</text>
+            </view>
+        </button>
+    </view>
+</form>
+<tabbar show="{{show_tabbar}}"></tabbar>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>

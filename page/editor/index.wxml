@@ -1,0 +1,23 @@
+<view class="container">
+    <editor showImgResize showImgSize showImgToolbar bindinput="getEditorContent" bindready="onEditorReady" bindstatuschange="onStatusChange" class="ql-container" id="editor" placeholder="{{system.law_in_desc||'请输入个人简介'}}"></editor>
+</view>
+<view catchtouchend="format" class="toolbar" style="bottom: {{isIOS?keyboardHeight+'px':''}}">
+    <i catchtouchend="insertImage" class="iconfont icon-charutupian"></i>
+    <i class="iconfont icon-format-header-2" data-name="header" data-value="{{2}}" style="color: {{formats.header===2?system.foot_color2:''}};"></i>
+    <i class="iconfont icon-format-header-3" data-name="header" data-value="{{3}}" style="color: {{formats.header===3?system.foot_color2:''}};"></i>
+    <i class="iconfont icon-zitijiacu" data-name="bold" style="color: {{formats.bold?system.foot_color2:''}};"></i>
+    <i class="iconfont icon-zitixieti" data-name="italic" style="color: {{formats.italic?system.foot_color2:''}};"></i>
+    <i class="iconfont icon-zitixiahuaxian" data-name="underline" style="color: {{formats.underline?system.foot_color2:''}};"></i>
+    <i class="iconfont icon-fengexian" data-name="insertDivider" data-value=""></i>
+    <i class="iconfont icon-youxupailie" data-name="list" data-value="ordered" style="color: {{formats.list==='ordered'?system.foot_color2:''}};"></i>
+    <i class="iconfont icon-wuxupailie" data-name="list" data-value="bullet" style="color: {{formats.list==='bullet'?system.foot_color2:''}};"></i>
+    <i class="iconfont icon-juzhongduiqi" data-name="align" data-value="center" style="color: {{formats.align==='center'?system.foot_color2:''}};"></i>
+    <i class="iconfont icon-youduiqi" data-name="align" data-value="right" style="color: {{formats.align==='right'?system.foot_color2:''}};"></i>
+    <i class="iconfont icon-zuoduiqi" data-name="align" data-value="left" style="color: {{formats.align==='left'?system.foot_color2:''}};"></i>
+    <i class="iconfont icon-indent" data-name="indent" data-value="+1"></i>
+    <i class="iconfont icon-outdent" data-name="indent" data-value="-1"></i>
+    <i class="iconfont icon-undo" data-name="undo"></i>
+</view>
+<view class="btn">
+    <button bind:tap="backpage" formType="submit" style="background: {{system.foot_color2}}; color: {{system.text_color}};">保存并返回上一页</button>
+</view>

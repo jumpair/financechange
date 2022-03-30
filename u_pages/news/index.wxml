@@ -1,0 +1,13 @@
+<view style="height: 90rpx;" wx:if="{{news_type}}">
+    <scroll-view scrollX class="bg-white nav text-center fixed">
+        <view bindtap="tabSelect" class="cu-item {{index==TabCur?'text-blue cur':''}}" data-item="{{[index,item.id]}}" style="{{index==TabCur?'color:'+system.foot_color2:''}}" wx:for="{{news_type}}">
+			{{item.title}}
+		</view>
+    </scroll-view>
+</view>
+<view class="padding-xs">
+    <news-list data="{{news_list}}" sClass="padding-sm radius"></news-list>
+</view>
+<view class="cu-load {{!isLoad?'loading':'over'}} text-sm text-gray" wx:if="{{news_list.length}}"></view>
+<tabbar show="{{show_tabbar}}"></tabbar>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>

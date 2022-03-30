@@ -1,0 +1,31 @@
+<page-meta>
+    <navigation-bar title="{{system.fx_title1||'分销'}}申请"></navigation-bar>
+</page-meta>
+<view class="_page">
+    <form bindsubmit="submit" wx:if="{{fxset}}">
+        <image class="_page-img" mode="aspectFill" src="{{fxset.img}}"></image>
+        <view class="_page-form">
+            <view class="_page-form-title">填写申请信息</view>
+            <view class="_page-form-input margin-tb">
+                <input disabled placeholder="邀请人 ({{p_name}})请核对" placeholderClass="input-place"></input>
+            </view>
+            <view class="_page-form-input margin-tb">
+                <input maxlength="4" name="name" placeholder="姓名" placeholderClass="input-place"></input>
+            </view>
+            <view class="_page-form-input margin-tb">
+                <input maxlength="11" name="phone" placeholder="手机号" placeholderClass="input-place" type="number"></input>
+            </view>
+            <view bindtap="radio" class="flex align-center margin-tb" style="color: {{system.foot_color2}};">
+                <view class="radio cuIcon-roundcheckfill {{radio}}"></view>
+                <view class="deal padding-left-xs text-sm text-grey">我已阅读并了解<text catchtap="html_page" style="color: {{system.foot_color2}};">《{{system.fx_title2||'分销商'}}申请协议》</text>
+                </view>
+            </view>
+            <view class="flex align-center justify-center">
+                <button bindtap="shxx" formType="submit" style="background: {{system.foot_color2}}; color: {{system.text_color}};">申请成为{{system.fx_title2||'分销商'}}</button>
+            </view>
+        </view>
+    </form>
+    <tabbar show="{{show_tabbar}}"></tabbar>
+</view>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>
+<login bindcancel="loginCancel" isShow="{{isLogin}}" mainColor="{{system.foot_color2}}"></login>

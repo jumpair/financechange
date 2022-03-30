@@ -1,0 +1,45 @@
+.goods_img {
+    height: 750rpx;
+    width: 750rpx;
+}
+
+.goods_img image {
+    height: 750rpx;
+    width: 750rpx;
+}
+
+.goods {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.goods .c {
+    color: #FFF;
+    width: 75rpx;
+    right: 17rpx;
+    height: 45rpx;
+    bottom: 21rpx;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    background: rgba(109,112,112,.6);
+}
+
+.title {
+    color: #444444;
+    font-weight: 600;
+}
+
+page {
+    padding-bottom: 100rpx;
+}
+
+.cu-bar.foot {
+    box-shadow: none;
+}
+
+.cu-bar.tabbar.shop .action {
+    width: 120rpx;
+}

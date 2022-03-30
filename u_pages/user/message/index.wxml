@@ -1,0 +1,30 @@
+<view class="main">
+    <block wx:if="{{list.length != 0}}">
+    <view class="box">
+        <view class="item-p1">
+            <!-- <view class="time">2021年08月-03日</view> -->
+            <view class="item-p2" wx:for="{{list}}" wx:key="key">
+                <view class="p active">订单提醒</view>
+                <view class="sp">{{item.content}}</view>
+            </view>
+            <!-- <view class="item-p2">
+                <view class="p active">订单到期提醒</view>
+                <view class="sp">订单号****的订单将于2021-08-06到期，请及时跟进。</view>
+            </view> -->
+        </view>
+        <!-- <view class="item-p1">
+            <view class="time">2021年08月-03日</view>
+            <view class="item-p2">
+                <view class="p no-active">订单到期提醒</view>
+                <view class="sp">订单号****的订单将于2021-08-06到期，请及时跟进。</view>
+            </view>
+        </view> -->
+    </view>
+    </block>
+    <block wx:else>
+        <view style="    text-align: center;">
+            <!-- 当前暂无状态,请让对应金融机构修改状态 -->
+            <image src="../../../assets/images/zwzt.svg"></image>
+        </view>
+    </block>
+</view>

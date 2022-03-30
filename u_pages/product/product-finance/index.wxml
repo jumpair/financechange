@@ -1,0 +1,48 @@
+<scroll-view class="list-item" scroll-y='true' bindscrolltolower='loadMore'>
+   
+        
+        <view class="item" wx:for="{{list}}" wx:key="k" >
+            <view class="box">
+                <view class="item-top">
+                    <view class="item-name">
+                        {{item.name}}
+                        <image class="img" src="../../../assets/images/indexPro/hot.png"></image>
+                    </view>
+                    <view class="more" bindtap="goProdetail" data-id="{{item.proid}}" data-fid="{{item.id}}">了解产品</view>
+                </view>
+                <view class="item-content">
+                    <block wx:if="{{item.catid == 3}}">
+                    <view class="content-item">
+                        <view class="sp">成交金额（万元）</view>
+                        <view class="p">{{item.price}}</view>
+                    </view>
+                    </block>
+                    <block wx:else>
+                    <view class="content-item">
+                        <view class="sp">服务价格（元）</view>
+                        <view class="p">{{item.price}}</view>
+                    </view>
+                    </block>
+                    <view class="content-item">
+                        <view class="sp">办理笔数</view>
+                        <view class="p">{{item.bl_num}}</view>
+                    </view>
+                    <view class="content-item">
+                        <view class="sp">好评</view>
+                        <view class="p">{{item.hp_num}}</view>
+                    </view>
+                </view>
+                <view class="item-bottom"  bindtap="goProIntro" data-id="{{item.id}}" data-fid="{{item.id}}" >
+                    <view class="name">
+                        <text class="t">{{item.name}}</text>
+                        <image class="img" src="../../../assets/images/text.png"></image>
+                    </view>
+                    <view class="more">
+                        <image class="img" src="../../../assets/images/more.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+<van-toast id="van-toast" />
+<tabbar show="{{show_tabbar}}"></tabbar>

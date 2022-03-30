@@ -1,0 +1,11 @@
+.cu-bar .action:first-child {
+    margin-left: 0;
+}
+
+.cu-bar .action:last-child {
+    margin-right: 0;
+}
+
+.cu-form-group {
+    padding: 0;
+}

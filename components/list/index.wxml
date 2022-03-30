@@ -1,0 +1,42 @@
+<view class="flex justify-center bg-white padding-tb" style="width: 100%;" wx:if="{{data&&!data[0]}}">
+    <image mode="widthFix" src="{{no_data}}" style="width: 50%;"></image>
+</view>
+<block wx:else>
+    <view style="padding-top: 10rpx;"></view>
+    <view style="padding: {{is_diy?'0':'20rpx 30rpx 0;'}};border-bottom: 1px solid #F4F4F4;border-radius:{{is_diy?'0':'10rpx'}};" wx:for="{{data}}">
+        <view bindtap="toInfo" class="item" data-item="{{item}}">
+            <view class="content">
+                <view class="left">问</view>
+                <view class="right text-bold t">{{item.title}}</view>
+                <view class="right m" wx:if="{{isme||islaw}}">{{item.price}}元</view>
+            </view>
+            <view class="content" wx:if="{{!isme}}">
+                <view class="left a">答</view>
+                <view class="right text-cut" style="width: 400rpx;line-height: 44rpx;">{{item.anwser.conetnt||'暂无回答'}}</view>
+            </view>
+            <view class="content law">
+                <block wx:if="{{!isme}}">
+                    <image mode="aspectFill" src="{{item.is_niming=='1'?user:item.user.avatarUrl}}"></image>
+                    <view class="right n">{{item.is_niming=='1'?'匿名用户':item.user.nickName}}</view>
+                </block>
+                <view class="right n" wx:else>{{item.time}}</view>
+                <block wx:if="{{item.state<5||item.state!='1'}}">
+                    <view class="right h">回答</view>
+                    <view class="right num">{{item.number}}</view>
+                </block>
+            </view>
+            <view class="yz">
+                <view class="yz-panel {{item.state=='3'||item.state=='4'?'text-red':'text-orange'}}">
+                    <block wx:if="{{item.state=='3'||!isme&&item.state=='4'}}">
+                        <view class="yzd-yinzhang"></view>
+                        <view class="yz-content">已采纳</view>
+                    </block>
+                    <block wx:if="{{isme&&item.state!='3'&&item.state!='1'}}">
+                        <view class="yzd-yinzhang"></view>
+                        <view class="yz-content">{{item.state=='2'?'回答中':item.state=='4'?'自动采纳':item.state=='5'?'自动关闭':item.state=='6'?'退款成功':'退款失败'}}</view>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </view>
+</block>

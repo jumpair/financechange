@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {},
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "产品申请",
+    "navigationBarTextStyle": "black"
+}

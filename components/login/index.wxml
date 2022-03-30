@@ -1,0 +1,12 @@
+<view  bind:touchmove="{{true}}" catchtouchmove="touchmove" class="cu-modal {{isShow&&'show'}}">
+    <view catch:tap class="content" style="background-image: url({{image}});">
+        <view class="btn flex align-center justify-between">
+            <!-- <view class="flex-sub">
+                <button catch:tap="isShow" class="cu-btn round" style="background-color: var(--grey);color: white;">暂不登录</button>
+            </view> -->
+            <view class="flex-sub">
+                <button bind:tap="getUserProfile" class="cu-btn round text-sm" style="background: {{mainColor}};color:{{textColor}}">立即登录</button>
+            </view>
+        </view>
+    </view>
+</view>

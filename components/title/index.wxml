@@ -1,0 +1,12 @@
+<view class="flex align-center justify-between {{mClass}}" wx:if="{{type==1}}">
+    <view class="flex align-center">
+        <view class="tag" style="background:{{bg_tag}};"></view>
+        <view class="padding-left-xs text-bold" style="color: {{title_color}};">{{title}}</view>
+    </view>
+    <view bindtap="toPage" class="text-sm padding-right-xs" style="color: {{more_text_color}};" wx:if="{{more_text}}">{{more_text}}</view>
+</view>
+<view class="flex align-center justify-center padding-tb-sm" wx:if="{{type==2}}">
+    <view class="type2_line" style="background: {{title_color}};"></view>
+    <view class="padding-lr-xs text-bold" style="color: {{title_color}};">{{title}}</view>
+    <view class="type2_line" style="background: {{title_color}};"></view>
+</view>

@@ -1,0 +1,78 @@
+.page {
+    --h: 400rpx;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    background: #ffffff;
+}
+
+.page .btn-group {
+    padding-top: 60rpx;
+}
+
+.page .btn-group ._from_btn {
+    padding-bottom: 30rpx;
+}
+
+.page .btn-group ._from_btn view,.page .btn-group ._from_btn button {
+    width: 450rpx!important;
+}
+
+.page .pic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60rpx;
+}
+
+.page .pic .title {
+    font-size: 35rpx;
+    font-weight: 600;
+}
+
+.page .pic .img {
+    width: 400rpx;
+    margin: 50rpx 0 30rpx;
+}
+
+.page .pic .desc {
+    font-size: 22rpx;
+    color: #999999;
+    display: flex;
+    align-items: center;
+}
+
+.page .pic [class*='yzd-'] {
+    font-size: 30rpx;
+    padding-right: 10rpx;
+}
+
+._from_btn {
+    display: flex;
+    justify-content: center;
+}
+
+._from_btn view,._from_btn button {
+    width: 250rpx;
+    line-height: 70rpx;
+    border-radius: 5000rpx;
+    box-shadow: 0 6rpx 8rpx rgba(0,0,0,0.05);
+    font-size: 24rpx;
+    text-align: center;
+    letter-spacing: 2rpx;
+}
+
+._from_btn button.button-hover {
+    transform: translate(1rpx,1rpx);
+    opacity: 0.9;
+}
+
+.btn-hover {
+    transform: translate(1upx,1upx);
+    opacity: 0.9;
+}
+
+button[disabled] {
+    background: rgba(0,0,0,0)!important;
+}

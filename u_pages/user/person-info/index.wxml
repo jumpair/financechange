@@ -1,0 +1,32 @@
+<form bindsubmit="saveperson" report-submit>
+    <view class="main">
+        <view class="box">
+            <van-cell-group>
+                <van-field required="{{gr_name}}" label="姓名：" name="name" value="{{name}}" placeholder="请输入姓名" input-align="right" />
+                <view class="input-item" style="display: flex;justify-content: space-between;align-items: center;padding-left: 30rpx;margin: 10rpx 0">
+                    <text style="color:#666">性别：</text>
+                    <van-radio-group value="{{ radio }}" bind:change="onChange" direction="horizontal">
+                        <van-radio name="1">男</van-radio>
+                        <van-radio name="2">女</van-radio>
+                    </van-radio-group>
+                </view>
+                <van-field label="职业：" name="job" value="{{job}}" placeholder="请输入职业" input-align="right" required="{{gr_zy}}" />
+                <van-field label="学历：" name="education" value="{{education}}" placeholder="请输入学历" input-align="right" required="{{gr_xl}}" />
+                <van-field label="手机：" name="tel" value="{{tel}}" placeholder="请输入手机号 " input-align="right"
+                    bindinput='getInputValue' />
+                <van-field label="验证码：" name="code" value="{{code}}" placeholder="请输入验证码" use-button-slot
+                    input-align="right">
+                    <van-button slot="button" size="small" type="primary" custom-class='code-btn'
+                        disabled='{{disabled}}' bindtap="getCode">
+                        {{coder}}
+                    </van-button>
+                </van-field>
+                <van-field label="身份证号码：" name="certification" value="{{certification}}" placeholder="请输入身份证号"
+                    input-align="right" required="{{gr_zfh}}" />
+            </van-cell-group>
+        </view>
+        <button class="submit" formType="submit">提交</button>
+        <van-dialog id="van-dialog" />
+    </view>
+</form>
+<login isShow="{{isLogin}}" mainColor="{{system.foot_color2}}"></login>

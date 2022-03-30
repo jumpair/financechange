@@ -1,0 +1,30 @@
+<view class="cu-timeline">
+    <view class="cu-item cuIcon-fold" wx:for="{{logs}}">
+        <view class="content">
+            <view class="flex justify-between align-center">
+                <view class="cu-capsule radius" wx:if="{{!type}}">
+                    <view class="cu-tag" style="background: {{system.foot_color2}}; color: {{system.text_color}};">{{item.people==1?'我':system.law_custom}}</view>
+                    <view class="cu-tag line-blue" style="color: {{system.foot_color2}};">{{item.people==1?item.user_name:item.law_name}}</view>
+                </view>
+                <view class="cu-capsule radius" wx:else>
+                    <view class="cu-tag" style="background: {{system.foot_color2}}; color: {{system.text_color}};">{{item.people==1?'用户':'我'}}</view>
+                    <view class="cu-tag line-blue" style="color: {{system.foot_color2}};">{{item.people==1?item.user_name:item.law_name}}</view>
+                </view>
+                <view class="cu-capsule radius">
+                    <view class="cu-tag text-grey">{{item.time}}</view>
+                </view>
+            </view>
+            <view class="margin-top">{{item.content}}</view>
+            <view class="grid col-5 margin-top" wx:if="{{item.imglist}}">
+                <view bindtap="viewImg" data-i="{{i}}" data-index="{{index}}" wx:for="{{item.imglist}}" wx:for-index="i" wx:for-item="e">
+                    <image class="radius" mode="aspectFill" src="{{e}}"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<button bindtap="toEdit" class="floating" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{state!=4&&state!=5}}">
+    <text class="cuIcon-comment"></text>
+</button>
+<tabbar show="{{show_tabbar}}"></tabbar>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>

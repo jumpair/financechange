@@ -1,0 +1,36 @@
+<van-tabs swipeable type='line' id="tabs" color='#0B7BF9' animated='true' nav-class='nav' active="{{ active }}">
+    <van-tab wx:for="{{news_type}}" wx:key="key"   wx:for-item="newstype" title="{{newstype.title}}" bindtap="tabSelect" data-item="{{[index,newstype.id]}}">
+        <scroll-view class="list-item" scroll-y='true' bindscrolltolower='loadMore'>
+            <view class="box">
+            <block wx:if="{{index==0}}">
+                <view class="case-item" bindtap="goDetail" wx:for="{{news_list}}" wx:key="k" data-id="{{item.id}}">
+                    <view class="text">
+                        <view class="t">{{item.title}}</view>
+                        <view class="time">
+                            <text class="img" style="background-image: url(../../../assets/images/time.png);"></text>
+                            <text class="te">{{item.time}}</text>
+                        </view>
+                    </view>
+                    <view class="image" style="background-image: url({{item.img}});"></view>
+                </view>
+            </block>
+            <block wx:else>
+                <view class="case-item" bindtap="goDetail" wx:for="{{newstype.news_list}}" wx:key="k" data-id="{{item.id}}">
+                    <view class="text">
+                        <view class="t">{{item.title}}</view>
+                        <view class="time">
+                            <text class="img" style="background-image: url(../../../assets/images/time.png);"></text>
+                            <text class="te">{{item.time}}</text>
+                        </view>
+                    </view>
+                    <view class="image" style="background-image: url({{item.img}});"></view>
+                </view>
+            </block>
+               
+               
+            </view>
+        </scroll-view>
+    </van-tab>
+</van-tabs>
+<van-toast id="van-toast" />
+<tabbar show="{{show_tabbar}}"></tabbar>

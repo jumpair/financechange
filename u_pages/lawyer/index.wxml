@@ -1,0 +1,42 @@
+<page-meta>
+    <navigation-bar title="{{system.law_custom}}"></navigation-bar>
+</page-meta>
+<view class="grid col-3 bg-white padding-tb m">
+    <view bindtap="showModal" class="flex align-center justify-center" data-type="0">
+        <view style="color:{{system.foot_color2}};">{{city_name}}</view>
+        <text class="cuIcon-unfold"></text>
+    </view>
+    <view bindtap="showModal" class="flex align-center justify-center" data-type="1">
+        <view>领域</view>
+        <text class="cuIcon-unfold"></text>
+    </view>
+    <view bindtap="heatChange" class="flex align-center justify-center">
+        <view>距离</view>
+        <text class="cuIcon-{{heat?'unfold':'fold'}}"></text>
+    </view>
+</view>
+<lawyer-list data="{{lawyer_list}}" mClass="padding-sm bg-white radius margin-tb-sm" mStyle="margin-top:120rpx"></lawyer-list>
+<view class="cu-load {{!isLoad?'loading':'over'}} text-sm text-gray" wx:if="{{lawyer_list.length}}"></view>
+<tabbar show="{{show_tabbar}}"></tabbar>
+<view bindtap="showModal" catchtouchmove="{{true}}" class="cu-modal bottom-modal {{isShow?'show':''}}">
+    <view catchtap class="cu-dialog bg-white">
+        <view class="cu-bar">
+            <view catchtap="showModal" class="action text-red">取消</view>
+            <view catchtap="btnAction" class="action" style="color: {{system.foot_color2}};">完成</view>
+        </view>
+        <picker-view bindchange="pickerChange" style="height: 300rpx;" value="{{value}}" wx:if="{{action_type==0}}">
+            <picker-view-column>
+                <view wx:for="{{province}}">{{item.name}}</view>
+            </picker-view-column>
+            <picker-view-column>
+                <view wx:for="{{city}}">{{item.name}}</view>
+            </picker-view-column>
+        </picker-view>
+        <view class="grid col-4 padding-tb-xl text-sm" wx:if="{{action_type==1}}">
+            <view class="padding-sm" wx:for="{{typelist}}">
+                <view catchtap="selectType" class="padding-lr-sm padding-tb-xs solid radius text-white" data-index="{{index}}" style="color: {{item.select||system.foot_color2}};border: 1rpx solid {{item.select||system.foot_color2}};background-color: {{!item.select||system.foot_color2}};">{{item.title}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>

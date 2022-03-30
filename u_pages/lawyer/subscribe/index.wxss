@@ -1,0 +1,99 @@
+page{
+    background-color: #F9F9F9;
+}
+.main {
+    background: #F9F9F9;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    padding: 30rpx 0 0;
+    box-sizing: border-box;
+    height: calc(100vh - 168rpx);
+}
+
+.card {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 300rpx; 
+    border-radius: 10rpx;
+    padding-left: 60rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.card .p {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.card .sp {
+    font-size: 28rpx;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin: 10rpx 0 20rpx;
+}
+
+.card .b {
+    display: inline-block;
+    font-size: 24rpx;
+    color: #FFFFFF;
+    border: 1px solid#fff;
+    border-radius: 100rpx;
+    padding: 10rpx 20rpx;
+}
+
+.white-box{
+    background-color: #fff;
+    border-radius: 10rpx;
+    border: 1px solid #eeeeee;
+    padding: 0rpx 30rpx;
+}
+.yzm-btn{
+    color: #ffffff!important;
+    background-color: #157be4!important;
+}
+.form{
+    padding-top: 60rpx;
+    display: block;
+}
+.form .tt {
+    padding-left: 60rpx;
+    padding-right: 60rpx;
+}
+.form .tt .t1{
+    font-size: 24rpx;
+    color: #333;
+}
+.form .tt .t2{
+    font-size: 24rpx;
+    color: #bbbbbb;
+    padding-left: 24rpx;
+}
+.form .list{
+    padding-top: 32rpx;
+    padding-bottom: 30rpx;
+}
+.form .textarea{
+    background-color: #fff;
+    border: 1rpx solid #eee;
+    border-radius: 12rpx;
+    margin-top: 16rpx;
+    padding: 32rpx 60rpx;
+}
+.submit{
+    position: fixed;
+    width: 688rpx;
+    height: 104rpx;
+    background-color: #5257FD;
+    line-height: 104rpx;
+    text-align: center;
+    bottom: 64rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 52rpx;
+    color: #fff;
+    font-size: 40rpx;
+    font-weight: 500;
+}

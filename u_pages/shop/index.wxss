@@ -1,0 +1,4 @@
+.item {
+    min-width: 110rpx;
+    min-height: 55rpx;
+}

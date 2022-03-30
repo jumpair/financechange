@@ -1,0 +1,145 @@
+<block wx:if="{{type==0}}">
+    <view class="flex align-center text-center" style="background: {{system.foot_color2}};color: {{system.text_color}};min-height: 200rpx;">
+        <view class="flex-sub text-lg" style="letter-spacing: 10rpx;">
+			{{order_state==1?'待付款':order_state==2?'待服务':order_state==3?'待确认':order_state==4?'待评价':order_state==5?'已完成':''}}
+		</view>
+    </view>
+    <view class="bg-white padding text-grey">
+        <view>订单编号:<text class="padding-left-xs">{{ordercode}}</text>
+        </view>
+        <view class="padding-tb-xs">下单时间:<text class="padding-left-xs">{{submit_time}}</text>
+        </view>
+        <view>订单类型:<text class="padding-left-xs">{{order_type=='1'?'电话咨询':order_type=='2'?'图文咨询':'在线咨询'}}</text>
+        </view>
+    </view>
+    <view class="margin-tb-sm bg-white padding text-grey" wx:if="{{order_type!='3'}}">
+        <view>联系姓名:<text class="padding-left-xs">{{name}}</text>
+        </view>
+        <view class="padding-top-xs">联系电话:<text class="padding-left-xs">{{phone}}</text>
+        </view>
+    </view>
+    <view class="bg-white padding flex align-center text-grey">
+        <image class="icon radius" mode="aspectFill" src="{{law.img}}"></image>
+        <view class="padding-left-sm flex-sub">
+            <view>{{system.law_custom}}名称:<text class="padding-left-xs">{{law.name}}</text>
+            </view>
+            <view class="padding-tb-xs">{{system.law_custom}}电话:<text class="padding-left-xs">{{law.phone}}</text>
+            </view>
+            <view class="flex align-center">
+                <view class="flex-sub" wx:if="{{order_type==1}}">
+					预约时间:<text class="padding-left-xs">{{yy_time}}</text>
+                </view>
+                <view class="padding-right-sm text-red">￥{{price}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="margin-tb-sm bg-white padding padding-bottom-xs text-grey" wx:if="{{order_type==1}}">
+        <view class="padding-bottom-sm">图片附件</view>
+        <view class="padding-top-xs grid col-4">
+            <view bindtap="viewImg" class="flex align-center justify-center" data-src="{{item}}" wx:for="{{imglist}}">
+                <image class="pic radius margin-bottom-sm" mode="aspectFill" src="{{item}}"></image>
+            </view>
+        </view>
+    </view>
+    <view class="bg-white padding flex align-start text-grey" wx:if="{{order_type!='3'}}">
+        <view style="min-width: 135rpx;">备注:</view>
+        <text class="padding-left-xs">{{content}}</text>
+    </view>
+    <view style="height: 120rpx;"></view>
+    <view class="foot padding-lr">
+        <view class="flex align-center justify-end" wx:if="{{order_state==1}}">
+            <button bindtap="cancelOrder" class="text-sm round padding-sm" style="background: {{system.foot_color2}};color: {{system.text_color}};">取消订单</button>
+            <button bindtap="payOrder" class="text-sm round padding-sm margin-left-sm" style="background: {{system.foot_color2}};color: {{system.text_color}};">去支付</button>
+        </view>
+        <view class="flex align-center justify-end" wx:if="{{order_state==2}}">
+            <button bindtap="service_log" class="text-sm round padding-sm" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{order_type==2}}">服务记录</button>
+            <button bindtap="toChat" class="text-sm round padding-sm margin-left-sm" data-toid="{{law.user_id}}" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{order_type==3}}">在线咨询</button>
+            <button bindtap="callPhone" class="text-sm round padding-sm margin-left-sm" style="background: {{system.foot_color2}};color: {{system.text_color}};">联系{{system.law_custom}}</button>
+        </view>
+        <view class="flex align-center justify-end" wx:if="{{order_state==3}}">
+            <button bindtap="toChat" class="text-sm round padding-sm" data-toid="{{law.user_id}}" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{order_type==3}}">在线咨询</button>
+            <button bindtap="callPhone" class="text-sm round padding-sm margin-left-sm" style="background: {{system.foot_color2}};color: {{system.text_color}};">联系{{system.law_custom}}</button>
+            <button bindtap="service_log" class="text-sm round padding-sm margin-left-sm" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{order_type=='2'}}">服务记录</button>
+            <button bindtap="orderOk" class="text-sm round padding-sm margin-left-sm" style="background: {{system.foot_color2}};color: {{system.text_color}};">完成服务</button>
+        </view>
+        <view class="flex align-center justify-end" wx:if="{{order_state==4}}">
+            <button bindtap="toChat" class="text-sm round padding-sm" data-toid="{{law.user_id}}" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{order_type==3}}">在线咨询</button>
+            <button bindtap="callPhone" class="text-sm round padding-sm margin-left-sm" style="background: {{system.foot_color2}};color: {{system.text_color}};">联系{{system.law_custom}}</button>
+            <button bindtap="service_log" class="text-sm round padding-sm margin-left-sm" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{order_type==2}}">服务记录</button>
+            <button bindtap="evaluate" class="text-sm round padding-sm margin-left-sm" data-item="{{item}}" style="background: {{system.foot_color2}};color: {{system.text_color}};">去评价</button>
+        </view>
+        <view class="flex align-center justify-end" wx:if="{{order_state==5}}">
+            <button bindtap="toChat" class="text-sm round padding-sm" data-toid="{{law.user_id}}" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{order_type==3}}">在线咨询</button>
+            <button bindtap="callPhone" class="text-sm round padding-sm margin-left-sm" style="background: {{system.foot_color2}};color: {{system.text_color}};">联系{{system.law_custom}}</button>
+            <button bindtap="service_log" class="text-sm round padding-sm margin-left-sm" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{order_type==2}}">服务记录</button>
+        </view>
+    </view>
+</block>
+<block wx:if="{{type==1}}">
+    <view class="flex align-center text-center" style="background: {{system.foot_color2}};color: {{system.text_color}};min-height: 200rpx;">
+        <view class="flex-sub text-lg" style="letter-spacing: 10rpx;">
+			{{state==1?'待付款':state==2?'待发货':state==3?'待收货':state==4?'待评价':state==5?'已完成':''}}
+		</view>
+    </view>
+    <view class="bg-white padding text-grey">
+        <view class="flex align-center justify-between">
+            <view>联系姓名:<text class="padding-left-xs">{{people_name}}</text>
+            </view>
+            <view wx:if="{{order_type==2}}">{{people_phone}}</view>
+        </view>
+        <view class="padding-top-xs">{{order_type==1?'联系电话':'收货地址'}}:<text class="padding-left-xs">{{order_type==1?people_phone:people_address}}</text>
+        </view>
+    </view>
+    <view class="margin-tb-sm bg-white padding text-grey">
+        <view>订单编号:<text class="padding-left-xs">{{ordercode}}</text>
+        </view>
+        <view class="padding-top-xs">下单时间:<text class="padding-left-xs">{{tjdd_time}}</text>
+        </view>
+    </view>
+    <view class="bg-white padding margin-tb-sm flex align-center text-grey">
+        <image class="icon radius" mode="aspectFill" src="{{good.img}}"></image>
+        <view class="padding-left-sm flex-sub">
+            <view>{{good.title}}</view>
+            <view class="margin-tb-sm cu-capsule round">
+                <view class="cu-tag">
+					{{order_type==1?'虚拟':'实物'}}
+				</view>
+            </view>
+            <view class="">商品金额:<text class="padding-left-xs text-red">￥{{good.price}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="bg-white padding">
+        <view class="flex align-start text-grey">
+            <view style="min-width: 135rpx;">订单备注:</view>
+            <text class="padding-left-xs">{{content}}</text>
+        </view>
+        <block wx:if="{{state==3}}">
+            <view class="margin-top-xs flex align-start text-grey">
+                <view style="min-width: 135rpx;">发货备注:</view>
+                <text class="padding-left-xs">{{fh_content}}</text>
+            </view>
+            <view class="margin-top-xs flex align-center text-grey" wx:if="{{order_type=='1'}}">
+                <view style="min-width: 135rpx;">发货内容:</view>
+                <text class="padding-left-xs text-cut">{{fh_link}}</text>
+                <button catchtap="copy" class="text-sm" style="min-width: 100rpx; color: {{system.foot_color2}};">复制</button>
+            </view>
+        </block>
+    </view>
+    <view style="height: 120rpx;"></view>
+    <view class="foot padding-lr" wx:if="{{state!=5&&state!=2}}">
+        <view class="flex align-center justify-end" wx:if="{{state==1}}">
+            <button catchtap="cancelOrder" class="text-sm round padding-tb-sm padding-lr-sm" style="background: {{system.foot_color2}};color: {{system.text_color}};">取消订单</button>
+            <button catchtap="payOrder" class="text-sm round padding-tb-sm padding-lr-sm margin-left-sm" style="background: {{system.foot_color2}};color: {{system.text_color}};">去支付</button>
+        </view>
+        <view class="flex align-center justify-end" wx:if="{{state==3}}">
+            <button catchtap="toLogistics" class="text-sm round padding-tb-sm padding-lr-sm" style="background: {{system.foot_color2}};color: {{system.text_color}};" wx:if="{{order_type==2}}">查看物流</button>
+            <button catchtap="orderOk" class="text-sm round padding-tb-sm padding-lr-sm margin-left-sm" style="background: {{system.foot_color2}};color: {{system.text_color}};">确认收货</button>
+        </view>
+        <view class="flex align-center justify-end" wx:if="{{state==4}}">
+            <button catchtap="evaluate" class="text-sm round padding-tb-sm padding-lr-sm margin-left-sm" style="background: {{system.foot_color2}};color: {{system.text_color}};">去评价</button>
+        </view>
+    </view>
+</block>
+<tabbar show="{{show_tabbar}}"></tabbar>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>

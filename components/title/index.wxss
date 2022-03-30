@@ -1,0 +1,10 @@
+.tag {
+    width: 6rpx;
+    height: 24rpx;
+    border-radius: 6rpx;
+}
+
+.type2_line {
+    width: 50rpx;
+    height: 3rpx;
+}

@@ -1,0 +1,132 @@
+{
+    "pages": [
+        "page/index",
+        "u_pages/index/index",
+        "u_pages/index/notice/index",
+        "u_pages/lawyer/info",
+        "u_pages/lawyer/index",
+        "u_pages/lawyer/subscribe/index",
+        "u_pages/news/info",
+        "u_pages/news/index",
+        "u_pages/user/index",
+        "u_pages/user/helper/info",
+        "u_pages/user/about/index",
+        "u_pages/user/helper/index",
+        "u_pages/user/collect/index",
+        "u_pages/user/daka/index",
+        "u_pages/user/xingcheng/index",
+        "u_pages/user/dakalist/index",
+        "u_pages/product/index",
+        "u_pages/result/index",
+        "u_pages/shop/order_details/index",
+        "u_pages/orders/index",
+        "u_pages/lawyer/orders/index",
+        "u_pages/lawyer/service_log/index",
+        "u_pages/orders/evaluate/index",
+        "u_pages/orders/info/index",
+        "u_pages/lawyer/service_log/edit/index",
+        "u_pages/orders/logistics/index",
+        "u_pages/user/domain/index",
+        "u_pages/user/my-order/index",
+        "u_pages/poster/index",
+        "u_pages/chat/index",
+        "u_pages/product/product-detail/index",
+        "u_pages/user/finance/index",
+        "u_pages/product/product-apply/index",
+        "u_pages/product/apply-success/index",
+        "u_pages/product/product-finance/index",
+        "u_pages/user/bidding/index",
+        "u_pages/user/customer-manager/index",
+        "u_pages/user/biddinglist/index",
+        "u_pages/user/js-order/index",
+        "u_pages/user/js-serve/index",
+        "u_pages/user/js-product/index",
+        "u_pages/user/js-bidding/index",
+        "u_pages/user/js-info/index",
+        "u_pages/user/js-biddinglist/index",
+        "u_pages/user/message/index",
+        "u_pages/user/order-detail/index",
+        "u_pages/product/product-intro/index",
+        "u_pages/user/order-progress/index",
+        "u_pages/user/person-info/index",
+        "u_pages/index/successful-case-detail/index",
+        "u_pages/index/successful-case/index",
+        "u_pages/index/online-staff/index",
+        "u_pages/index/contact-us/index",
+        "u_pages/user/qiye-info/index",
+        "u_pages/index/event-regist/index",
+        "l_pages/index/index",
+        "u_pages/user/comment/index",
+        "u_pages/chat/info"
+      
+    ],
+    "window": {
+        "navigationBarTextStyle": "black",
+        "navigationBarBackgroundColor": "#fff",
+        "backgroundColor": "#fff",
+        "backgroundTextStyle": "dark"
+   
+}  , 
+    "usingComponents": {
+        "van-tab": "@vant/weapp/tab/index",
+        "van-tabs": "@vant/weapp/tabs/index",
+        "van-toast": "@vant/weapp/toast/index",
+        "van-goods-action": "@vant/weapp/goods-action/index",
+        "van-goods-action-icon": "@vant/weapp/goods-action-icon/index",
+        "van-goods-action-button": "@vant/weapp/goods-action-button/index",
+        "van-icon": "@vant/weapp/icon/index",
+        "van-checkbox": "@vant/weapp/checkbox/index",
+        "van-checkbox-group": "@vant/weapp/checkbox-group/index",
+        "van-field": "@vant/weapp/field/index",
+        "van-button": "@vant/weapp/button/index",
+        "van-dialog": "@vant/weapp/dialog/index",
+        "van-rate": "@vant/weapp/rate/index",
+        "van-collapse": "@vant/weapp/collapse/index",
+        "van-collapse-item": "@vant/weapp/collapse-item/index",
+        "van-popup": "@vant/weapp/popup/index",
+        "van-picker": "@vant/weapp/picker/index",
+        "van-datetime-picker": "@vant/weapp/datetime-picker/index",
+        "van-radio": "@vant/weapp/radio/index",
+        "van-radio-group": "@vant/weapp/radio-group/index"
+      
+        
+    },
+    "permission": {
+        "scope.userLocation": {
+            "desc": "你的位置信息将用于计算距离"
+        }
+    },
+    "requiredBackgroundModes": [
+      "location"
+     ],
+    "subPackages": [
+       
+        {
+          "root": "fenxiao/",
+          "name": "fenxiao",
+          "pages": [
+            "index/index",
+            "enter/index",
+            "team/index",
+            "txmx/index",
+            "order/index",
+            "fxyj/index",
+            "withdraw/index"
+          ]
+        },
+        {
+          "root": "wenda/",
+          "name": "wenda",
+          "pages": [
+            "index/index",
+            "add/index",
+            "wode/index",
+            "info/index",
+            "huifu/index",
+            "search/index"
+          ]
+        }
+      ],
+      
+      "sitemapLocation": "sitemap.json"
+}

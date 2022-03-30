@@ -1,0 +1,16 @@
+<view bindtap="isShow" catchtouchmove="true" class="cu-modal {{show?'show':''}}">
+    <view catchtap class="cu-dialog">
+        <view class="cu-bar bg-white justify-end">
+            <view class="content" wx:if="{{data}}">回复 <text style="color:{{color}}">{{data.name}}</text>
+            </view>
+            <view class="content" wx:else>{{title}}</view>
+            <view class="action">
+                <text bindtap="isShow" class="cuIcon-close text-red" style="color:{{color}}"></text>
+            </view>
+        </view>
+        <view class="padding bg-white flex flex-direction align-center justify-center">
+            <textarea catchtap bindinput="input" class="border radius text-left padding-sm" placeholder="{{hint}}" wx:if="{{show}}"></textarea>
+            <button catch:tap="comment" class="cu-btn round text-sm margin-top" style="background: {{color}};color:{{textColor}}">{{send}}</button>
+        </view>
+    </view>
+</view>

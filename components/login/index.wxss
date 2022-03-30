@@ -1,0 +1,18 @@
+.content {
+    width: 576rpx;
+    height: 647rpx;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    background-size: 100% 100%;
+}
+
+.btn {
+    position: absolute;
+    bottom: 60rpx;
+    width: 100%;
+}
+
+.cu-btn {
+    padding: 0 60rpx;
+}

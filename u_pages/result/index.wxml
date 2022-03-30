@@ -1,0 +1,11 @@
+<view class="padding-xl flex justify-center">
+    <image src="{{img}}" style="width: 300rpx;height: 300rpx;"></image>
+</view>
+<view class="padding text-center text-lg text-bold" style="color: #333333;">
+	{{content}}
+</view>
+<view class="padding-lr-sm margin-tb padding-top-xl flex align-center justify-center">
+    <button bindtap="toPage" class="flex-sub round text-center padding-tb margin-lr-xs bg-white shadow" data-item="{{item}}" style="background:{{index==0?system.foot_color2:''}};color: {{index==0?system.text_color:'#999999'}};" wx:for="{{button}}">
+			{{item.title}}
+		</button>
+</view>

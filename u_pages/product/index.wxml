@@ -1,0 +1,79 @@
+<van-tabs sticky='true' lazy-render='true' class="main"  id="tabs" swipeable type='line' color='#0B7BF9' animated='true' nav-class='nav' bind:change='getData' active="{{ active }}">
+
+<van-tab  wx:for="{{list}}" wx:key="key" title="{{item.catename}}" >
+    <block wx:if="{{item.id != 8}}">
+  
+        <block wx:if="{{item.subnav}}">
+            <view class="fenlei">
+                <view wx:for="{{item.subnav}}" wx:for-item="sub" wx:key="index" bindtap="goSub" data-id="{{item.id}}">{{sub.catename}}</view>
+            </view>
+        </block>
+        
+        <view class="item" wx:for="{{item.lawlist}}" wx:key="k" wx:for-item="law">
+            <view class="box">
+                <view class="item-top">
+                    <view class="item-name">
+                        {{law.name}}
+                        <image class="img" src="../../assets/images/indexPro/hot.png"></image>
+                    </view>
+                    <view class="more" bindtap="goProdetail" data-id="{{law.id}}" data-num="{{law.finance_num}}" data-fid="{{law.financeid}}">了解产品</view>
+                </view>
+                <view class="item-content {{law.finance_num == 2?'active':''}}">
+                    <block wx:if="{{law.catid == 3}}">
+                    <view class="content-item">
+                            <view class="sp">成交金额（万元）</view>
+                            <view class="p">{{law.price}}</view>
+                    </view>
+                    </block>
+                    <block wx:else>
+                        <view class="content-item">
+                            <view class="sp">服务价格（元）</view>
+                            <view class="p">{{law.price}}</view>
+                        </view>
+                    </block>
+                    <view class="content-item">
+                        <view class="sp">办理笔数</view>
+                        <view class="p">{{law.bl_num}}</view>
+                    </view>
+                    <view class="content-item">
+                        <view class="sp">好评</view>
+                        <view class="p">{{law.hp_num}}</view>
+                    </view>
+                </view>
+                <block wx:if="{{law.finance_num == 1}}">
+                <view class="item-bottom"  bindtap="goProIntro" data-id="{{law.financeid}}" data-lawid="{{law.id}}">
+                    <view class="name">
+                        <text class="t">{{law.jg_name}}</text>
+                        <image class="img" src="../../assets/images/text.png"></image>
+                    </view>
+                    <view class="more">
+                        <image class="img" src="../../assets/images/more.png"></image>
+                    </view>
+                </view>
+                </block>
+            </view>
+        </view>
+    </block>
+    <block wx:else>
+        <scroll-view class="list-item" scroll-y='true'>
+        <view class="pro2-item" wx:for="{{item.lawlist}}" wx:key="k" wx:for-item="law">
+            <view class="image" style="background-image: url({{law.img}});">
+            </view>
+            <view class="text">
+                <view class="t">{{law.name}}</view>
+                <view class="sp">{{law.zhicheng}}</view>
+                <view class="p"><rich-text nodes="{{law.pro_tj}}"></rich-text></view>
+            </view>
+            <view class="more" bindtap="goDetail" data-id="{{law.id}}" data-num="{{law.finance_num}}" data-fid="{{law.financeid}}">
+                查看
+            </view>
+        </view>
+        
+        
+    </scroll-view>
+    </block>
+</van-tab>
+
+</van-tabs>
+<van-toast id="van-toast" />
+<tabbar show="{{show_tabbar}}"></tabbar>

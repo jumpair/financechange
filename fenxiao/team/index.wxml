@@ -1,0 +1,26 @@
+<page-meta>
+    <navigation-bar title="我的团队"></navigation-bar>
+</page-meta>
+<scroll-view scrollX class="bg-white nav text-center shadow" wx:if="{{fxset.grade>1}}">
+    <view bindtap="tabSelect" class="cu-item {{0==cur?'cur text-bold':''}}" data-index="0" style="color: {{0==cur?system.foot_color2:'#333333'}};">
+		一级({{one_num||0}})
+	</view>
+    <view bindtap="tabSelect" class="cu-item {{1==cur?'cur text-bold':''}}" data-index="1" style="color: {{1==cur?system.foot_color2:'#333333'}};">
+		二级({{two_num||0}})
+	</view>
+</scroll-view>
+<view class="margin-top bg-white">
+    <view class="_item solid-top" wx:if="{{list&&list.length}}" wx:for="{{list}}">
+        <image src="{{item.avatarUrl}}"></image>
+        <view class="content">
+            <view>{{item.nickName}}</view>
+            <view>注册时间: {{item.regtime}}</view>
+        </view>
+    </view>
+    <view class="flex justify-center bg-white padding-tb" style="width: 100%;" wx:if="{{list&&!list.length}}">
+        <image mode="widthFix" src="{{no_laws}}" style="width: 50%;"></image>
+    </view>
+    <view class="cu-load {{!isLoad?'loading':'over'}} text-sm text-gray" wx:if="{{list.length}}"></view>
+</view>
+<tabbar show="{{show_tabbar}}"></tabbar>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>

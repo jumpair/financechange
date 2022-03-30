@@ -1,0 +1,281 @@
+page {
+    box-sizing: border-box;
+}
+
+.cu-bar.foot {
+    box-shadow: none;
+    z-index: 999999;
+}
+
+.image {
+    border-radius: 0rpx;
+}
+
+.top-bg {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.sub-content {
+    position: absolute;
+    top: 61rpx;
+    width: 100%;
+}
+
+.zy {
+    color: #2363fc;
+    background: #d2defb;
+    border: 1rpx solid #2363fc;
+}
+
+.law_icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.law_icon .v {
+    position: absolute;
+    bottom: -24rpx;
+    width: 100%;
+}
+
+.cu-bar.tabbar.shop .action {
+    width: 120rpx;
+}
+.main {
+    background: #F9F9F9;
+    position: relative;
+    z-index: 10;
+    position: relative;
+    padding-bottom: 20rpx;
+}
+
+.main:after {
+    content: '';
+    width: 100%;
+    background-color: var(--main-color);
+    height: 50vw;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.white-box {
+    position: relative;
+    z-index: 10;
+    background-color: #fff;
+    border-radius: 12rpx;
+    padding: 40rpx;
+    border: 1px solid #eeeeee;
+}
+
+.t {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #333333;
+}
+
+.num-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eeeeee;
+    padding: 34rpx 0;
+}
+
+.num-item .sp {
+    font-size: 24rpx;
+    color: #999999;
+}
+
+.num-item .p {
+    font-size: 36rpx;
+    color: #FF9E00;
+}
+
+.public-t {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.name-box .public-t .img {
+    width: 20rpx;
+    height: 24rpx;
+}
+
+.product-intr .public-t .img {
+    width: 24rpx;
+    height: 23rpx;
+}
+
+.public-t .text {
+    font-size: 24rpx;
+    color: #AAAAAA;
+    margin-left: 10rpx;
+}
+
+.name-box {
+    border-bottom: 1px solid #eeeeee;
+    padding: 34rpx 0;
+}
+
+.name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 10rpx;
+}
+
+.name .text {
+    font-size: 28rpx;
+    color: #333333;
+}
+
+.name .img {
+    width: 12rpx;
+    height: 22rpx;
+}
+
+.product-intr {
+    border-bottom: 1px solid #eeeeee;
+    padding: 34rpx 0;
+}
+
+.product-intr .des {
+    padding-top: 20rpx;
+}
+
+.product-intr .des .text {
+    display: block;
+    font-size: 28rpx;
+    color: #333333;
+    line-height: 1.5;
+}
+
+.no-border {
+    border-block-color: transparent;
+}
+
+/* 公共底部start */
+.bottom-btn {
+    display: flex;
+    border-top: 1px solid #eeeeee;
+    padding-top: 20rpx;
+}
+
+.flex1 {
+    flex: 3;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.flex2 {
+    flex: 4;
+}
+
+/* 公共底部end */
+
+/* 订单类型start */
+.order-type {
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #333333;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 34rpx;
+}
+.order-type-box{
+    padding-top: 20rpx;
+}
+.order-type-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 24rpx;
+    padding-top: 26rpx;
+}
+
+.order-type-item .image {
+    width: 80rpx;
+    height: 80rpx;
+    background: #F5F5F5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-type-item:nth-child(1) .image .img {
+    width: 30rpx;
+    height: 37rpx;
+}
+
+.order-type-item:nth-child(2) .image .img {
+    width: 29rpx;
+    height: 29rpx;
+}
+
+.order-type-item:nth-child(3) .image .img {
+    width: 32rpx;
+    height: 32rpx;
+}
+
+.order-type-item .text {
+    flex: 1;
+    padding-left: 26rpx;
+}
+
+.order-type-item .text .p {
+    font-size: 28rpx;
+    color: #333333;
+}
+
+.order-type-item .text .sp {
+    font-size: 24rpx;
+    color: #aaaaaa;
+}
+
+.order-type-item .checkbox {
+    width: 48rpx;
+}
+
+/* 订单类型end */
+
+.text-df{
+    flex: .8;
+    margin-right: 40px;
+    height: 79rpx;
+    margin-top: 10rpx;
+}
+.main {
+    background: #F9F9F9;
+    height: calc(100vh);
+    position: relative;
+    z-index: 10;
+    position: relative;
+    padding-bottom: 20rpx;
+    padding-bottom: 160rpx;
+}
+
+.main:after {
+    content: '';
+    width: 100%;
+    background-color: #157be4;
+    height: 50vw;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: -1;
+}

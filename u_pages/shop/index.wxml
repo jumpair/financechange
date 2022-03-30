@@ -1,0 +1,16 @@
+<view style="display: flex;flex-direction: column;position: fixed;background: #fafafa;z-index: 1;width: 100%;">
+    <search data="{{type_id||''}}" url="shop_search"></search>
+    <scroll-view scrollWithAnimation scrollX class="nav margin-tb-sm" wx:if="{{good_type}}">
+        <view class="flex align-center justify-start padding-lr-sm">
+            <button bindtap="selectType" class="item round text-center flex align-center justify-center margin-lr-xs text-sm padding-xs" data-data="{{[index,item.id]}}" style="background: {{type_index==index?system.foot_color2:'#fff'}};color: {{type_index==index?system.text_color:'#666'}};" wx:for="{{good_type}}">
+					{{item.title}}
+				</button>
+        </view>
+    </scroll-view>
+</view>
+<view class="" style="padding-top: {{good_type?'198':'120'}}rpx;">
+    <goods list="{{good_list}}"></goods>
+</view>
+<view class="cu-load {{!isLoad?'loading':'over'}} text-sm text-gray" wx:if="{{good_list.length}}"></view>
+<tabbar show="{{show_tabbar}}"></tabbar>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>

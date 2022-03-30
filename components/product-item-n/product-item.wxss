@@ -1,0 +1,95 @@
+
+.item {
+    background-color: #ffffff;
+    padding-top: 30rpx;
+    margin-bottom: 14rpx;
+}
+
+.item .item-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.item .item-top .item-name {
+    font-size: 32rpx;
+    color: #333333;
+    padding-left: 6rpx;
+}
+
+.item .item-top .item-name .img {
+    width: 24rpx;
+    height: 30rpx;
+}
+
+.item .item-top .more {
+    width: 160rpx;
+    height: 60rpx;
+    background: #36A4FF;
+    border: 2rpx solid  #36A4FF;
+    border-radius: 100rpx;
+    font-size: 24rpx;
+    color: #ffffff;
+    text-align: center;
+    line-height: 60rpx;
+}
+
+.item .item-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 34rpx 0;
+}
+
+.item .item-content .content-item:nth-child(3) {
+    width: 160rpx;
+}
+
+.item .item-content .sp {
+    font-size: 24rpx;
+    color: #999999;
+}
+
+.item .item-content .p {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #FF9E00;
+}
+
+.item .item-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #F5F5F5;
+    padding: 20rpx 0;
+}
+
+.item .item-bottom .name {
+    width: calc(100% - 20rpx)
+}
+
+.item .item-bottom .name .t {
+    font-size: 28rpx;
+    color: #666666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.item .item-bottom .name .img {
+    width: 20rpx;
+    height: 25rpx;
+    margin-left: 10rpx;
+}
+
+.item .item-bottom .more {
+    width: 20rpx;
+}
+
+.item .item-bottom .more .img {
+    height: 22rpx;
+    width: 12rpx;
+}

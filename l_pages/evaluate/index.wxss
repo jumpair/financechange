@@ -1,0 +1,4 @@
+.text {
+    font-size: 18rpx;
+    padding: 10rpx 15rpx;
+}

@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {},
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "订单进度",
+    "navigationBarTextStyle": "black"
+}

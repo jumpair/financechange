@@ -1,0 +1,32 @@
+<view class="padding-lr">
+    <view catchtap="showComment" class="padding-sm bg-white radius flex margin-tb-sm" data-index="{{index}}" data-item="{{item}}" wx:if="{{list.length}}" wx:for="{{list}}">
+        <image class="round" mode="widthFix" src="{{item.avatarUrl}}" style="width: 100rpx;"></image>
+        <view class="flex-sub">
+            <view class="flex flex-sub">
+                <view class="flex-sub padding-left-sm">
+                    <view class="text-grey text-sm padding-left-sm">
+							{{item.nickName}}
+						</view>
+                    <view class="padding-top-xs">
+                        <view class="text-grey text-sm padding-xs padding-left-sm">{{item.comment}}</view>
+                        <wux-cell hoverClass="none">
+                            <wux-rater disabled activeColor="#fbbd08" defaultValue="{{item.score}}" fontSize="15" icon="ios-star" slot="footer"></wux-rater>
+                        </wux-cell>
+                    </view>
+                </view>
+                <view class="flex justify-center align-center">
+                    <view class="text round bg-{{item.law_comment?'yellow':'grey'}} light">{{item.law_comment?'已':'未'}}回复</view>
+                </view>
+            </view>
+            <view class="padding-left-sm margin-left-sm" wx:if="{{item.law_comment}}">
+                <view class="margin-top-xs text-sm padding-xs bg-gray radius text-grey" style="line-height: 26rpx;">
+                    <text style="">回复:</text>{{item.law_comment}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="flex justify-center bg-white padding-tb" style="width: 100%;" wx:if="{{!list.length}}">
+        <image mode="widthFix" src="{{no_comment}}" style="width: 50%;"></image>
+    </view>
+</view>
+<comment bindcomment="comment" color="{{system.foot_color2}}" hint="请输入您的回复内容" send="回复" show="{{input_focus}}" title="回复评论"></comment>
+<view class="cu-load {{!isLoad?'loading':'over'}} text-sm text-gray" wx:if="{{list.length}}"></view>

@@ -1,0 +1,29 @@
+.comment {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+}
+
+page {
+    padding-bottom: 100rpx;
+}
+
+.comment view {
+    height: 65rpx;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cu-bar.foot {
+    box-shadow: none;
+}
+
+.cu-bar.tabbar .action {
+    position: static;
+}
+
+.cu-bar.tabbar.shop .action {
+    width: 120rpx;
+}

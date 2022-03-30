@@ -1,0 +1,37 @@
+<van-tabs swipeable type='line' color='#0B7BF9' animated='true' nav-class='nav'>
+    <van-tab wx:for="{{list}}" wx:key="k" title="{{item.title}}">
+        <scroll-view class="list-item" scroll-y='true' bindscrolltolower='loadMore'>
+            <view class="padding60">
+                <view class="item-p1">
+                    <view class="title">
+                        <image class="img" src="../../../assets/images/left.png"></image>
+                        <text class="z">{{item.title}}</text>
+                        <image class="img" src="../../../assets/images/right.png"></image>
+                    </view>
+                    <view class="item-p2" wx:for="{{item.people_list}}" wx:for-item="people" wx:key="k">
+                        <view class="image" style="background-image: url({{people.thumb}});"></view>
+                        <view class="text">
+                            <view class="t">
+                                <text class="left">姓名：</text>
+                                <text class="right">{{people.title}}</text>
+                            </view>
+                            <view class="sp">
+                                <text class="left">职务：</text>
+                                <text class="right">{{people.zhiwu}}</text>
+                            </view>
+                            <view class="sp">
+                                <text class="left">电话：</text>
+                                <text class="right">{{people.phone}}</text>
+                            </view>
+                        </view>
+                    </view>
+                   
+                    
+                </view>
+            </view>
+        </scroll-view>
+    </van-tab>
+   
+</van-tabs>
+<van-toast id="van-toast" />
+<tabbar show="{{show_tabbar}}"></tabbar>

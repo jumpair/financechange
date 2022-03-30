@@ -1,0 +1,103 @@
+<view class="bg-white">
+    <view class="text-bold text-black padding-sm text-lg">{{title}}</view>
+    <view class="padding-lr-sm flex align-center justify-between text-grey">
+        <view class="text-sm">
+            <text class="cuIcon-list padding-right-xs"></text>{{type_name}}
+		</view>
+        <view class="text-sm">
+            <text class="cuIcon-time padding-right-xs"></text>{{time}}
+		</view>
+    </view>
+    <view class="padding-sm">
+        <view wx:if="{{video_true_url&&video_location=='1'}}">
+            <video controls="{{video_poster}}" poster="{{video_poster}}" src="{{video_true_url}}" style="width: 100%;"></video>
+        </view>
+        <wxparser richText="{{content}}"></wxparser>
+        <view wx:if="{{video_true_url&&video_location=='2'}}">
+            <video controls="{{video_poster}}" poster="{{video_poster}}" src="{{video_true_url}}" style="width: 100%;"></video>
+        </view>
+        <view class="padding-top-sm flex align-center justify-center">
+            <text class="cuIcon-attention padding-right-xs"></text>
+            <text class="padding-right text-grey"> {{view_num}}</text>
+            <text class="cuIcon-message padding-right-xs"></text>
+            <text class="padding-right text-grey">{{comment_num}}</text>
+            <text class="cuIcon-appreciate padding-right-xs"></text>
+            <text class="text-grey">{{zan_num}}</text>
+        </view>
+    </view>
+</view>
+<view class="padding">
+    <title bg_tag="{{system.foot_color2}}" mClass="bg-white padding-sm radius" more_text="" title="评论"></title>
+    <view catchtap="showComment" class="padding-sm bg-white radius flex margin-tb-sm" data-i="0" data-item="{{item}}" wx:if="{{comment.length}}" wx:for="{{comment}}">
+        <image mode="widthFix" src="{{item.avatarUrl}}" style="width: 100rpx;"></image>
+        <view class="flex-sub padding-left-sm">
+            <view class="flex justify-between align-center">
+                <view class="text-grey">
+						{{item.nickName}}
+					</view>
+                <view class="text-grey text-sm">
+						{{item.c_time}}
+					</view>
+            </view>
+            <view class="padding-top-xs">
+                <view class="text-black text-df padding-xs">{{item.comment}}</view>
+                <view class="comment_sub padding-xs radius text-sm text-grey" wx:if="{{item.comment_2.length}}">
+                    <view wx:for="{{item.comment_2}}" wx:for-index="a" wx:for-item="e">
+                        <text catchtap="showComment" data-i="1" data-item="{{e}}" style="color: {{system.foot_color2}};">{{e.nickName}}</text>
+							回复 <text catchtap="showComment" data-i="2" data-item="{{e}}" style="color: {{system.foot_color2}};">{{e.c_nickName}}</text>：{{e.comment}}
+						</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="flex justify-center bg-white padding-tb" style="width: 100%;" wx:if="{{!comment.length}}">
+        <image mode="widthFix" src="{{no_comment}}" style="width: 50%;"></image>
+    </view>
+</view>
+<view class="cu-bar bg-white tabbar border shop foot" style="bottom:{{show_tabbar?'100rpx':'0'}}" wx:if="{{id}}">
+    <view bindtap="collect" class="action">
+        <view class="cuIcon-favor{{is_collect==2?'fill':''}}" style="color: {{is_collect==2?system.foot_color2:'#8799a3'}};"></view>
+        <view style="color: {{is_collect==2?system.foot_color2:'#8799a3'}};">{{is_collect==2?'已':''}}收藏</view>
+    </view>
+    <button bindtap="shareModal" class="action text-grey">
+        <view class="cuIcon-forward"></view>
+        <view>分享</view>
+    </button>
+    <view bindtap="zan" class="action">
+        <view class="cuIcon-appreciate{{is_zan==2?'fill':''}}" style="border-width: 0;color: {{is_zan==2?system.foot_color2:'#8799a3'}};"></view>
+        <view style="color: {{is_zan==2?system.foot_color2:'#8799a3'}};">点赞</view>
+    </view>
+    <view class="flex-sub padding-lr-sm">
+        <view bindtap="showComment" class="bg-gray round comment padding-lr-sm">
+            <view class="text-grey text-lg">
+                <text class="cuIcon-activity"></text>
+                <text class="text-df padding-left-xs">输入评论</text>
+            </view>
+        </view>
+    </view>
+</view>
+<comment bindcomment="comment" color="{{system.foot_color2}}" data="{{comment_item}}" show="{{input_focus}}"></comment>
+<login isShow="{{isLogin}}" mainColor="{{system.foot_color2}}"></login>
+<tabbar show="{{show_tabbar}}"></tabbar>
+<blacklist isShow="{{userInfo.state==1}}"></blacklist>
+<view catchtouchmove catchtap="shareModal" class="cu-modal bottom-modal {{isShow?'show':''}}">
+    <view catchtap class="cu-dialog">
+        <view class="padding-xl flex align-center justify-around">
+            <button catchtap="shareModal" class="poster" openType="share">
+                <view class="img bg-gradual-green shadow-blur">
+                    <image mode="widthFix" src="/static/icon/share_friend.png"></image>
+                </view>
+                <view class="padding-top-sm text-grey text-sm">转发给朋友</view>
+            </button>
+            <button catchtap="poster" class="poster">
+                <view class="img bg-gradual-orange shadow-blur">
+                    <image mode="widthFix" src="/static/icon/share_poster.png"></image>
+                </view>
+                <view class="padding-top-sm text-grey text-sm">生成分享海报</view>
+            </button>
+        </view>
+        <view catchtap="shareModal" class="btn padding-tb bg-white">
+            <button class="padding-lr">取消</button>
+        </view>
+    </view>
+</view>
